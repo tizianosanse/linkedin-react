@@ -1,6 +1,17 @@
+import { useEffect } from "react";
 import { Card, ListGroup } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { profilesAction } from "../redux/actions/profiliCollegati";
 
 const ProfiliCollegati = () => {
+  const dispatch = useDispatch();
+  const profiles = useSelector(
+    (state) => state.Profiles.content
+  );
+  console.log(profiles);
+  useEffect(() => {
+    dispatch(profilesAction());
+  }, []);
   return (
     <>
       <Card className="my-3">
