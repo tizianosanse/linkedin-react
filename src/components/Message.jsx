@@ -2,17 +2,47 @@ import {
   Card,
   Dropdown,
   DropdownButton,
+  Image,
 } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const Message = () => {
+  const information = useSelector(
+    (state) => state.ProfileInformation.content
+  );
   return (
     <>
-      <Card className="fixed-bottom">
+      <Card
+        className="fixed-bottom"
+        style={{ left: 1000, right: 100 }}
+      >
         <DropdownButton
           id={`dropdown-button-drop-up`}
           drop="up"
-          variant="secondary"
-          title={` Drop up `}
+          variant="white"
+          title={
+            <div className="d-flex align-items-center justify-content-between ">
+              <div className="d-flex align-items-center">
+                {" "}
+                <Image
+                  src={information.image}
+                  width={25}
+                  height={25}
+                  className="rounded-circle mx-3"
+                ></Image>{" "}
+                <p className="m-0 fw-bold fs-8">
+                  Messaggistica
+                </p>{" "}
+              </div>
+              <div>
+                {" "}
+                <p className="m-0 fw-bold fs-8">
+                  {" "}
+                  <i className="bi bi-three-dots"></i>
+                </p>
+              </div>
+            </div>
+          }
         >
           <Dropdown.Item eventKey="1">Action</Dropdown.Item>
           <Dropdown.Item eventKey="2">
