@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Analisi = () => {
   return (
     <>
-      <Card className="p-2 mt-2 border rounded-bottom-0">
+      <Card className="p-4 mt-2 border rounded-bottom-0">
         <h3> Analisi</h3>
         <span>
           <svg
