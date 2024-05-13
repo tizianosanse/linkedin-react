@@ -4,9 +4,12 @@ import { Button } from "react-bootstrap/esm";
 import { useDispatch, useSelector } from "react-redux";
 import { getInformation } from "../redux/actions/ProfileInformationActions";
 import { Link } from "react-router-dom";
+import pencil from "../assets/icons8-pencil-48.png";
 
 const ProfileInformation = () => {
-  const information = useSelector((state) => state.ProfileInformation.content);
+  const information = useSelector(
+    (state) => state.ProfileInformation.content
+  );
 
   const dispatch = useDispatch();
   console.log(information);
@@ -48,25 +51,17 @@ const ProfileInformation = () => {
           height={150}
           className="rounded-circle position-absolute border border-white border-5 "
         />
-        <div className="d-flex position-absolute top-0 end-0 mt-3 me-4 pencil rounded-circle p-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="#000000"
-            width="30px"
-            height="30px"
-            viewBox="-6.5 0 32 32"
-            version="1.1"
-          >
-            <title>pencil</title>
-            <path d="M19.28 10.32c0-0.24-0.080-0.44-0.24-0.6l-3.12-3.12c-0.32-0.32-0.84-0.32-1.2 0l-2.36 2.36-11.32 11.36c-0.12 0.12-0.2 0.28-0.24 0.44l-0.8 3.92c-0.040 0.28 0.040 0.56 0.24 0.76 0.16 0.16 0.36 0.24 0.6 0.24 0.040 0 0.12 0 0.16 0l3.92-0.8c0.16-0.040 0.32-0.12 0.44-0.24l13.68-13.68c0.16-0.2 0.24-0.4 0.24-0.64zM4.32 23.24l-2.44 0.48 0.52-2.4 10.56-10.56 1.92 1.92-10.56 10.56zM16.080 11.52l-1.92-1.92 1.2-1.2 1.92 1.92-1.2 1.2z" />
-          </svg>
+        <div className="d-flex position-absolute top-0 end-0 mt-3 me-4 pencil1 rounded-circle p-1">
+          <Image src={pencil} width={30} height={30} />
         </div>
         <h1 className="fs-3 mb-0 mt-5 ">
           {information.name}
           {information.surname}
         </h1>
         <h2 className="fw-normal">{information.title}</h2>
-        <h3 className="lead d-inline-block me-2">{information.area} </h3>
+        <h3 className="lead d-inline-block me-2">
+          {information.area}{" "}
+        </h3>
         <Link to={"/"} className="fw-semibold">
           Informazioni di contatto
         </Link>
@@ -75,18 +70,31 @@ const ProfileInformation = () => {
             5 collegamenti
           </Link>
         </div>
-        <Button variant="primary" className="fw-bold mt-3 rounded-pill btn-disponibile-per">
+        <Button
+          variant="primary"
+          className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2"
+        >
           Disponibile per
         </Button>
-        <Button variant="outline-primary" className="fw-semibold mt-3 rounded-pill ms-2 btn-aggiungi-sezione">
+        <Button
+          variant="outline-primary"
+          className="fw-semibold mt-3 rounded-pill ms-2 btn-aggiungi-sezione"
+        >
           Aggiungi sezione del profilo
         </Button>
-        <Button variant="outline-dark" className="fw-semibold mt-3 rounded-pill ms-2 btn-altro">
+        <Button
+          variant="outline-dark"
+          className="fw-semibold mt-3 rounded-pill ms-2 btn-altro"
+        >
           Altro
         </Button>
         <div className="DisponibileALavorare mt-4 p-3 w-50 rounded-3">
-          <h3 className="mb-0 fw-semibold">Disponibile a lavorare</h3>
-          <h2 className="mb-0 fw-normal">Ruoli di {information.title}</h2>
+          <h3 className="mb-0 fw-semibold">
+            Disponibile a lavorare
+          </h3>
+          <h2 className="mb-0 fw-normal">
+            Ruoli di {information.title}
+          </h2>
           <Link to={"/"} className="fw-semibold">
             Mostra dettagli
           </Link>

@@ -1,4 +1,4 @@
-import { GET_NEW_PROFILES } from "../actions/profiliCollegati";
+import { GET_NEW_PROFILES } from "../actions/Profiles";
 
 const initialState = {
   content: [],
@@ -8,7 +8,7 @@ const ProfilesReduces = (state = initialState, action) => {
     case GET_NEW_PROFILES:
       return {
         ...state,
-        content: [...state.content, action.payload],
+        content: action.payload,
       };
     default:
       return state;

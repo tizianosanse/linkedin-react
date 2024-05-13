@@ -1,17 +1,22 @@
-import { useEffect } from "react";
-import { Card, ListGroup } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Card, ListGroup, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { profilesAction } from "../redux/actions/profiliCollegati";
+import { profilesAction } from "../redux/actions/Profiles";
+import Profiles from "./Profiles";
 
 const ProfiliCollegati = () => {
   const dispatch = useDispatch();
   const profiles = useSelector(
     (state) => state.Profiles.content
   );
-  console.log(profiles);
+
   useEffect(() => {
     dispatch(profilesAction());
   }, []);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
       <Card className="my-3">
@@ -19,31 +24,51 @@ const ProfiliCollegati = () => {
           Altri profili simili
         </p>
         <ListGroup variant="flush border-top-0 mx-3">
-          <ListGroup.Item>
-            <div className="d-flex align-items-center justify-content-between">
-              <div>
-                <p className="m-0 fw-bold fs-7">
-                  Lingua del profilo
-                </p>
-                <p className="m-0 fw-light fs-8">
-                  Italiano
-                </p>
-              </div>
-            </div>
-          </ListGroup.Item>
-          <ListGroup.Item>
-            <div className="d-flex align-items-center justify-content-between">
-              <div>
-                <p className="m-0 fw-bold fs-7">
-                  Profilo pubblico e URL
-                </p>
-                <p className="m-0 fw-light fs-8">
-                  Qui va il link della fetch!!
-                </p>
-              </div>
-            </div>
-          </ListGroup.Item>
+          {profiles &&
+            profiles
+              .flat(1)
+              .reverse()
+              .slice(0, 5)
+              .map((profile) => {
+                return (
+                  <Profiles
+                    key={profile._id}
+                    profile={profile}
+                  />
+                );
+              })}
         </ListGroup>
+        <p
+          className="text-center my-3"
+          onClick={handleShow}
+        >
+          Mostra tutto
+        </p>
+        <Modal show={show} onHide={handleClose} size="lg">
+          <Modal.Header closeButton>
+            <Modal.Title>Altri profili simili</Modal.Title>
+          </Modal.Header>
+          <Modal.Body
+            className="p-0"
+            style={{ overflow: "scroll", height: "600px" }}
+          >
+            <ListGroup>
+              {profiles &&
+                profiles
+                  .flat(1)
+                  .reverse()
+                  .slice(0, 13)
+                  .map((profile) => {
+                    return (
+                      <Profiles
+                        key={profile._id}
+                        profile={profile}
+                      />
+                    );
+                  })}
+            </ListGroup>
+          </Modal.Body>
+        </Modal>
       </Card>
     </>
   );

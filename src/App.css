@@ -17,10 +17,12 @@
   border-color: #dfdeda;
 }
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
   background-color: #f4f2ee;
 }
+/* navbar da qui */
 .divIconsNavbar {
   display: flex;
   flex-direction: column;
@@ -86,7 +88,38 @@ a#navbarScrollingDropdown {
 .titleDropdownNav {
   font-weight: 700;
 }
+.textColorLightGrey {
+  color: #7c7c7c;
+  font-weight: 300;
+}
+.textColorLightGrey:hover {
+  text-decoration: underline;
+  color: #7c7c7c;
+  font-weight: 300;
+}
+.provaPremiumNavbarDropdown {
+  margin-left: 5px;
+  color: #7c7c7c;
+}
+.provaPremiumNavbarDropdown:hover {
+  color: #045fba;
+  text-decoration: none;
+}
+.dropdownNavTu {
+  .dropdown-menu.show {
+    padding: 0;
+    margin: 0;
+  }
+}
+.hoverColorBlack {
+  color: #717171;
+}
+.hoverColorBlack:hover {
+  color: black;
+  cursor: pointer;
+}
 
+/* navbar fino a qui */
 .backgroundProfileImage {
   max-height: 201px;
 }
@@ -119,12 +152,12 @@ a#navbarScrollingDropdown {
 .photocamera {
   cursor: pointer;
 }
-.pencil {
+.pencil1 {
   cursor: pointer;
   transition: background-color, 500ms;
 }
 
-.pencil:hover {
+.pencil1:hover {
   background-color: #f3f3f3;
 }
 
@@ -177,4 +210,8 @@ a#navbarScrollingDropdown {
 }
 .fw-bold {
   font-weight: 600 !important;
+}
+.img-profiles {
+  height: 50px;
+  width: 50px;
 }
