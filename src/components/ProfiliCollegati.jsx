@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Card, ListGroup } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Card, ListGroup, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { profilesAction } from "../redux/actions/Profiles";
 import Profiles from "./Profiles";
@@ -13,6 +13,10 @@ const ProfiliCollegati = () => {
   useEffect(() => {
     dispatch(profilesAction());
   }, []);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
       <Card className="my-3">
@@ -34,6 +38,37 @@ const ProfiliCollegati = () => {
                 );
               })}
         </ListGroup>
+        <p
+          className="text-center my-3"
+          onClick={handleShow}
+        >
+          Mostra tutto
+        </p>
+        <Modal show={show} onHide={handleClose} size="lg">
+          <Modal.Header closeButton>
+            <Modal.Title>Altri profili simili</Modal.Title>
+          </Modal.Header>
+          <Modal.Body
+            className="p-0"
+            style={{ overflow: "scroll", height: "600px" }}
+          >
+            <ListGroup>
+              {profiles &&
+                profiles
+                  .flat(1)
+                  .reverse()
+                  .slice(0, 13)
+                  .map((profile) => {
+                    return (
+                      <Profiles
+                        key={profile._id}
+                        profile={profile}
+                      />
+                    );
+                  })}
+            </ListGroup>
+          </Modal.Body>
+        </Modal>
       </Card>
     </>
   );

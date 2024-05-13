@@ -1,4 +1,5 @@
-import { ListGroup } from "react-bootstrap";
+import { Button, ListGroup } from "react-bootstrap";
+import sent from "../assets/icons8-sent-50.png";
 
 const Profiles = ({ profile }) => {
   return (
@@ -9,14 +10,27 @@ const Profiles = ({ profile }) => {
             <img
               src={profile.image}
               alt="image-profile"
-              className="img-fluid w-25 rounded-circle"
+              className="img-fluid rounded-circle img-profiles mx-3"
             />
           </div>
-          <div>
-            <p>
+          <div className="d-flex flex-column">
+            <p className="m-0">
               {profile.name} {profile.surname}
             </p>
-            <p>{profile.title}</p>
+            <p className="m-0 fw-light fs-8 d-inline-block">
+              {profile.title}
+            </p>
+            <Button
+              variant="outline-dark"
+              className=" rounded-pill my-3"
+              style={{ width: "150px" }}
+            >
+              <img src={sent} alt="" className="pencil " />
+              <p className="m-0 fw-light fs-8 d-inline-block">
+                {" "}
+                Messaggio
+              </p>
+            </Button>
           </div>
         </div>
       </ListGroup.Item>

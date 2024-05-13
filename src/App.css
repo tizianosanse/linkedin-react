@@ -108,14 +108,46 @@ a#navbarScrollingDropdown {
   .dropdown-menu.show {
     padding: 0;
     margin: 0;
+    left: auto;
+    right: 0;
   }
 }
+.dropdownMenuAziende {
+  .dropdown-menu.show {
+    width: 700px;
+    padding: 0;
+    margin: 0;
+    left: auto;
+    right: 0;
+  }
+  .dropdown-item {
+    margin-bottom: 20px;
+  }
+  .scopriAltro {
+    border-left: 1px solid #e0e0e0;
+  }
+  .col-6 {
+    padding-inline: 20px;
+  }
+}
+
 .hoverColorBlack {
   color: #717171;
 }
 .hoverColorBlack:hover {
   color: black;
   cursor: pointer;
+}
+
+.spanDropdownNavbar {
+  color: #7c7c7c;
+  font-size: 0.8em;
+}
+a.font-weight-bold.dropdown-item {
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 18px;
 }
 
 /* navbar fino a qui */
@@ -223,4 +255,8 @@ a#navbarScrollingDropdown {
 }
 .fw-bold {
   font-weight: 600 !important;
+}
+.img-profiles {
+  height: 50px;
+  width: 50px;
 }
