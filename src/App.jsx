@@ -1,3 +1,4 @@
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import MyNavbar from "./components/MyNavbar";
 
@@ -7,8 +8,11 @@ function App() {
   return (
     <>
       <div className="App">
-        <MyNavbar />
-        <ProfilePage />
+        <BrowserRouter>
+          <MyNavbar />
+
+          <ProfilePage />
+        </BrowserRouter>
       </div>
     </>
   );
