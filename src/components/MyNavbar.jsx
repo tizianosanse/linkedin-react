@@ -186,7 +186,7 @@ const MyNavbar = () => {
               <NavDropdown.Item href="#action4" className="titleDropdownNav">
                 Account
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action5" className="font-weight-bold d-flex align-items-center">
+              <NavDropdown.Item href="#action5" className=" d-flex align-items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="15"
@@ -546,7 +546,7 @@ const MyNavbar = () => {
             </NavDropdown>
           </div>
 
-          <Nav.Link className="p-0 text-center networking" href="#">
+          <Nav.Link className="p-0 text-center networking">
             Fai networking in <br />
             modo smart con <br />
             Premium
