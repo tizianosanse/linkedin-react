@@ -8,7 +8,7 @@ const ProfilesReduces = (state = initialState, action) => {
     case GET_NEW_PROFILES:
       return {
         ...state,
-        content: [...state.content, action.payload],
+        content: action.payload,
       };
     default:
       return state;
