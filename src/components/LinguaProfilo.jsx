@@ -6,7 +6,7 @@ const LinguaProfilo = () => {
     <>
       <Card>
         <ListGroup variant="flush">
-          <ListGroup.Item>
+          <ListGroup.Item className="mx-3">
             <div className="d-flex align-items-center justify-content-between">
               <div>
                 <p className="m-0 fw-bold fs-7">

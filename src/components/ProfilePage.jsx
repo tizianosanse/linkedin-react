@@ -1,5 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 import LinguaProfilo from "./LinguaProfilo";
+import ProfiliCollegati from "./ProfiliCollegati";
 
 const ProfilePage = () => {
   return (
@@ -11,6 +12,7 @@ const ProfilePage = () => {
           </Col>
           <Col xs={0} md={4} className="d-none d-md-block">
             <LinguaProfilo />
+            <ProfiliCollegati />
           </Col>
         </Row>
       </Container>
