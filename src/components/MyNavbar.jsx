@@ -25,12 +25,7 @@ const MyNavbar = () => {
             </svg>
           </Navbar.Brand>
           <Form className="d-flex position-relative">
-            <Form.Control
-              type="search"
-              placeholder="Cerca"
-              className="formCercaNavbar"
-              aria-label="Search"
-            />
+            <Form.Control type="search" placeholder="Cerca" className="formCercaNavbar" aria-label="Search" />
 
             <div className="searchIconNavbar">
               <svg
@@ -46,19 +41,15 @@ const MyNavbar = () => {
             </div>
           </Form>
         </div>
-        <Nav
-          className=" my-2 my-lg-0"
-          style={{ maxHeight: "100px" }}
-          navbarScroll
-        >
+        <Nav className=" my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
           <div className="divIconsNavbar">
             <p className="m-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
-                fill="#717171"
-                className="mercado-match"
+                fill="currentColor"
+                className="mercado-match hoverColorBlack"
                 width="24"
                 height="24"
                 focusable="false"
@@ -76,8 +67,8 @@ const MyNavbar = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
-                fill="#717171"
-                className="mercado-match"
+                fill="currentColor"
+                className="mercado-match hoverColorBlack"
                 width="24"
                 height="24"
                 focusable="false"
@@ -95,8 +86,8 @@ const MyNavbar = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
-                fill="#717171"
-                className="mercado-match"
+                fill="currentColor"
+                className="mercado-match hoverColorBlack"
                 width="24"
                 height="24"
                 focusable="false"
@@ -114,8 +105,8 @@ const MyNavbar = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
-                fill="#717171"
-                className="mercado-match"
+                fill="currentColor"
+                className="mercado-match hoverColorBlack"
                 width="24"
                 height="24"
                 focusable="false"
@@ -133,8 +124,8 @@ const MyNavbar = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
-                fill="#717171"
-                className="mercado-match"
+                fill="currentColor"
+                className="mercado-match hoverColorBlack"
                 width="24"
                 height="24"
                 focusable="false"
@@ -148,86 +139,73 @@ const MyNavbar = () => {
           </div>
           <div className="d-flex flex-column align-items-center justify-content-center">
             <Image
-              src={
-                "https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"
-              }
+              src={"https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"}
               width={26}
               height={26}
               className="imageUserNavbar"
             ></Image>
 
-            <NavDropdown
-              title="Tu"
-              id="navbarScrollingDropdown"
-              className="dropdownNavTu"
-            >
-              <div className="d-flex">
+            <NavDropdown title="Tu" id="navbarScrollingDropdown" className="dropdownNavTu">
+              <div className="d-flex align-items-center">
                 <Image
-                  src={
-                    "https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"
-                  }
-                  width={40}
-                  height={40}
+                  src={"https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"}
+                  width={50}
+                  height={50}
                   className="imageUserNavbar m-2"
                 ></Image>
                 <div>
-                  <NavDropdown.Item
-                    className="p-0 titleDropdownNav"
-                    href="#action3"
-                  >
+                  <NavDropdown.Item className="p-0 titleDropdownNav" href="#action3">
                     Nome Cognome
                   </NavDropdown.Item>
-                  <NavDropdown.Item
-                    className="p-0"
-                    href="#action3"
-                  >
+                  <NavDropdown.Item className="p-0" href="#action3">
                     Professione
                   </NavDropdown.Item>
                 </div>
               </div>
               <div className="dropdownNavButtonDiv">
-                <Button
-                  className="dropdownNavButton"
-                  variant="outline-primary "
-                >
+                <Button className="dropdownNavButton" variant="outline-primary ">
                   Visualizza profilo
                 </Button>
               </div>
               <NavDropdown.Divider />
 
-              <NavDropdown.Item
-                href="#action4"
-                className="titleDropdownNav"
-              >
+              <NavDropdown.Item href="#action4" className="titleDropdownNav">
                 Account
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action5">
-                Prova Premium per 0 EUR
+              <NavDropdown.Item href="#action5" className="font-weight-bold d-flex align-items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="15"
+                  height="15"
+                  fill="#bf9927"
+                  className="bi bi-gem"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6zm11.386 3.785-1.806-2.41-.776 2.413zm-3.633.004.961-2.989H4.186l.963 2.995zM5.47 5.495 8 13.366l2.532-7.876zm-1.371-.999-.78-2.422-1.818 2.425zM1.499 5.5l5.113 6.817-2.192-6.82zm7.889 6.817 5.123-6.83-2.928.002z" />
+                </svg>
+                <span className="provaPremiumNavbarDropdown">Prova Premium per 0 EUR</span>
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action5">
+              <NavDropdown.Item className="textColorLightGrey" href="#action5">
                 Impostazioni e privacy
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action5">
+              <NavDropdown.Item className="textColorLightGrey" href="#action5">
                 Guida
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action5">
+              <NavDropdown.Item className="textColorLightGrey" href="#action5">
                 Lingua
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item
-                href="#action5"
-                className="titleDropdownNav"
-              >
+              <NavDropdown.Item href="#action5" className="titleDropdownNav">
                 Gestisci
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action5">
+              <NavDropdown.Item className="textColorLightGrey" href="#action5">
                 Post e attività
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action5">
+              <NavDropdown.Item className="textColorLightGrey" href="#action5">
                 Account per la pubblicazione di of..
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
+              <NavDropdown.Item className="textColorLightGrey" href="#action5">
                 Esci
               </NavDropdown.Item>
             </NavDropdown>
@@ -238,8 +216,8 @@ const MyNavbar = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 data-supported-dps="24x24"
-                fill="#717171"
-                className="mercado-match"
+                fill="currentColor"
+                className="mercado-match hoverColorBlack"
                 width="24"
                 height="24"
                 focusable="false"
@@ -247,29 +225,17 @@ const MyNavbar = () => {
                 <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
               </svg>
             </p>
-            <NavDropdown
-              title="Per le aziende"
-              id="navbarScrollingDropdown"
-            >
-              <NavDropdown.Item href="#action3">
-                Action
-              </NavDropdown.Item>
+            <NavDropdown title="Per le aziende" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
               <NavDropdown.Divider />
             </NavDropdown>
           </div>
 
-          <Nav.Link
-            className="p-0 text-center networking"
-            href="#"
-          >
+          <Nav.Link className="p-0 text-center networking" href="#">
             Fai networking in <br />
             modo smart con <br />
             Premium
