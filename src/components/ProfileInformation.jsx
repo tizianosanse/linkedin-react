@@ -3,6 +3,7 @@ import { Image } from "react-bootstrap";
 import { Col, Container, Row, Button } from "react-bootstrap/esm";
 import { useDispatch, useSelector } from "react-redux";
 import { getInformation } from "../redux/actions/ProfileInformationActions";
+import { Link } from "react-router-dom";
 
 const ProfileInformation = () => {
   const information = useSelector((state) => state.ProfileInformation.content);
@@ -68,13 +69,13 @@ const ProfileInformation = () => {
             </h1>
             <h2 className="fw-normal">{information.title}</h2>
             <h3 className="lead d-inline-block me-2">{information.area} </h3>
-            <a href="#" className="fw-semibold">
+            <Link to={"/"} className="fw-semibold">
               Informazioni di contatto
-            </a>
+            </Link>
             <div>
-              <a href="#" className="fw-semibold  mt-2">
+              <Link to={"/"} className="fw-semibold mt-2">
                 5 collegamenti
-              </a>
+              </Link>
             </div>
             <Button variant="primary" className="fw-bold mt-3 rounded-pill btn-disponibile-per">
               Disponibile per
@@ -88,9 +89,9 @@ const ProfileInformation = () => {
             <div className="DisponibileALavorare mt-4 p-3 w-50 rounded-3">
               <h3 className="mb-0 fw-semibold">Disponibile a lavorare</h3>
               <h2 className="mb-0 fw-normal">Ruoli di {information.title}</h2>
-              <a href="#" className="fw-semibold">
+              <Link to={"/"} className="fw-semibold">
                 Mostra dettagli
-              </a>
+              </Link>
             </div>
           </div>
         </Col>
