@@ -4,7 +4,7 @@ import Barra from "./BarraRiempimento";
 const Consigliati = () => {
   return (
     <>
-      <Card className="p-2 mt-2">
+      <Card className="p-4 mt-2">
         <h3>Consigliati per te</h3>
         <span>
           <svg
