@@ -22,6 +22,11 @@ body {
   background-color: #f4f2ee;
 }
 /* navbar da qui */
+.navbarContainer {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 .divIconsNavbar {
   display: flex;
   flex-direction: column;
@@ -95,6 +100,10 @@ a#navbarScrollingDropdown {
   text-decoration: underline;
   color: #7c7c7c;
   font-weight: 300;
+}
+.textColorGray {
+  color: #454443;
+  font-size: 14px;
 }
 .provaPremiumNavbarDropdown {
   margin-left: 5px;
@@ -260,3 +269,38 @@ a#navbarScrollingDropdown {
   height: 50px;
   width: 50px;
 }
+
+/* footer da qui */
+
+.footerProfilePage {
+  max-width: 1000px;
+
+  .list-group-item {
+    background-color: transparent;
+    border: none;
+    color: #717171;
+    font-size: 0.87em;
+  }
+  .fontPiccoloFooter {
+    font-size: 0.8rem;
+    color: #717171;
+  }
+  .dropdownLingueFooter {
+    button {
+      width: 100%;
+      text-align: start;
+      font-size: 0.8rem;
+      color: #8f8f8f;
+      font-weight: 600;
+    }
+  }
+  .borderSolidFooter {
+    border: 1px solid rgb(64, 64, 64);
+    border-radius: 5px;
+  }
+  .lineHeightFooter {
+    line-height: 17px;
+  }
+}
+
+/* footer fino a qui */

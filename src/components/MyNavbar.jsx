@@ -11,7 +11,7 @@ const MyNavbar = () => {
   const information = useSelector((state) => state.ProfileInformation.content);
   console.log(information);
   return (
-    <Navbar className="bg-white">
+    <Navbar className="bg-white p-0 navbarContainer">
       <Container fluid className=" justify-content-evenly">
         <div className="d-flex align-items-center">
           <Navbar.Brand href="#">
