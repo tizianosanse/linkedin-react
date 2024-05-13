@@ -6,7 +6,7 @@ const LinguaProfilo = () => {
     <>
       <Card className="mt-2">
         <ListGroup variant="flush">
-          <ListGroup.Item className="mx-3">
+          <ListGroup.Item className="mx-1">
             <div className="d-flex align-items-center justify-content-between">
               <div>
                 <p className="m-0 fw-bold fs-7">
@@ -29,7 +29,7 @@ const LinguaProfilo = () => {
               </Button>
             </div>
           </ListGroup.Item>
-          <ListGroup.Item>
+          <ListGroup.Item className="mx-1">
             <div className="d-flex align-items-center justify-content-between">
               <div>
                 <p className="m-0 fw-bold fs-7">
