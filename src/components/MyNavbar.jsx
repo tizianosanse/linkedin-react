@@ -7,7 +7,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Image } from "react-bootstrap";
 const MyNavbar = () => {
   return (
-    <Navbar className="bg-light">
+    <Navbar className="bg-white">
       <Container fluid className=" justify-content-evenly">
         <div className="d-flex align-items-center">
           <Navbar.Brand href="#">
@@ -25,7 +25,12 @@ const MyNavbar = () => {
             </svg>
           </Navbar.Brand>
           <Form className="d-flex position-relative">
-            <Form.Control type="search" placeholder="Cerca" className="formCercaNavbar" aria-label="Search" />
+            <Form.Control
+              type="search"
+              placeholder="Cerca"
+              className="formCercaNavbar"
+              aria-label="Search"
+            />
 
             <div className="searchIconNavbar">
               <svg
@@ -41,7 +46,11 @@ const MyNavbar = () => {
             </div>
           </Form>
         </div>
-        <Nav className=" my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
+        <Nav
+          className=" my-2 my-lg-0"
+          style={{ maxHeight: "100px" }}
+          navbarScroll
+        >
           <div className="divIconsNavbar">
             <p className="m-0">
               <svg
@@ -139,51 +148,88 @@ const MyNavbar = () => {
           </div>
           <div className="d-flex flex-column align-items-center justify-content-center">
             <Image
-              src={"https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"}
+              src={
+                "https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"
+              }
               width={26}
               height={26}
               className="imageUserNavbar"
             ></Image>
 
-            <NavDropdown title="Tu" id="navbarScrollingDropdown" className="dropdownNavTu">
+            <NavDropdown
+              title="Tu"
+              id="navbarScrollingDropdown"
+              className="dropdownNavTu"
+            >
               <div className="d-flex">
                 <Image
-                  src={"https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"}
+                  src={
+                    "https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"
+                  }
                   width={40}
                   height={40}
                   className="imageUserNavbar m-2"
                 ></Image>
                 <div>
-                  <NavDropdown.Item className="p-0 titleDropdownNav" href="#action3">
+                  <NavDropdown.Item
+                    className="p-0 titleDropdownNav"
+                    href="#action3"
+                  >
                     Nome Cognome
                   </NavDropdown.Item>
-                  <NavDropdown.Item className="p-0" href="#action3">
+                  <NavDropdown.Item
+                    className="p-0"
+                    href="#action3"
+                  >
                     Professione
                   </NavDropdown.Item>
                 </div>
               </div>
               <div className="dropdownNavButtonDiv">
-                <Button className="dropdownNavButton" variant="outline-primary ">
+                <Button
+                  className="dropdownNavButton"
+                  variant="outline-primary "
+                >
                   Visualizza profilo
                 </Button>
               </div>
               <NavDropdown.Divider />
 
-              <NavDropdown.Item href="#action4" className="titleDropdownNav">
+              <NavDropdown.Item
+                href="#action4"
+                className="titleDropdownNav"
+              >
                 Account
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action5">Prova Premium per 0 EUR</NavDropdown.Item>
-              <NavDropdown.Item href="#action5">Impostazioni e privacy</NavDropdown.Item>
-              <NavDropdown.Item href="#action5">Guida</NavDropdown.Item>
-              <NavDropdown.Item href="#action5">Lingua</NavDropdown.Item>
+              <NavDropdown.Item href="#action5">
+                Prova Premium per 0 EUR
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action5">
+                Impostazioni e privacy
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action5">
+                Guida
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action5">
+                Lingua
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5" className="titleDropdownNav">
+              <NavDropdown.Item
+                href="#action5"
+                className="titleDropdownNav"
+              >
                 Gestisci
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action5">Post e attività</NavDropdown.Item>
-              <NavDropdown.Item href="#action5">Account per la pubblicazione di of..</NavDropdown.Item>
+              <NavDropdown.Item href="#action5">
+                Post e attività
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action5">
+                Account per la pubblicazione di of..
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Esci</NavDropdown.Item>
+              <NavDropdown.Item href="#action5">
+                Esci
+              </NavDropdown.Item>
             </NavDropdown>
           </div>
           <div className="divIconsNavbar perLeAziende">
@@ -201,17 +247,29 @@ const MyNavbar = () => {
                 <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
               </svg>
             </p>
-            <NavDropdown title="Per le aziende" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+            <NavDropdown
+              title="Per le aziende"
+              id="navbarScrollingDropdown"
+            >
+              <NavDropdown.Item href="#action3">
+                Action
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">
+                Another action
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
+              <NavDropdown.Item href="#action5">
+                Something else here
+              </NavDropdown.Item>
               <NavDropdown.Divider />
             </NavDropdown>
           </div>
 
-          <Nav.Link className="p-0 text-center networking" href="#">
+          <Nav.Link
+            className="p-0 text-center networking"
+            href="#"
+          >
             Fai networking in <br />
             modo smart con <br />
             Premium

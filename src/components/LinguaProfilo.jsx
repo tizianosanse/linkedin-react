@@ -4,7 +4,7 @@ import pencil from "../assets/icons8-pencil-48.png";
 const LinguaProfilo = () => {
   return (
     <>
-      <Card>
+      <Card className="mt-2">
         <ListGroup variant="flush">
           <ListGroup.Item className="mx-3">
             <div className="d-flex align-items-center justify-content-between">

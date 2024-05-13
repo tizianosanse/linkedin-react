@@ -1,13 +1,14 @@
 import "./App.css";
 import MyNavbar from "./components/MyNavbar";
-import ProfileInformation from "./components/ProfileInformation";
+
+import ProfilePage from "./components/ProfilePage";
 
 function App() {
   return (
     <>
       <div className="App">
         <MyNavbar />
-        <ProfileInformation />
+        <ProfilePage />
       </div>
     </>
   );
