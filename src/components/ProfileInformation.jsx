@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 import pencil from "../assets/icons8-pencil-48.png";
 
 const ProfileInformation = () => {
-  const information = useSelector((state) => state.ProfileInformation.content);
+  const information = useSelector(
+    (state) => state.ProfileInformation.content
+  );
 
   const dispatch = useDispatch();
   console.log(information);
@@ -57,7 +59,9 @@ const ProfileInformation = () => {
           {information.surname}
         </h1>
         <h2 className="fw-normal">{information.title}</h2>
-        <h3 className="lead d-inline-block me-2">{information.area} </h3>
+        <h3 className="lead d-inline-block me-2">
+          {information.area}{" "}
+        </h3>
         <Link to={"/"} className="fw-semibold">
           Informazioni di contatto
         </Link>
@@ -66,18 +70,31 @@ const ProfileInformation = () => {
             5 collegamenti
           </Link>
         </div>
-        <Button variant="primary" className="fw-bold mt-3 rounded-pill btn-disponibile-per">
+        <Button
+          variant="primary"
+          className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2"
+        >
           Disponibile per
         </Button>
-        <Button variant="outline-primary" className="fw-semibold mt-3 rounded-pill ms-2 btn-aggiungi-sezione">
+        <Button
+          variant="outline-primary"
+          className="fw-semibold mt-3 rounded-pill ms-2 btn-aggiungi-sezione"
+        >
           Aggiungi sezione del profilo
         </Button>
-        <Button variant="outline-dark" className="fw-semibold mt-3 rounded-pill ms-2 btn-altro">
+        <Button
+          variant="outline-dark"
+          className="fw-semibold mt-3 rounded-pill ms-2 btn-altro"
+        >
           Altro
         </Button>
         <div className="DisponibileALavorare mt-4 p-3 w-50 rounded-3">
-          <h3 className="mb-0 fw-semibold">Disponibile a lavorare</h3>
-          <h2 className="mb-0 fw-normal">Ruoli di {information.title}</h2>
+          <h3 className="mb-0 fw-semibold">
+            Disponibile a lavorare
+          </h3>
+          <h2 className="mb-0 fw-normal">
+            Ruoli di {information.title}
+          </h2>
           <Link to={"/"} className="fw-semibold">
             Mostra dettagli
           </Link>
