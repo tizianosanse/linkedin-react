@@ -1,6 +1,14 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import {
+  combineReducers,
+  configureStore,
+} from "@reduxjs/toolkit";
+import ProfileInformationReducer from "../reducers/ProfileInformationReducer";
+import ProfilesReduces from "../reducers/ProfilesReducer";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  ProfileInformation: ProfileInformationReducer,
+  Profiles: ProfilesReduces,
+});
 const store = configureStore({
   reducer: rootReducer,
 });

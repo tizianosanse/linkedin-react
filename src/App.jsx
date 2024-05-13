@@ -1,15 +1,19 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
+import MyNavbar from "./components/MyNavbar";
+
 import ProfilePage from "./components/ProfilePage";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<ProfilePage />} path="/" />
-        </Routes>
-      </BrowserRouter>
+      <div className="App">
+        <BrowserRouter>
+          <MyNavbar />
+
+          <ProfilePage />
+        </BrowserRouter>
+      </div>
     </>
   );
 }
