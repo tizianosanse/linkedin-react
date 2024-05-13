@@ -1,10 +1,10 @@
 import "./App.css";
-import ProfilePage from "./components/ProfilePage";
+import ProfileInformation from "./components/ProfileInformation";
 
 function App() {
   return (
     <>
-      <ProfilePage />
+      <ProfileInformation />
     </>
   );
 }

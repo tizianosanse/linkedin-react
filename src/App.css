@@ -1,1 +1,83 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  background-color: #f4f2ee;
+  height: 100vh;
+}
+
+.backgroundProfileImage {
+  max-height: 201px;
+}
+
+.ProfileInformation {
+  background-color: white;
+  border-color: #dfdeda;
+}
+.ProfileInformation img {
+  top: -100px;
+  border-color: white;
+}
+.ProfileInformation .btn-aggiungi-sezione:hover {
+  background-color: #ebf4fd;
+  border-color: #004182;
+  color: #004182;
+}
+.ProfileInformation .btn-disponibile-per:hover {
+  background-color: #004182;
+  border-color: #004182;
+}
+.ProfileInformation .btn-disponibile-per {
+  background-color: #0a66c2;
+}
+.ProfileInformation .btn-altro:hover {
+  background-color: #f3f3f3;
+  color: black;
+}
+
+.photocamera {
+  cursor: pointer;
+}
+.pencil {
+  cursor: pointer;
+  transition: background-color, 500ms;
+}
+
+.pencil:hover {
+  background-color: #f3f3f3;
+}
+
+.ProfileInformation h2 {
+  font-size: 16px;
+  color: #666666;
+}
+.ProfileInformation h3 {
+  font-size: 15px;
+  color: #666666;
+}
+.ProfileInformation a {
+  text-decoration: none;
+  color: #1d72c7;
+  font-size: 14px;
+}
+.ProfileInformation a:hover {
+  text-decoration: underline;
+}
+
+.DisponibileALavorare {
+  background-color: #dde7f1;
+}
+
+.DisponibileALavorare h3 {
+  font-size: 14px;
+}
+.DisponibileALavorare h2 {
+  font-size: 14px;
+}
+.DisponibileALavorare a {
+  text-decoration: none;
+  color: #1d72c7;
+  font-size: 14px;
+}
+.DisponibileALavorare a:hover {
+  text-decoration: underline;
+}
