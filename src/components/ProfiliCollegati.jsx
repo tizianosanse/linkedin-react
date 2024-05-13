@@ -20,8 +20,11 @@ const ProfiliCollegati = (props) => {
   return (
     <>
       <Card className="my-3">
-        <p className="m-0 fw-bold fs-7 m-3">
+        <p className="m-0 fw-bold fs-7 m-3 mb-0">
           {props.title}
+        </p>
+        <p className="m-0 fw-light fs-8 mx-3 mb-3">
+          {props.subtitle}
         </p>
         <ListGroup variant="flush border-top-0 mx-3">
           {profiles &&

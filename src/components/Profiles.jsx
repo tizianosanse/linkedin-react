@@ -21,7 +21,7 @@ const Profiles = (props) => {
             </p>
             <Button
               variant="outline-dark"
-              className=" rounded-pill my-3"
+              className=" rounded-pill my-3 d-flex align-items-center justify-content-evenly"
               style={{ width: "150px" }}
             >
               <img

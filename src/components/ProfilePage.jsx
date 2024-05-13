@@ -9,6 +9,8 @@ import Information from "./Information";
 import Activity from "./Activity";
 import Formazione from "./Formazione";
 import sent from "../assets/icons8-sent-50.png";
+import addPeople from "../assets/icons8-add-user-male-16.png";
+import Advertisements from "./Advertisements";
 const ProfilePage = () => {
   return (
     <>
@@ -37,7 +39,11 @@ const ProfilePage = () => {
             />
             <ProfiliCollegati
               title={"Persone che potresti conoscere"}
+              sent={addPeople}
+              message={"Collegati"}
+              subtitle={"Dalla tua scuola o università"}
             />
+            <Advertisements />
           </Col>
         </Row>
       </Container>
