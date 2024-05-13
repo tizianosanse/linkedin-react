@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import MyNavbar from "./components/MyNavbar";
 
@@ -10,9 +10,8 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <MyNavbar />
-          <Routes>
-            <ProfilePage />
-          </Routes>
+
+          <ProfilePage />
         </BrowserRouter>
       </div>
     </>
