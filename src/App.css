@@ -102,12 +102,12 @@ a#navbarScrollingDropdown {
 .photocamera {
   cursor: pointer;
 }
-.pencil {
+.pencil1 {
   cursor: pointer;
   transition: background-color, 500ms;
 }
 
-.pencil:hover {
+.pencil1:hover {
   background-color: #f3f3f3;
 }
 
