@@ -3,6 +3,7 @@ import "./App.css";
 import MyNavbar from "./components/MyNavbar";
 
 import ProfilePage from "./components/ProfilePage";
+import Message from "./components/Message";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <MyNavbar />
 
           <ProfilePage />
+          <Message />
         </BrowserRouter>
       </div>
     </>

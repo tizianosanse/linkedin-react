@@ -11,6 +11,7 @@ import Formazione from "./Formazione";
 import sent from "../assets/icons8-sent-50.png";
 import addPeople from "../assets/icons8-add-user-male-16.png";
 import Advertisements from "./Advertisements";
+
 const ProfilePage = () => {
   return (
     <>
@@ -32,6 +33,7 @@ const ProfilePage = () => {
             className="d-none d-md-block"
           >
             <LinguaProfilo />
+            <Advertisements class={"my-3"} />
             <ProfiliCollegati
               title={"Altri profili simili"}
               sent={sent}
@@ -43,7 +45,7 @@ const ProfilePage = () => {
               message={"Collegati"}
               subtitle={"Dalla tua scuola o università"}
             />
-            <Advertisements />
+            <Advertisements class={"my-3 sticky-md-top"} />
           </Col>
         </Row>
       </Container>

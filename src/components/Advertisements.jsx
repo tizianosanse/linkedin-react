@@ -1,9 +1,9 @@
 import { Card, ListGroup } from "react-bootstrap";
 
-const Advertisements = () => {
+const Advertisements = (props) => {
   return (
     <>
-      <Card className="my-3 sticky-md-top">
+      <Card className={props.class}>
         <ListGroup>
           <ListGroup.Item>
             Annuncio pubblicitario
