@@ -1,5 +1,4 @@
 import { Button, ListGroup } from "react-bootstrap";
-import sent from "../assets/icons8-sent-50.png";
 
 const Profiles = (props) => {
   return (
@@ -25,10 +24,14 @@ const Profiles = (props) => {
               className=" rounded-pill my-3"
               style={{ width: "150px" }}
             >
-              <img src={sent} alt="" className="pencil " />
+              <img
+                src={props.sent}
+                alt=""
+                className="pencil"
+              />
               <p className="m-0 fw-light fs-8 d-inline-block">
                 {" "}
-                Messaggio
+                {props.message}
               </p>
             </Button>
           </div>

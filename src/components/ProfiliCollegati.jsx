@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { profilesAction } from "../redux/actions/Profiles";
 import Profiles from "./Profiles";
 
-const ProfiliCollegati = () => {
+const ProfiliCollegati = (props) => {
   const dispatch = useDispatch();
   const profiles = useSelector(
     (state) => state.Profiles.content
@@ -21,7 +21,7 @@ const ProfiliCollegati = () => {
     <>
       <Card className="my-3">
         <p className="m-0 fw-bold fs-7 m-3">
-          Altri profili simili
+          {props.title}
         </p>
         <ListGroup variant="flush border-top-0 mx-3">
           {profiles &&
@@ -34,6 +34,8 @@ const ProfiliCollegati = () => {
                   <Profiles
                     key={profile._id}
                     profile={profile}
+                    sent={props.sent}
+                    message={props.message}
                   />
                 );
               })}
@@ -63,6 +65,8 @@ const ProfiliCollegati = () => {
                       <Profiles
                         key={profile._id}
                         profile={profile}
+                        sent={props.sent}
+                        message={props.message}
                       />
                     );
                   })}

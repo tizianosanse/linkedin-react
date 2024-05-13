@@ -8,7 +8,7 @@ import ProfileInformation from "./ProfileInformation";
 import Information from "./Information";
 import Activity from "./Activity";
 import Formazione from "./Formazione";
-
+import sent from "../assets/icons8-sent-50.png";
 const ProfilePage = () => {
   return (
     <>
@@ -23,9 +23,21 @@ const ProfilePage = () => {
             <Activity />
             <Formazione />
           </Col>
-          <Col xs={0} md={6} lg={4} className="d-none d-md-block">
+          <Col
+            xs={0}
+            md={6}
+            lg={4}
+            className="d-none d-md-block"
+          >
             <LinguaProfilo />
-            <ProfiliCollegati />
+            <ProfiliCollegati
+              title={"Altri profili simili"}
+              sent={sent}
+              message={"Messaggio"}
+            />
+            <ProfiliCollegati
+              title={"Persone che potresti conoscere"}
+            />
           </Col>
         </Row>
       </Container>
