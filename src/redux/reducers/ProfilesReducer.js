@@ -1,4 +1,4 @@
-import { GET_NEW_PROFILES } from "../actions/profiliCollegati";
+import { GET_NEW_PROFILES } from "../actions/Profiles";
 
 const initialState = {
   content: [],

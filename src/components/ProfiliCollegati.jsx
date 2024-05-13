@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Card, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { profilesAction } from "../redux/actions/profiliCollegati";
+import { profilesAction } from "../redux/actions/Profiles";
 import Profiles from "./Profiles";
 
 const ProfiliCollegati = () => {
@@ -9,7 +9,7 @@ const ProfiliCollegati = () => {
   const profiles = useSelector(
     (state) => state.Profiles.content
   );
-  console.log(profiles);
+
   useEffect(() => {
     dispatch(profilesAction());
   }, []);
@@ -21,14 +21,18 @@ const ProfiliCollegati = () => {
         </p>
         <ListGroup variant="flush border-top-0 mx-3">
           {profiles &&
-            profiles.slice(0, 5).map((profile) => {
-              return (
-                <Profiles
-                  key={profile._id}
-                  profile={profile}
-                />
-              );
-            })}
+            profiles
+              .flat(1)
+              .reverse()
+              .slice(0, 5)
+              .map((profile) => {
+                return (
+                  <Profiles
+                    key={profile._id}
+                    profile={profile}
+                  />
+                );
+              })}
         </ListGroup>
       </Card>
     </>

@@ -4,9 +4,13 @@ const Profiles = ({ profile }) => {
   return (
     <>
       <ListGroup.Item>
-        <div>
+        <div className="d-flex">
           <div>
-            <img src={profile.image} alt="image-profile" />
+            <img
+              src={profile.image}
+              alt="image-profile"
+              className="img-fluid w-25 rounded-circle"
+            />
           </div>
           <div>
             <p>
