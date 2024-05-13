@@ -3,7 +3,7 @@ import { Col, Dropdown, ListGroup, Row } from "react-bootstrap";
 const ProfileFooter = () => {
   return (
     <>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center flex-column align-items-center">
         <div className="footerProfilePage">
           <Row>
             <Col xs={6}>
@@ -100,6 +100,9 @@ const ProfileFooter = () => {
               </Dropdown>
             </Col>
           </Row>
+        </div>
+        <div className="text-start">
+          <span className="copyFooter">Linkedin Corporation &copy; 2024</span>
         </div>
       </div>
     </>
