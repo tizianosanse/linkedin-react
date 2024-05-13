@@ -5,7 +5,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Image } from "react-bootstrap";
+import { useSelector } from "react-redux";
+
 const MyNavbar = () => {
+  const information = useSelector((state) => state.ProfileInformation.content);
+  console.log(information);
   return (
     <Navbar className="bg-white">
       <Container fluid className=" justify-content-evenly">
@@ -138,27 +142,37 @@ const MyNavbar = () => {
             </Nav.Link>
           </div>
           <div className="d-flex flex-column align-items-center justify-content-center">
-            <Image
-              src={"https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"}
-              width={26}
-              height={26}
-              className="imageUserNavbar"
-            ></Image>
+            {information ? (
+              <Image src={information.image} width={27} height={27} className="imageUserNavbar "></Image>
+            ) : (
+              <Image
+                src={"https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"}
+                width={27}
+                height={27}
+                className="imageUserNavbar "
+              ></Image>
+            )}
 
             <NavDropdown title="Tu" id="navbarScrollingDropdown" className="dropdownNavTu">
               <div className="d-flex align-items-center">
-                <Image
-                  src={"https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"}
-                  width={50}
-                  height={50}
-                  className="imageUserNavbar m-2"
-                ></Image>
+                {information ? (
+                  <Image src={information.image} width={50} height={50} className="imageUserNavbar m-2"></Image>
+                ) : (
+                  <Image
+                    src={"https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"}
+                    width={50}
+                    height={50}
+                    className="imageUserNavbar m-2"
+                  ></Image>
+                )}
+
                 <div>
                   <NavDropdown.Item className="p-0 titleDropdownNav" href="#action3">
-                    Nome Cognome
+                    {information.name}
+                    {information.surname}
                   </NavDropdown.Item>
                   <NavDropdown.Item className="p-0" href="#action3">
-                    Professione
+                    {information.title}
                   </NavDropdown.Item>
                 </div>
               </div>
