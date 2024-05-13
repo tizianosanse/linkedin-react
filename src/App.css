@@ -242,3 +242,7 @@ a.font-weight-bold.dropdown-item {
 .fw-bold {
   font-weight: 600 !important;
 }
+.img-profiles {
+  height: 50px;
+  width: 50px;
+}
