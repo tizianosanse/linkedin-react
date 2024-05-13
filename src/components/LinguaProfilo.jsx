@@ -1,4 +1,5 @@
 import { Button, Card, ListGroup } from "react-bootstrap";
+import pencil from "../assets/icons8-pencil-48.png";
 
 const LinguaProfilo = () => {
   return (
@@ -6,35 +7,50 @@ const LinguaProfilo = () => {
       <Card>
         <ListGroup variant="flush">
           <ListGroup.Item>
-            <Button
-              variant="btn"
-              className="text-black"
-              size="sm"
-            >
-              {/* <img
-                width="48"
-                height="48"
-                src="https://img.icons8.com/parakeet-line/48/pencil.png"
-                alt="pencil"
-                className="img-fluid"
-              /> */}
-              <a
-                target="_blank"
-                href="https://icons8.com/icon/dvZ3QGGN2K9v/pencil"
+            <div className="d-flex align-items-center justify-content-between">
+              <div>
+                <p className="m-0 fw-bold fs-7">
+                  Lingua del profilo
+                </p>
+                <p className="m-0 fw-light fs-8">
+                  Italiano
+                </p>
+              </div>
+              <Button
+                variant="btn"
+                className="text-black"
+                size="sm"
               >
-                Pencil
-              </a>{" "}
-              icon by{" "}
-              <a target="_blank" href="https://icons8.com">
-                Icons8
-              </a>
-            </Button>
+                <img
+                  src={pencil}
+                  alt="pencil"
+                  className="img-fluid pencil"
+                />
+              </Button>
+            </div>
           </ListGroup.Item>
           <ListGroup.Item>
-            Dapibus ac facilisis in
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Vestibulum at eros
+            <div className="d-flex align-items-center justify-content-between">
+              <div>
+                <p className="m-0 fw-bold fs-7">
+                  Profilo pubblico e URL
+                </p>
+                <p className="m-0 fw-light fs-8">
+                  Qui va il link della fetch!!
+                </p>
+              </div>
+              <Button
+                variant="btn"
+                className="text-black"
+                size="sm"
+              >
+                <img
+                  src={pencil}
+                  alt="pencil"
+                  className="img-fluid pencil"
+                />
+              </Button>
+            </div>
           </ListGroup.Item>
         </ListGroup>
       </Card>
