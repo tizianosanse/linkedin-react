@@ -5,6 +5,8 @@ import Risorse from "./Risorse";
 import LinguaProfilo from "./LinguaProfilo";
 import ProfiliCollegati from "./ProfiliCollegati";
 import ProfileInformation from "./ProfileInformation";
+import Information from "./Information";
+import Activity from "./Activity";
 
 const ProfilePage = () => {
   return (
@@ -16,6 +18,8 @@ const ProfilePage = () => {
             <Consigliati />
             <Analisi />
             <Risorse />
+            <Information />
+            <Activity />
           </Col>
           <Col xs={0} md={4} className="d-none d-md-block">
             <LinguaProfilo />
