@@ -29,7 +29,17 @@ const Experience = (props) => {
   useEffect(() => {
     dispatch(GetExperienceAction(id, "GET"));
   });
-
+  const experience = useSelector(
+    (state) => state.Experience.content
+  );
+  const getYearAndMonth = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = date.toLocaleString("default", {
+      month: "long",
+    });
+    return `${month} ${year}`;
+  };
   return (
     <>
       <div>
@@ -99,40 +109,66 @@ const Experience = (props) => {
               <Image src={pencil} width={30} height={30} />
             </div>
           </div>
-
-          <Row xs={1}>
-            <Col
-              xs={2}
-              className="pe-0"
-              style={{ maxWidth: "70px" }}
-            >
-              <Image
-                src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ="
-                width={50}
-                height={50}
-              />
-            </Col>
-            <Col xs={10} className="ps-0">
-              <p
-                className="m-0"
-                style={{ fontWeight: "bold" }}
-              >
-                Titolo lavorativo
-              </p>
-              <p className="m-0">Luogo di lavoro</p>
-              <span
-                style={{ color: "Gray", fontSize: "0.9em" }}
-              >
-                gen 2024 - set 2024
-              </span>
-              <span
-                className="d-block"
-                style={{ color: "Gray", fontSize: "0.9em" }}
-              >
-                Roma, Lazio, Italia
-              </span>
-            </Col>
-          </Row>
+          <>
+            {experience &&
+              experience.map((exp) => {
+                return (
+                  <Row xs={1} key={exp._id}>
+                    <Col
+                      xs={2}
+                      className="pe-0"
+                      style={{ maxWidth: "70px" }}
+                    >
+                      <Image
+                        src={exp.image}
+                        width={50}
+                        height={50}
+                      />
+                    </Col>
+                    <Col xs={8} className="ps-0">
+                      <p
+                        className="m-0"
+                        style={{ fontWeight: "bold" }}
+                      >
+                        {exp.role}
+                      </p>
+                      <p className="m-0">{exp.company}</p>
+                      <span
+                        style={{
+                          color: "Gray",
+                          fontSize: "0.9em",
+                        }}
+                      >
+                        {getYearAndMonth(exp.startDate)} -{" "}
+                        {getYearAndMonth(exp.endDate)}
+                      </span>
+                      <span
+                        className="d-block"
+                        style={{
+                          color: "Gray",
+                          fontSize: "0.9em",
+                        }}
+                      >
+                        {exp.area}
+                      </span>
+                    </Col>
+                    {!props.showExperience && (
+                      <Col
+                        xs={2}
+                        className="pe-0"
+                        style={{ maxWidth: "70px" }}
+                      >
+                        <Image
+                          src={pencil}
+                          width={30}
+                          height={30}
+                        />
+                      </Col>
+                    )}
+                  </Row>
+                );
+              })}
+          </>
         </Card>
         {props.showExperience && (
           <div className=" border border-top-0 link rounded-bottom ">
@@ -140,7 +176,8 @@ const Experience = (props) => {
               className="text-decoration-none p-2 text-black "
               to="/DetailExperience"
             >
-              Mostra tutte le esperienze(0)
+              Mostra tutte le esperienza (
+              {experience.length})
               <span className="ms-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
