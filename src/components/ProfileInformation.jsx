@@ -11,9 +11,7 @@ import ModalForm from "./ModalForm";
 const ProfileInformation = () => {
   const [show, setShow] = useState(false);
 
-  const information = useSelector(
-    (state) => state.ProfileInformation.content
-  );
+  const information = useSelector((state) => state.ProfileInformation.content);
 
   const handleClose = () => setShow(false);
 
@@ -68,9 +66,7 @@ const ProfileInformation = () => {
           {information.surname}
         </h1>
         <h2 className="fw-normal">{information.title}</h2>
-        <h3 className="lead d-inline-block me-2">
-          {information.area}{" "}
-        </h3>
+        <h3 className="lead d-inline-block me-2">{information.area} </h3>
         <Link to={"/"} className="fw-semibold">
           Informazioni di contatto
         </Link>
@@ -87,33 +83,25 @@ const ProfileInformation = () => {
         </Button>
         <Button
           variant="outline-primary"
-          className="fw-semibold mt-3 rounded-pill ms-2 btn-aggiungi-sezione"
+          className="fw-semibold mt-3 rounded-pill ms-2  btn-alert"
           onClick={handleShow}
         >
           Aggiungi sezione del profilo
         </Button>
         <Button
           variant="outline-dark"
-          className="fw-semibold mt-3 rounded-pill ms-2 btn-altro"
+          className="fw-semibold mt-3 rounded-pill ms-2  btn-alert"
         >
           Altro
         </Button>
         <div className="DisponibileALavorare mt-4 p-3 w-50 rounded-3">
-          <h3 className="mb-0 fw-semibold">
-            Disponibile a lavorare
-          </h3>
-          <h2 className="mb-0 fw-normal">
-            Ruoli di {information.title}
-          </h2>
+          <h3 className="mb-0 fw-semibold">Disponibile a lavorare</h3>
+          <h2 className="mb-0 fw-normal">Ruoli di {information.title}</h2>
           <Link to={"/"} className="fw-semibold">
             Mostra dettagli
           </Link>
         </div>
-        <ModalForm
-          show={show}
-          handleClose={handleClose}
-          setShow={setShow}
-        />
+        <ModalForm show={show} handleClose={handleClose} setShow={setShow} />
       </div>
     </>
   );

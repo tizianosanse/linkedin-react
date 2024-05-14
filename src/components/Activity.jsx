@@ -14,10 +14,18 @@ const Activity = () => {
             </Link>
           </div>
           <div className="ms-auto">
-            <Button variant="outline-primary" className="fw-semibold mt-3 rounded-pill btn-aggiungi-sezione me-3">
+            <Button
+              variant="outline-primary"
+              className="fw-semibold mt-3 rounded-pill btn-alert me-3"
+            >
               Crea un post
             </Button>
-            <Image src={pencil} width={40} height={40} className="pencil1 rounded-circle p-1 mt-3" />
+            <Image
+              src={pencil}
+              width={40}
+              height={40}
+              className="pencil1 rounded-circle p-1 mt-3"
+            />
           </div>
         </div>
 

@@ -403,7 +403,7 @@ label {
 div .btn-alert:hover {
   background-color: #edeff1;
   color: black;
-  box-shadow: 0px 0px 0px 2px #000000;
+  box-shadow: 0px 0px 0px 1px #000000;
 }
 div .AlertConsigliati {
   background-color: #f8fafd;

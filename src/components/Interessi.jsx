@@ -46,7 +46,6 @@ const Interessi = () => {
             ) : (
               <div>
                 <p className="textP hover2 divIntHover2 align-content-center m-0 ">
-                  {" "}
                   Scuole e universita
                 </p>
               </div>
