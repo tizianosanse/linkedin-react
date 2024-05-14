@@ -17,7 +17,7 @@ const ModalForm = (props) => {
   const information = useSelector(
     (state) => state.ProfileInformation.content
   );
-  const [showPutModal, setShowPutModal] = useState();
+  const [showPutModal, setShowPutModal] = useState(true);
   const handleClosePutModal = () => setShowPutModal(false);
 
   const id = information._id;
@@ -42,7 +42,7 @@ const ModalForm = (props) => {
   });
   useEffect(() => {
     dispatch(PutSingleExperience(id, "GET", singleExpId));
-  });
+  }, []);
   return (
     <>
       {props.putOrDeleteExperience ? (

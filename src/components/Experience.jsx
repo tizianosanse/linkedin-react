@@ -28,7 +28,7 @@ const Experience = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetExperienceAction(id, "GET"));
-  });
+  }, []);
   const experience = useSelector(
     (state) => state.Experience.content
   );
