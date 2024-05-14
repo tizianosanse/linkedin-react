@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Col,
-  Collapse,
-  Form,
-  Image,
-  Modal,
-  Row,
-} from "react-bootstrap";
+import { Col, Collapse, Form, Image, Modal, Row } from "react-bootstrap";
 import { Button } from "react-bootstrap/esm";
 import { useDispatch, useSelector } from "react-redux";
 import { getInformation } from "../redux/actions/ProfileInformationActions";
@@ -18,9 +11,7 @@ const ProfileInformation = () => {
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
   const [open, setOpen] = useState(false);
-  const information = useSelector(
-    (state) => state.ProfileInformation.content
-  );
+  const information = useSelector((state) => state.ProfileInformation.content);
   const id = information._id;
   const [informationPut, setinformationPut] = useState({
     role: "",
@@ -38,9 +29,7 @@ const ProfileInformation = () => {
   const handleShow = () => setShow(true);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(
-      PostExperienceAction(id, "POST", informationPut)
-    );
+    dispatch(PostExperienceAction(id, "POST", informationPut));
   };
 
   const dispatch = useDispatch();
@@ -91,9 +80,7 @@ const ProfileInformation = () => {
           {information.surname}
         </h1>
         <h2 className="fw-normal">{information.title}</h2>
-        <h3 className="lead d-inline-block me-2">
-          {information.area}{" "}
-        </h3>
+        <h3 className="lead d-inline-block me-2">{information.area} </h3>
         <Link to={"/"} className="fw-semibold">
           Informazioni di contatto
         </Link>
@@ -110,38 +97,27 @@ const ProfileInformation = () => {
         </Button>
         <Button
           variant="outline-primary"
-          className="fw-semibold mt-3 rounded-pill ms-2 btn-aggiungi-sezione"
+          className="fw-semibold mt-3 rounded-pill ms-2  btn-alert"
           onClick={handleShow}
         >
           Aggiungi sezione del profilo
         </Button>
         <Button
           variant="outline-dark"
-          className="fw-semibold mt-3 rounded-pill ms-2 btn-altro"
+          className="fw-semibold mt-3 rounded-pill ms-2  btn-alert"
         >
           Altro
         </Button>
         <div className="DisponibileALavorare mt-4 p-3 w-50 rounded-3">
-          <h3 className="mb-0 fw-semibold">
-            Disponibile a lavorare
-          </h3>
-          <h2 className="mb-0 fw-normal">
-            Ruoli di {information.title}
-          </h2>
+          <h3 className="mb-0 fw-semibold">Disponibile a lavorare</h3>
+          <h2 className="mb-0 fw-normal">Ruoli di {information.title}</h2>
           <Link to={"/"} className="fw-semibold">
             Mostra dettagli
           </Link>
         </div>
-        <Modal
-          show={show}
-          onHide={handleClose}
-          animation={false}
-          size="lg"
-        >
+        <Modal show={show} onHide={handleClose} animation={false} size="lg">
           <Modal.Header closeButton>
-            <Modal.Title className="fs-5">
-              Aggiungi al profilo
-            </Modal.Title>
+            <Modal.Title className="fs-5">Aggiungi al profilo</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="d-grid gap-2">
@@ -159,11 +135,10 @@ const ProfileInformation = () => {
 
             <Collapse in={open}>
               <div id="example-collapse-text">
-                Anim pariatur cliche reprehenderit, enim
-                eiusmod high life accusamus terry richardson
-                ad squid. Nihil anim keffiyeh helvetica,
-                craft beer labore wes anderson cred nesciunt
-                sapiente ea proident.
+                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                accusamus terry richardson ad squid. Nihil anim keffiyeh
+                helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                ea proident.
               </div>
             </Collapse>
             <Link
@@ -178,16 +153,9 @@ const ProfileInformation = () => {
             </Link>
           </Modal.Body>
         </Modal>
-        <Modal
-          show={show1}
-          onHide={handleClose1}
-          animation={false}
-          size="lg"
-        >
+        <Modal show={show1} onHide={handleClose1} animation={false} size="lg">
           <Modal.Header className="px-4" closeButton>
-            <Modal.Title className="fs-5">
-              Aggiungi esperienza
-            </Modal.Title>
+            <Modal.Title className="fs-5">Aggiungi esperienza</Modal.Title>
           </Modal.Header>
           <Modal.Body className="px-4">
             <Form onSubmit={handleSubmit}>
@@ -195,9 +163,7 @@ const ProfileInformation = () => {
                 className="mb-4"
                 controlId="exampleForm.ControlInput1"
               >
-                <Form.Label className="fw-light mb-0">
-                  Qualifica*
-                </Form.Label>
+                <Form.Label className="fw-light mb-0">Qualifica*</Form.Label>
                 <Form.Control
                   size="sm"
                   type="text"
@@ -216,9 +182,7 @@ const ProfileInformation = () => {
                 className="mb-4"
                 controlId="exampleForm.ControlTextarea1"
               >
-                <Form.Label className="fw-light mb-0">
-                  Nome Azienda*
-                </Form.Label>
+                <Form.Label className="fw-light mb-0">Nome Azienda*</Form.Label>
                 <Form.Control
                   size="sm"
                   type="text"
@@ -237,9 +201,7 @@ const ProfileInformation = () => {
                 className="mb-4"
                 controlId="exampleForm.ControlTextarea1"
               >
-                <Form.Label className="fw-light mb-0">
-                  Località*
-                </Form.Label>
+                <Form.Label className="fw-light mb-0">Località*</Form.Label>
                 <Form.Control
                   size="sm"
                   type="text"
@@ -258,9 +220,7 @@ const ProfileInformation = () => {
                 className="mb-4"
                 controlId="exampleForm.ControlTextarea1"
               >
-                <Form.Label className="fw-light mb-0">
-                  Descrizione*
-                </Form.Label>
+                <Form.Label className="fw-light mb-0">Descrizione*</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}
@@ -293,9 +253,7 @@ const ProfileInformation = () => {
                         });
                       }}
                     >
-                      <option>
-                        {informationPut.monthStart}
-                      </option>
+                      <option>{informationPut.monthStart}</option>
                       <option value="1">Gennaio</option>
                       <option value="2">Febbraio</option>
                       <option value="3">Marzo</option>
@@ -320,9 +278,7 @@ const ProfileInformation = () => {
                         });
                       }}
                     >
-                      <option>
-                        {informationPut.yearStart}
-                      </option>
+                      <option>{informationPut.yearStart}</option>
                       <option value="2024">2024</option>
                       <option value="2023">2023</option>
                       <option value="2022">2022</option>
@@ -343,9 +299,7 @@ const ProfileInformation = () => {
                 className="mb-4"
                 controlId="exampleForm.ControlTextarea1"
               >
-                <Form.Label className="fw-light mb-0">
-                  Data di fine*
-                </Form.Label>
+                <Form.Label className="fw-light mb-0">Data di fine*</Form.Label>
                 <Row>
                   <Col xs={6}>
                     <Form.Select
@@ -357,9 +311,7 @@ const ProfileInformation = () => {
                         });
                       }}
                     >
-                      <option>
-                        {informationPut.monthEnd}
-                      </option>
+                      <option>{informationPut.monthEnd}</option>
                       <option value="1">Gennaio</option>
                       <option value="2">Febbraio</option>
                       <option value="3">Marzo</option>
@@ -384,9 +336,7 @@ const ProfileInformation = () => {
                         });
                       }}
                     >
-                      <option>
-                        {informationPut.yearEnd}
-                      </option>
+                      <option>{informationPut.yearEnd}</option>
                       <option value="2024">2024</option>
                       <option value="2023">2023</option>
                       <option value="2022">2022</option>
