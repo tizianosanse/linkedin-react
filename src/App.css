@@ -292,6 +292,16 @@ div .btn-alert:hover {
 div .AlertConsigliati {
   background-color: #f8fafd;
 }
+/* sidebar */
+
+.sticky-md-advetisement {
+  top: 120px;
+}
+@media screen and (min-width: 1020px) {
+  .sticky-lg-advetisement {
+    top: 60px !important;
+  }
+}
 /* footer da qui */
 
 .footerProfilePage {
