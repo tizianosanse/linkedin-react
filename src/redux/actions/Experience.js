@@ -14,14 +14,15 @@ export const PostExperienceAction = (
         {
           method: method,
           body: JSON.stringify({
-            role: informationPut.title,
+            role: informationPut.role,
             company: informationPut.companyName,
             startDate:
-              informationPut.monthStart +
+              informationPut.yearStart +
               "-" +
               informationPut.monthStart,
+
             endDate:
-              informationPut.monthEnd +
+              informationPut.yearEnd +
               "-" +
               informationPut.monthEnd,
             description: informationPut.description,

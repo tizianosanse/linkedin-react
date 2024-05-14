@@ -4,7 +4,7 @@ const initialState = {
   content: [],
 };
 
-const ProfileInformationReducer = (
+const ExperienceReducer = (
   state = initialState,
   action
 ) => {
@@ -21,4 +21,4 @@ const ProfileInformationReducer = (
   }
 };
 
-export default ProfileInformationReducer;
+export default ExperienceReducer;
