@@ -282,6 +282,26 @@ label {
   font-size: 14px;
 }
 
+.dropdown-form:hover {
+  color: black;
+  background-color: transparent;
+  box-shadow: 0px 0px 0px 1px black;
+}
+
+.drowdown-item {
+  font-size: 14px;
+}
+.drowdown-item:hover {
+  background-color: #1967d2;
+  color: white;
+}
+.modal-btn {
+  background-color: #0a66c2;
+}
+.modal-btn:hover {
+  background-color: #004182;
+}
+
 .textP {
   font-size: 14px;
 }
