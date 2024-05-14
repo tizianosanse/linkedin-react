@@ -158,11 +158,16 @@ const Experience = (props) => {
                         className="pe-0"
                         style={{ maxWidth: "70px" }}
                       >
-                        <Image
-                          src={pencil}
-                          width={30}
-                          height={30}
-                        />
+                        <Link
+                          className="btn"
+                          to={`/form/${exp._id}`}
+                        >
+                          <Image
+                            src={pencil}
+                            width={30}
+                            height={30}
+                          />
+                        </Link>
                       </Col>
                     )}
                   </Row>
@@ -214,6 +219,7 @@ const Experience = (props) => {
       <ModalForm
         show1={show1}
         handleClose1={handleClose1}
+        putOrDeleteExperienc={false}
       />
     </>
   );

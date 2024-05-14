@@ -1,7 +1,11 @@
-import { NEW_EXPERIENCE } from "../actions/Experience";
+import {
+  NEW_EXPERIENCE,
+  SINGLE_EXPERIENCE,
+} from "../actions/Experience";
 
 const initialState = {
   content: [],
+  singleEperience: null,
 };
 
 const ExperienceReducer = (
@@ -10,6 +14,11 @@ const ExperienceReducer = (
 ) => {
   switch (action.type) {
     case NEW_EXPERIENCE:
+      return {
+        ...state,
+        content: action.payload,
+      };
+    case SINGLE_EXPERIENCE:
       return {
         ...state,
         content: action.payload,

@@ -232,6 +232,7 @@ const ModalInformation = (props) => {
       <ModalForm
         show1={show1}
         handleClose1={handleClose1}
+        putOrDeleteExperienc={false}
       />
     </>
   );
