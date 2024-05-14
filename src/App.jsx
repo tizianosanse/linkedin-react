@@ -5,6 +5,7 @@ import MyNavbar from "./components/MyNavbar";
 import ProfilePage from "./components/ProfilePage";
 import Message from "./components/Message";
 import ProfileFooter from "./components/ProfileFooter";
+import DetailExperience from "./components/DetailExperience";
 
 function App() {
   return (
@@ -18,6 +19,16 @@ function App() {
               element={
                 <>
                   <ProfilePage />
+                  <Message />
+                  <ProfileFooter />
+                </>
+              }
+            />
+            <Route
+              path="/DetailExperience"
+              element={
+                <>
+                  <DetailExperience />
                   <Message />
                   <ProfileFooter />
                 </>
