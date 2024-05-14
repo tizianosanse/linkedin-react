@@ -12,9 +12,11 @@ const MyNavbar = () => {
   const information = useSelector((state) => state.ProfileInformation.content);
   const [showProva, setShowProva] = useState(false);
   console.log(information);
+  const [show, setShow] = useState(false);
+  console.log(show);
+  const handleShow = () => setShow(true);
 
   window.addEventListener("scroll", () => {
-    console.log(window.scrollY);
     if (window.scrollY > 600) {
       setShowProva(true);
     } else {
@@ -23,7 +25,7 @@ const MyNavbar = () => {
   });
   return (
     <>
-      <Navbar className="bg-white p-0 navbarContainer">
+      <Navbar className="bg-white p-0 navbarContainer d-flex flex-column">
         <Container fluid className=" justify-content-evenly">
           <div className="d-flex align-items-center">
             <Navbar.Brand href="#">
@@ -579,12 +581,47 @@ const MyNavbar = () => {
             </Nav.Link>
           </Nav>
         </Container>
-        {showProva && (
-          <div>
-            <h1>ciao</h1>
+      </Navbar>{" "}
+      <div style={{ width: "100%" }} className={"subNavbar  " + (showProva ? "subNavShow" : "subNavHide")}>
+        <Col xs={12} className="d-flex justify-content-between" style={{ width: "85%", marginInline: "auto" }}>
+          <div className="d-flex align-items-center">
+            {information ? (
+              <Image src={information.image} width={35} height={35} className="imageUserNavbar m-2"></Image>
+            ) : (
+              <Image
+                src={"https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"}
+                width={35}
+                height={35}
+                className="imageUserNavbar m-2"
+              ></Image>
+            )}
+            <div>
+              <p className="p-0 m-0 titleDropdownNav" href="#">
+                {information.name}
+                {information.surname}
+              </p>
+              <p className="p-0 m-0 lavoroSubNavbar" href="#">
+                {information.title}
+              </p>
+            </div>
           </div>
-        )}
-      </Navbar>
+          <div className="d-flex align-items-center">
+            <Button variant="outline-dark" className="fw-semibold rounded-pill btn-altro ">
+              Altro
+            </Button>
+            <Button
+              variant="outline-primary"
+              className="fw-semibold  rounded-pill btn-aggiungi-sezione"
+              onClick={handleShow}
+            >
+              Aggiungi sezione del profilo
+            </Button>
+            <Button variant="primary" className="fw-bold rounded-pill btn-disponibile-per ">
+              Disponibile per
+            </Button>
+          </div>
+        </Col>
+      </div>
     </>
   );
 };
