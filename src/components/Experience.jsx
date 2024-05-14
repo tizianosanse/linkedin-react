@@ -116,14 +116,14 @@ const Experience = (props) => {
           </div>
 
           <Row xs={1}>
-            <Col xs={1} className="pe-0">
+            <Col xs={2} className="pe-0" style={{ maxWidth: "70px" }}>
               <Image
                 src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ="
                 width={50}
                 height={50}
               />
             </Col>
-            <Col xs={11} className="ps-0">
+            <Col xs={10} className="ps-0">
               <p className="m-0" style={{ fontWeight: "bold" }}>
                 Titolo lavorativo
               </p>
