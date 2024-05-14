@@ -5,13 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { getInformation } from "../redux/actions/ProfileInformationActions";
 import { Link } from "react-router-dom";
 import pencil from "../assets/icons8-pencil-48.png";
-
-import ModalForm from "./ModalForm";
+import ModalInformation from "./ModalInformation";
 
 const ProfileInformation = () => {
   const [show, setShow] = useState(false);
 
-  const information = useSelector((state) => state.ProfileInformation.content);
+  const information = useSelector(
+    (state) => state.ProfileInformation.content
+  );
 
   const handleClose = () => setShow(false);
 
@@ -66,7 +67,9 @@ const ProfileInformation = () => {
           {information.surname}
         </h1>
         <h2 className="fw-normal">{information.title}</h2>
-        <h3 className="lead d-inline-block me-2">{information.area} </h3>
+        <h3 className="lead d-inline-block me-2">
+          {information.area}{" "}
+        </h3>
         <Link to={"/"} className="fw-semibold">
           Informazioni di contatto
         </Link>
@@ -95,13 +98,22 @@ const ProfileInformation = () => {
           Altro
         </Button>
         <div className="DisponibileALavorare mt-4 p-3 w-50 rounded-3">
-          <h3 className="mb-0 fw-semibold">Disponibile a lavorare</h3>
-          <h2 className="mb-0 fw-normal">Ruoli di {information.title}</h2>
+          <h3 className="mb-0 fw-semibold">
+            Disponibile a lavorare
+          </h3>
+          <h2 className="mb-0 fw-normal">
+            Ruoli di {information.title}
+          </h2>
           <Link to={"/"} className="fw-semibold">
             Mostra dettagli
           </Link>
         </div>
-        <ModalForm show={show} handleClose={handleClose} setShow={setShow} />
+
+        <ModalInformation
+          show={show}
+          handleClose={handleClose}
+          setShow={setShow}
+        />
       </div>
     </>
   );
