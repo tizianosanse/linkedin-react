@@ -3,6 +3,8 @@ import "./App.css";
 import MyNavbar from "./components/MyNavbar";
 
 import ProfilePage from "./components/ProfilePage";
+import Message from "./components/Message";
+import ProfileFooter from "./components/ProfileFooter";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
           <MyNavbar />
 
           <ProfilePage />
+          <Message />
+          <ProfileFooter />
         </BrowserRouter>
       </div>
     </>
