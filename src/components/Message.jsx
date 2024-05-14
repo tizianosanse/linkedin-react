@@ -15,7 +15,7 @@ const Message = () => {
         aria-controls="example-collapse-text"
         aria-expanded={open}
         className="fixed d-flex align-items-center justify-centent-between"
-        variant="white"
+        variant="light"
       >
         <div className="d-flex align-items-center">
           <img
