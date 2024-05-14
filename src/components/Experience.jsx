@@ -8,16 +8,28 @@ import {
 } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import pencil from "../assets/icons8-pencil-48.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import ModalForm from "./ModalForm";
+import { useDispatch, useSelector } from "react-redux";
+import { GetExperienceAction } from "../redux/actions/Experience";
 
 const Experience = (props) => {
   const navigate = useNavigate();
   const [show1, setShow1] = useState(false);
   const handleShow = () => setShow1(true);
+  const information = useSelector(
+    (state) => state.ProfileInformation.content
+  );
+
+  const id = information._id;
 
   const handleClose1 = () => setShow1(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(GetExperienceAction(id, "GET"));
+  });
+
   return (
     <>
       <div>
