@@ -1,62 +1,85 @@
-import {
-  Card,
-  Dropdown,
-  DropdownButton,
-  Image,
-} from "react-bootstrap";
+import { useState } from "react";
+import { Button, Card, Collapse } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const Message = () => {
   const information = useSelector(
     (state) => state.ProfileInformation.content
   );
+  const [open, setOpen] = useState(false);
+
   return (
     <>
-      <Card
-        className="fixed-bottom"
-        style={{ left: 1000, right: 100 }}
+      <Button
+        onClick={() => setOpen(!open)}
+        aria-controls="example-collapse-text"
+        aria-expanded={open}
+        className="fixed d-flex align-items-center justify-centent-between"
+        variant="light"
       >
-        <DropdownButton
-          id={`dropdown-button-drop-up`}
-          drop="up"
-          variant="white"
-          title={
-            <div className="d-flex align-items-center justify-content-between ">
+        <div className="d-flex align-items-center">
+          <img
+            src={information.image}
+            alt=""
+            className="img-profiles rounded-circle mx-3"
+          />{" "}
+          <p className="fw-bold fs-7 m-0">Massaggistica</p>
+        </div>
+        <div className="d-flex align-items-center">
+          <p className="fw-bold fs-5 mx-2 mb-0">
+            <i className="bi bi-three-dots"></i>
+          </p>
+          <p className="fw-bold fs-5 mx-2 mb-0">
+            <i className="bi bi-pencil-square"></i>
+          </p>
+          <p className="fw-bold fs-5 mx-2 mb-0">
+            <i className="bi bi-caret-up"></i>
+          </p>
+        </div>
+      </Button>
+      <Collapse in={open}>
+        <div id="example-collapse-text">
+          <Card
+            body
+            style={{ width: "400px" }}
+            className="fixed"
+          >
+            <Button
+              onClick={() => setOpen(!open)}
+              aria-controls="example-collapse-text"
+              aria-expanded={open}
+              className="d-flex align-items-center justify-centent-between"
+              variant="white"
+            >
               <div className="d-flex align-items-center">
-                {" "}
-                <Image
+                <img
                   src={information.image}
-                  width={25}
-                  height={25}
-                  className="rounded-circle mx-3"
-                ></Image>{" "}
-                <p className="m-0 fw-bold fs-8">
-                  Messaggistica
-                </p>{" "}
-              </div>
-              <div>
-                {" "}
-                <p className="m-0 fw-bold fs-8">
-                  {" "}
-                  <i className="bi bi-three-dots"></i>
+                  alt=""
+                  className="img-profiles rounded-circle mx-3"
+                />{" "}
+                <p className="fw-bold fs-7 m-0">
+                  Massaggistica
                 </p>
               </div>
-            </div>
-          }
-        >
-          <Dropdown.Item eventKey="1">Action</Dropdown.Item>
-          <Dropdown.Item eventKey="2">
-            Another action
-          </Dropdown.Item>
-          <Dropdown.Item eventKey="3">
-            Something else here
-          </Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item eventKey="4">
-            Separated link
-          </Dropdown.Item>
-        </DropdownButton>
-      </Card>
+              <div className="d-flex align-items-center">
+                <p className="fw-bold fs-5 mx-2 mb-0">
+                  <i className="bi bi-three-dots"></i>
+                </p>
+                <p className="fw-bold fs-5 mx-2 mb-0">
+                  <i className="bi bi-pencil-square"></i>
+                </p>
+                <p className="fw-bold fs-5 mx-2 mb-0">
+                  <i className="bi bi-caret-down"></i>
+                </p>
+              </div>
+            </Button>
+            Anim pariatur cliche reprehenderit, enim eiusmod
+            high life accusamus terry richardson ad squid.
+            Nihil anim keffiyeh helvetica, craft beer labore
+            wes anderson cred nesciunt sapiente ea proident.
+          </Card>
+        </div>
+      </Collapse>
     </>
   );
 };
