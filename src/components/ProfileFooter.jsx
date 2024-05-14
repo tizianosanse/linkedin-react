@@ -6,7 +6,7 @@ const ProfileFooter = () => {
       <div className="d-flex justify-content-center flex-column align-items-center">
         <div className="footerProfilePage">
           <Row>
-            <Col xs={6}>
+            <Col xs={12} md={6}>
               <Row>
                 <Col xs={4}>
                   <ListGroup>
@@ -35,7 +35,7 @@ const ProfileFooter = () => {
                 </Col>
               </Row>
             </Col>
-            <Col xs={3}>
+            <Col xs={12} md={3}>
               <div className="d-flex flex-direction-column my-1 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ const ProfileFooter = () => {
                 </div>
               </div>
             </Col>
-            <Col xs={3}>
+            <Col xs={12} md={3}>
               <p className="p-0 m-0 fontPiccoloFooter">Seleziona lingua</p>
               <Dropdown className="dropdownLingueFooter borderSolidFooter">
                 <Dropdown.Toggle variant="light">Italiano&#40;italiano&#41;</Dropdown.Toggle>
