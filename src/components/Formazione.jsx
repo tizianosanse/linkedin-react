@@ -28,7 +28,7 @@ const Formazione = () => {
           </div>
         </div>
         <Row>
-          <Col xs={1}>
+          <Col xs={1} className="px-0 mx-0">
             <Image
               src="https://d92mrp7hetgfk.cloudfront.net/images/sites/misc/EPICODE_resized/original.png?1651791536"
               roundedCircle
@@ -36,20 +36,32 @@ const Formazione = () => {
               height={30}
             />
           </Col>
-          <Col xs={11}>
+          <Col xs={11} className="px-0 mx-0">
             <h4 className="fs-7">EPICODE</h4>
             <p className="mb-0 textP">
               sviluppatore front end e back end, full stack
               developersviluppatore front end e back end, full stack developer
-              feb 2024 - ago 2024feb 2024 - ago 2024
+              feb 2024 - ago 2024feb 2024 - ago 2024{" "}
             </p>
-            <p style={{ fontWeight: "bold" }} className="textP">
-              SASS, JavaScript e +3 competenze
-            </p>
+            <div className="d-flex ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#000000"
+                width="20px"
+                height="20px"
+                viewBox="0 0 24 24"
+              >
+                <path d="M2.009,7.956C2.008,7.971,2,7.984,2,8l0,.013c.009.721.677,1.107,9.175,13.556a1,1,0,0,0,1.644,0C22.167,7.967,21.99,8.563,22,8.013L22,8c0-.016-.008-.029-.009-.044-.025-.563-.474-.906-3.134-5.471A1,1,0,0,0,18,2H6a1,1,0,0,0-.857.485C2.363,7.256,2.032,7.423,2.009,7.956ZM12,19.243,4.908,9H19.092ZM6.566,4H17.434l1.8,3H4.766Z" />
+              </svg>
+
+              <p style={{ fontWeight: "bold" }} className="textP m-0 p-0 ms-1">
+                SASS, JavaScript e +3 competenze
+              </p>
+            </div>
           </Col>
         </Row>
-        <Row>
-          <Col xs={1}>
+        <Row className="mt-4 px-0">
+          <Col xs={1} className="px-0 mx-0">
             <Image
               src="https://iio.azcast.arizona.edu/sites/default/files/profile-blank-whitebg.png"
               roundedCircle
@@ -57,7 +69,7 @@ const Formazione = () => {
               height={30}
             />
           </Col>
-          <Col xs={11}>
+          <Col xs={11} className="px-0 mx-0">
             <h4 className="fs-7">ITIS FERMI</h4>
             <p className="textP mb-0">
               Diploma di Specializzazione di 1° livello DS1 in scienze e
@@ -66,9 +78,21 @@ const Formazione = () => {
               scienze e tecnologie informatiche, Tecnologia/tecnico di
               ingegneria dell automazione set 2014 - lug 2018set 2014 - lug 2018
             </p>
-            <p style={{ fontWeight: "bold" }} className="textP">
-              Lingua inglese e C++
-            </p>
+            <div className="d-flex ">
+              {" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#000000"
+                width="20px"
+                height="20px"
+                viewBox="0 0 24 24"
+              >
+                <path d="M2.009,7.956C2.008,7.971,2,7.984,2,8l0,.013c.009.721.677,1.107,9.175,13.556a1,1,0,0,0,1.644,0C22.167,7.967,21.99,8.563,22,8.013L22,8c0-.016-.008-.029-.009-.044-.025-.563-.474-.906-3.134-5.471A1,1,0,0,0,18,2H6a1,1,0,0,0-.857.485C2.363,7.256,2.032,7.423,2.009,7.956ZM12,19.243,4.908,9H19.092ZM6.566,4H17.434l1.8,3H4.766Z" />
+              </svg>{" "}
+              <p style={{ fontWeight: "bold" }} className="textP ms-1">
+                Lingua inglese e C++
+              </p>
+            </div>
           </Col>
         </Row>
       </Card>

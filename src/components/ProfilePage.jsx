@@ -12,7 +12,7 @@ import sent from "../assets/icons8-sent-50.png";
 import addPeople from "../assets/icons8-add-user-male-16.png";
 import Advertisements from "./Advertisements";
 import Competenze from "./Competenze";
-
+import Interessi from "./Interessi";
 const ProfilePage = () => {
   return (
     <>
@@ -27,6 +27,7 @@ const ProfilePage = () => {
             <Activity />
             <Formazione />
             <Competenze />
+            <Interessi />
           </Col>
           <Col xs={0} md={6} lg={4} className="d-none d-md-block">
             <LinguaProfilo />
