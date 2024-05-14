@@ -11,7 +11,7 @@ import { useState } from "react";
 const MyNavbar = () => {
   const information = useSelector((state) => state.ProfileInformation.content);
   const [showProva, setShowProva] = useState(false);
-  console.log(information);
+
   const [show, setShow] = useState(false);
   console.log(show);
   const handleShow = () => setShow(true);
