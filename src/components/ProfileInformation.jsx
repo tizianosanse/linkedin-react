@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Image } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Form, Image, Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap/esm";
 import { useDispatch, useSelector } from "react-redux";
 import { getInformation } from "../redux/actions/ProfileInformationActions";
@@ -7,9 +7,13 @@ import { Link } from "react-router-dom";
 import pencil from "../assets/icons8-pencil-48.png";
 
 const ProfileInformation = () => {
-  const information = useSelector(
-    (state) => state.ProfileInformation.content
-  );
+  const [show, setShow] = useState(false);
+  const [show1, setShow1] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleClose1 = () => setShow1(false);
+  const handleShow = () => setShow(true);
+  const information = useSelector((state) => state.ProfileInformation.content);
 
   const dispatch = useDispatch();
   console.log(information);
@@ -59,9 +63,7 @@ const ProfileInformation = () => {
           {information.surname}
         </h1>
         <h2 className="fw-normal">{information.title}</h2>
-        <h3 className="lead d-inline-block me-2">
-          {information.area}{" "}
-        </h3>
+        <h3 className="lead d-inline-block me-2">{information.area} </h3>
         <Link to={"/"} className="fw-semibold">
           Informazioni di contatto
         </Link>
@@ -70,35 +72,71 @@ const ProfileInformation = () => {
             5 collegamenti
           </Link>
         </div>
-        <Button
-          variant="primary"
-          className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2"
-        >
+        <Button variant="primary" className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2">
           Disponibile per
         </Button>
         <Button
           variant="outline-primary"
           className="fw-semibold mt-3 rounded-pill ms-2 btn-aggiungi-sezione"
+          onClick={handleShow}
         >
           Aggiungi sezione del profilo
         </Button>
-        <Button
-          variant="outline-dark"
-          className="fw-semibold mt-3 rounded-pill ms-2 btn-altro"
-        >
+        <Button variant="outline-dark" className="fw-semibold mt-3 rounded-pill ms-2 btn-altro">
           Altro
         </Button>
         <div className="DisponibileALavorare mt-4 p-3 w-50 rounded-3">
-          <h3 className="mb-0 fw-semibold">
-            Disponibile a lavorare
-          </h3>
-          <h2 className="mb-0 fw-normal">
-            Ruoli di {information.title}
-          </h2>
+          <h3 className="mb-0 fw-semibold">Disponibile a lavorare</h3>
+          <h2 className="mb-0 fw-normal">Ruoli di {information.title}</h2>
           <Link to={"/"} className="fw-semibold">
             Mostra dettagli
           </Link>
         </div>
+        <Modal show={show} onHide={handleClose} animation={false} size="lg">
+          <Modal.Header closeButton>
+            <Modal.Title className="fs-5">Aggiungi al profilo</Modal.Title>
+          </Modal.Header>
+          <Link
+            to={"/"}
+            onClick={() => {
+              setShow(false);
+              setShow1(true);
+            }}
+            className="fs-10"
+          >
+            Aggiungi posizione lavorativa
+          </Link>
+        </Modal>
+        <Modal show={show1} onHide={handleClose1} animation={false} size="lg">
+          <Modal.Header className="px-4" closeButton>
+            <Modal.Title className="fs-5">Aggiungi esperienza</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="px-4">
+            <Form>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlInput1">
+                <Form.Label className="fw-light mb-0">Qualifica*</Form.Label>
+                <Form.Control
+                  size="sm"
+                  type="text"
+                  placeholder="Esempio: Retail Sales Manager"
+                  className="border-black "
+                />
+              </Form.Group>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Nome Azienda*</Form.Label>
+                <Form.Control size="sm" type="text" placeholder="Esempio: Microsoft" className="border-black " />
+              </Form.Group>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Località*</Form.Label>
+                <Form.Control size="sm" type="text" placeholder="Esempio: Milano, Italia" className="border-black " />
+              </Form.Group>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Data di inizio*</Form.Label>
+                <Form.Control size="sm" type="text" placeholder="Esempio: Milano, Italia" className="border-black " />
+              </Form.Group>
+            </Form>
+          </Modal.Body>
+        </Modal>
       </div>
     </>
   );
