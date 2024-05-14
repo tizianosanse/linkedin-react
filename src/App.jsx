@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import MyNavbar from "./components/MyNavbar";
 
@@ -12,10 +12,18 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <MyNavbar />
-
-          <ProfilePage />
-          <Message />
-          <ProfileFooter />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <ProfilePage />
+                  <Message />
+                  <ProfileFooter />
+                </>
+              }
+            />
+          </Routes>
         </BrowserRouter>
       </div>
     </>
