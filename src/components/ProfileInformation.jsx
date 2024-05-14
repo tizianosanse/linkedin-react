@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   Col,
+  Collapse,
   Form,
   Image,
   Modal,
@@ -16,6 +17,7 @@ import { PostExperienceAction } from "../redux/actions/Experience";
 const ProfileInformation = () => {
   const [show, setShow] = useState(false);
   const [show1, setShow1] = useState(false);
+  const [open, setOpen] = useState(false);
   const information = useSelector(
     (state) => state.ProfileInformation.content
   );
@@ -141,16 +143,40 @@ const ProfileInformation = () => {
               Aggiungi al profilo
             </Modal.Title>
           </Modal.Header>
-          <Link
-            to={"/"}
-            onClick={() => {
-              setShow(false);
-              setShow1(true);
-            }}
-            className="fs-10"
-          >
-            Aggiungi posizione lavorativa
-          </Link>
+          <Modal.Body>
+            <div className="d-grid gap-2">
+              <Button
+                onClick={() => setOpen(!open)}
+                aria-controls="example-collapse-text"
+                aria-expanded={open}
+                size="lg"
+                variant="light"
+                className="bg-white border-0"
+              >
+                click
+              </Button>
+            </div>
+
+            <Collapse in={open}>
+              <div id="example-collapse-text">
+                Anim pariatur cliche reprehenderit, enim
+                eiusmod high life accusamus terry richardson
+                ad squid. Nihil anim keffiyeh helvetica,
+                craft beer labore wes anderson cred nesciunt
+                sapiente ea proident.
+              </div>
+            </Collapse>
+            <Link
+              to={"/"}
+              onClick={() => {
+                setShow(false);
+                setShow1(true);
+              }}
+              className="fs-10"
+            >
+              Aggiungi posizione lavorativa
+            </Link>
+          </Modal.Body>
         </Modal>
         <Modal
           show={show1}
