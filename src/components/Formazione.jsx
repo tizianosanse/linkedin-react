@@ -5,9 +5,9 @@ const Formazione = () => {
     <>
       <Card className="mt-2 p-4">
         <div className="d-flex   p-1 mt-2  ">
-          <h3 className="me-auto">Formazione</h3>
+          <h3 className="me-auto fs-5">Formazione</h3>
           <div
-            className="pencil1 rounded-circle d-flex align-items-center justify-content-center me-5 "
+            className="pencil1 rounded-circle d-flex align-items-center justify-content-center me-2 "
             style={{ width: "50px", height: "50px" }}
           >
             <svg
@@ -28,44 +28,46 @@ const Formazione = () => {
           </div>
         </div>
         <Row>
-          <Col xs={3}>
+          <Col xs={1}>
             <Image
               src="https://d92mrp7hetgfk.cloudfront.net/images/sites/misc/EPICODE_resized/original.png?1651791536"
               roundedCircle
-              width={50}
-              height={50}
+              width={30}
+              height={30}
             />
           </Col>
-          <Col xs={9}>
-            <h4>EPICODE</h4>
-            <p>
+          <Col xs={11}>
+            <h4 className="fs-7">EPICODE</h4>
+            <p className="mb-0 textP">
               sviluppatore front end e back end, full stack
               developersviluppatore front end e back end, full stack developer
               feb 2024 - ago 2024feb 2024 - ago 2024
-              <p style={{ fontWeight: "bold" }}>
-                SASS, JavaScript e +3 competenze
-              </p>
+            </p>
+            <p style={{ fontWeight: "bold" }} className="textP">
+              SASS, JavaScript e +3 competenze
             </p>
           </Col>
         </Row>
         <Row>
-          <Col xs={3}>
+          <Col xs={1}>
             <Image
               src="https://iio.azcast.arizona.edu/sites/default/files/profile-blank-whitebg.png"
               roundedCircle
-              width={50}
-              height={50}
+              width={30}
+              height={30}
             />
           </Col>
-          <Col xs={9}>
-            <h4>ITIS FERMI</h4>
-            <p>
+          <Col xs={11}>
+            <h4 className="fs-7">ITIS FERMI</h4>
+            <p className="textP mb-0">
               Diploma di Specializzazione di 1° livello DS1 in scienze e
               tecnologie informatiche, Tecnologia/tecnico di ingegneria dell
               automazione Diploma di Specializzazione di 1° livello DS1 in
               scienze e tecnologie informatiche, Tecnologia/tecnico di
               ingegneria dell automazione set 2014 - lug 2018set 2014 - lug 2018
-              <p style={{ fontWeight: "bold" }}>Lingua inglese e C++</p>
+            </p>
+            <p style={{ fontWeight: "bold" }} className="textP">
+              Lingua inglese e C++
             </p>
           </Col>
         </Row>

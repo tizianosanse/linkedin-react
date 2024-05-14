@@ -5,7 +5,7 @@ const Analisi = () => {
   return (
     <>
       <Card className="p-4 mt-2 border rounded-bottom-0">
-        <h3> Analisi</h3>
+        <h3 className="fs-5"> Analisi</h3>
         <span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@ const Analisi = () => {
           >
             <path d="M8 3a8.59 8.59 0 00-8 5 8.54 8.54 0 008 5 8.55 8.55 0 008-5 8.55 8.55 0 00-8-5zm0 8a3 3 0 113-3 3 3 0 01-3 3zm2-3a2 2 0 11-2-2 2 2 0 012 2z"></path>
           </svg>
-          <span className="mx-2">Solo per te</span>
+          <span className="mx-2 textP">Solo per te</span>
           <Row>
             <Col xs={4} className="mt-2">
               <Row>
@@ -38,7 +38,7 @@ const Analisi = () => {
                   </svg>
                 </Col>
                 <Col xs={10}>
-                  <p style={{ fontWeight: "600" }}>
+                  <p className="mb-0 textP" style={{ fontWeight: "600" }}>
                     1 visualizzazione del profilo
                   </p>
                   <p>Scopri chi ha visitato il tuo profilo.</p>
@@ -62,8 +62,10 @@ const Analisi = () => {
                   </svg>
                 </Col>
                 <Col xs={10}>
-                  <p className=" analisText">
-                    <p style={{ fontWeight: "600" }}>0 impressioni del post </p>
+                  <p className=" analisText textP">
+                    <p style={{ fontWeight: "600" }} className="mb-0 textP">
+                      0 impressioni del post{" "}
+                    </p>
                     Crea un post per aumentare l’interesse.Crea un post per
                     aumentare l’interesse.
                     <p style={{ color: "gray" }}> Ultimi 7 giorni</p>
@@ -88,10 +90,10 @@ const Analisi = () => {
                   </svg>
                 </Col>
                 <Col xs={10}>
-                  <p>
-                    <p style={{ fontWeight: "600" }}>
-                      5 comparse nei motori di ricerca
-                    </p>
+                  <p style={{ fontWeight: "600" }} className="mb-0 textP">
+                    5 comparse nei motori di ricerca
+                  </p>
+                  <p className="textP">
                     Vedi quante volte compari nei risultati di ricerca
                   </p>
                 </Col>

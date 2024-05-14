@@ -11,6 +11,7 @@ import Formazione from "./Formazione";
 import sent from "../assets/icons8-sent-50.png";
 import addPeople from "../assets/icons8-add-user-male-16.png";
 import Advertisements from "./Advertisements";
+import Competenze from "./Competenze";
 
 const ProfilePage = () => {
   return (
@@ -25,13 +26,9 @@ const ProfilePage = () => {
             <Information />
             <Activity />
             <Formazione />
+            <Competenze />
           </Col>
-          <Col
-            xs={0}
-            md={6}
-            lg={4}
-            className="d-none d-md-block"
-          >
+          <Col xs={0} md={6} lg={4} className="d-none d-md-block">
             <LinguaProfilo />
             <Advertisements class={"my-3"} />
             <ProfiliCollegati
