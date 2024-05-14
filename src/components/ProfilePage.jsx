@@ -45,7 +45,11 @@ const ProfilePage = () => {
               message={"Collegati"}
               subtitle={"Dalla tua scuola o università"}
             />
-            <Advertisements class={"my-3 sticky-md-top"} />
+            <Advertisements
+              class={
+                "my-3 sticky-md-top sticky-md-advetisement sticky-lg-advetisement"
+              }
+            />
           </Col>
         </Row>
       </Container>
