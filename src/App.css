@@ -55,6 +55,13 @@ body {
   font-size: 0.8rem;
   color: #915908;
   text-decoration: underline;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  height: 57px;
 }
 a#navbarScrollingDropdown {
   padding: 0;
