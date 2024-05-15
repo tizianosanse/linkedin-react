@@ -847,7 +847,6 @@ const MyNavbar = () => {
               Premium
             </Nav.Link>
           </Nav>
-          )}
         </Container>
       </Navbar>{" "}
       <div
