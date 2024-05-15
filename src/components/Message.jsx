@@ -13,6 +13,9 @@ const Message = () => {
   const information = useSelector(
     (state) => state.ProfileInformation.content
   );
+  const profiles = useSelector(
+    (state) => state.Profiles.content
+  );
   const [open, setOpen] = useState(false);
 
   return (
@@ -100,21 +103,19 @@ const Message = () => {
               />
             </InputGroup>
             <ListGroup>
-              <ListGroup.Item>
-                <img src="" alt="" />
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Dapibus ac facilisis in
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Morbi leo risus
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Porta ac consectetur ac
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Vestibulum at eros
-              </ListGroup.Item>
+              {profiles &&
+                profiles.slice(15, 20).map((profile) => {
+                  return (
+                    <ListGroup.Item key={profile._id}>
+                      <img
+                        src={profile.image}
+                        alt="img- profile"
+                        className="rounded-circle img-profiles "
+                      />{" "}
+                      {profile.name} {profile.surname}
+                    </ListGroup.Item>
+                  );
+                })}
             </ListGroup>
           </Card>
         </div>
