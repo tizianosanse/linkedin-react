@@ -1,38 +1,45 @@
 import { useEffect, useState } from "react";
-import {
-  Button,
-  Col,
-  Form,
-  Modal,
-  Row,
-} from "react-bootstrap";
+import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  DeleteExperience,
   PostExperienceAction,
+  PutExperienceAction,
   PutSingleExperience,
 } from "../redux/actions/Experience";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ModalForm = (props) => {
-  const information = useSelector(
-    (state) => state.ProfileInformation.content
-  );
+  const information = useSelector((state) => state.ProfileInformation.content);
+  const { singleExpId } = useParams();
   const [showPutModal, setShowPutModal] = useState(true);
-  const handleClosePutModal = () => setShowPutModal(false);
+  const [showConfirmation, setConfirmation] = useState(false);
+  const navigate = useNavigate();
+  const handleClosePutModal = () => {
+    setShowPutModal(false);
+    navigate("/DetailExperience");
+  };
 
   const id = information._id;
-  const singleExp = useSelector(
-    (state) => state.Experience.singleEperience
-  );
+  const singleExp = useSelector((state) => state.Experience.singleEperience);
   console.log(singleExp);
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(
-      PostExperienceAction(id, "POST", informationPut)
-    );
+    dispatch(PostExperienceAction(id, "POST", informationPut));
   };
-  const { singleExpId } = useParams();
+  const handleSubmitModify = (e) => {
+    e.preventDefault();
+    dispatch(PutExperienceAction(id, "PUT", informationMod, singleExpId));
+    navigate("/DetailExperience");
+  };
+  const handleDelete = () => {
+    dispatch(DeleteExperience(id, singleExpId));
+    navigate("/DetailExperience");
+  };
+  const handleConfimationClose = () => {
+    setConfirmation(false);
+  };
 
   const [informationPut, setinformationPut] = useState({
     role: "",
@@ -62,14 +69,18 @@ const ModalForm = (props) => {
   }, [id, singleExpId]);
   useEffect(() => {
     if (singleExp) {
+      let dateStart = singleExp.startDate.split("-");
+
+      let dateEnd = singleExp.endDate.split("-");
+      console.log(dateStart);
       setInformationMod({
         role: singleExp.role,
         companyName: singleExp.company,
         area: singleExp.area,
-        monthStart: "",
-        monthEnd: "",
-        yearStart: "",
-        yearEnd: "",
+        monthStart: dateStart[1].startsWith("0") ? dateStart[1].replace(/^0/, "") : dateStart[1],
+        monthEnd: dateEnd[1].startsWith("0") ? dateEnd[1].replace(/^0/, "") : dateEnd[1],
+        yearStart: dateStart[0],
+        yearEnd: dateEnd[0],
         description: singleExp.description,
       });
     }
@@ -77,26 +88,14 @@ const ModalForm = (props) => {
   return (
     <>
       {props.putOrDeleteExperience && singleExp ? (
-        <Modal
-          show={showPutModal}
-          onHide={handleClosePutModal}
-          animation={false}
-          size="lg"
-        >
+        <Modal show={showPutModal} onHide={handleClosePutModal} animation={false} size="lg">
           <Modal.Header className="px-4" closeButton>
-            <Modal.Title className="fs-5">
-              Modifica esperienza
-            </Modal.Title>
+            <Modal.Title className="fs-5">Modifica esperienza</Modal.Title>
           </Modal.Header>
           <Modal.Body className="px-4">
-            <Form onSubmit={handleSubmit}>
-              <Form.Group
-                className="mb-4"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label className="fw-light mb-0">
-                  Qualifica*
-                </Form.Label>
+            <Form onSubmit={handleSubmitModify}>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlInput1">
+                <Form.Label className="fw-light mb-0">Qualifica*</Form.Label>
                 <Form.Control
                   size="sm"
                   type="text"
@@ -111,13 +110,8 @@ const ModalForm = (props) => {
                   className="border-black "
                 />
               </Form.Group>
-              <Form.Group
-                className="mb-4"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label className="fw-light mb-0">
-                  Nome Azienda*
-                </Form.Label>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Nome Azienda*</Form.Label>
                 <Form.Control
                   size="sm"
                   type="text"
@@ -132,13 +126,8 @@ const ModalForm = (props) => {
                   className="border-black "
                 />
               </Form.Group>
-              <Form.Group
-                className="mb-4"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label className="fw-light mb-0">
-                  Località*
-                </Form.Label>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Località*</Form.Label>
                 <Form.Control
                   size="sm"
                   type="text"
@@ -153,13 +142,8 @@ const ModalForm = (props) => {
                   className="border-black "
                 />
               </Form.Group>
-              <Form.Group
-                className="mb-4"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label className="fw-light mb-0">
-                  Descrizione*
-                </Form.Label>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Descrizione*</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}
@@ -174,13 +158,8 @@ const ModalForm = (props) => {
                   className="border-black "
                 />
               </Form.Group>
-              <Form.Group
-                className="mb-4"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label className="fw-light mb-0">
-                  Data di inizio*
-                </Form.Label>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Data di inizio*</Form.Label>
                 <Row>
                   <Col xs={6}>
                     <Form.Select
@@ -192,9 +171,7 @@ const ModalForm = (props) => {
                         });
                       }}
                     >
-                      <option>
-                        {informationPut.monthStart}
-                      </option>
+                      <option>{informationMod.monthStart}</option>
                       <option value="1">Gennaio</option>
                       <option value="2">Febbraio</option>
                       <option value="3">Marzo</option>
@@ -219,9 +196,7 @@ const ModalForm = (props) => {
                         });
                       }}
                     >
-                      <option>
-                        {informationPut.yearStart}
-                      </option>
+                      <option>{informationMod.yearStart}</option>
                       <option value="2024">2024</option>
                       <option value="2023">2023</option>
                       <option value="2022">2022</option>
@@ -238,13 +213,8 @@ const ModalForm = (props) => {
                   </Col>
                 </Row>
               </Form.Group>
-              <Form.Group
-                className="mb-4"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label className="fw-light mb-0">
-                  Data di fine*
-                </Form.Label>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Data di fine*</Form.Label>
                 <Row>
                   <Col xs={6}>
                     <Form.Select
@@ -256,9 +226,7 @@ const ModalForm = (props) => {
                         });
                       }}
                     >
-                      <option>
-                        {informationPut.monthEnd}
-                      </option>
+                      <option>{informationMod.monthEnd}</option>
                       <option value="1">Gennaio</option>
                       <option value="2">Febbraio</option>
                       <option value="3">Marzo</option>
@@ -283,9 +251,7 @@ const ModalForm = (props) => {
                         });
                       }}
                     >
-                      <option>
-                        {informationPut.yearEnd}
-                      </option>
+                      <option>{informationMod.yearEnd}</option>
                       <option value="2024">2024</option>
                       <option value="2023">2023</option>
                       <option value="2022">2022</option>
@@ -304,40 +270,52 @@ const ModalForm = (props) => {
               </Form.Group>
 
               <div className="border-top p-3 d-flex">
-                <Button variant="btn">
+                <Button
+                  variant="btn"
+                  onClick={() => {
+                    setConfirmation(true);
+                  }}
+                >
                   Elimina esperienza
                 </Button>
-                <Button
-                  className="rounded-pill px-3 modal-btn ms-auto"
-                  type="submit"
-                >
-                  Salva
+                <Modal show={showConfirmation} onHide={handleConfimationClose} size="sm">
+                  <Modal.Header closeButton>
+                    <Modal.Title>Elimina esperienza</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>Confermi di voler eliminare la esperienza presso {informationMod.companyName}</Modal.Body>
+                  <Modal.Footer>
+                    <Button
+                      variant="outline-primary"
+                      className="fw-semibold mt-3 rounded-pill ms-2  btn-alert"
+                      onClick={handleConfimationClose}
+                    >
+                      No, grazie
+                    </Button>
+                    <Button
+                      variant="primary"
+                      className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2"
+                      onClick={handleDelete}
+                    >
+                      Elimina
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+                <Button className="rounded-pill px-3 modal-btn ms-auto" type="submit">
+                  Modifica
                 </Button>
               </div>
             </Form>
           </Modal.Body>
         </Modal>
       ) : (
-        <Modal
-          show={props.show1}
-          onHide={props.handleClose1}
-          animation={false}
-          size="lg"
-        >
+        <Modal show={props.show1} onHide={props.handleClose1} animation={false} size="lg">
           <Modal.Header className="px-4" closeButton>
-            <Modal.Title className="fs-5">
-              Aggiungi esperienza
-            </Modal.Title>
+            <Modal.Title className="fs-5">Aggiungi esperienza</Modal.Title>
           </Modal.Header>
           <Modal.Body className="px-4">
             <Form onSubmit={handleSubmit}>
-              <Form.Group
-                className="mb-4"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label className="fw-light mb-0">
-                  Qualifica*
-                </Form.Label>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlInput1">
+                <Form.Label className="fw-light mb-0">Qualifica*</Form.Label>
                 <Form.Control
                   size="sm"
                   type="text"
@@ -352,13 +330,8 @@ const ModalForm = (props) => {
                   className="border-black "
                 />
               </Form.Group>
-              <Form.Group
-                className="mb-4"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label className="fw-light mb-0">
-                  Nome Azienda*
-                </Form.Label>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Nome Azienda*</Form.Label>
                 <Form.Control
                   size="sm"
                   type="text"
@@ -373,13 +346,8 @@ const ModalForm = (props) => {
                   className="border-black "
                 />
               </Form.Group>
-              <Form.Group
-                className="mb-4"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label className="fw-light mb-0">
-                  Località*
-                </Form.Label>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Località*</Form.Label>
                 <Form.Control
                   size="sm"
                   type="text"
@@ -394,13 +362,8 @@ const ModalForm = (props) => {
                   className="border-black "
                 />
               </Form.Group>
-              <Form.Group
-                className="mb-4"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label className="fw-light mb-0">
-                  Descrizione*
-                </Form.Label>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Descrizione*</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}
@@ -415,13 +378,8 @@ const ModalForm = (props) => {
                   className="border-black "
                 />
               </Form.Group>
-              <Form.Group
-                className="mb-4"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label className="fw-light mb-0">
-                  Data di inizio*
-                </Form.Label>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Data di inizio*</Form.Label>
                 <Row>
                   <Col xs={6}>
                     <Form.Select
@@ -433,9 +391,7 @@ const ModalForm = (props) => {
                         });
                       }}
                     >
-                      <option>
-                        {informationPut.monthStart}
-                      </option>
+                      <option>{informationPut.monthStart}</option>
                       <option value="1">Gennaio</option>
                       <option value="2">Febbraio</option>
                       <option value="3">Marzo</option>
@@ -460,9 +416,7 @@ const ModalForm = (props) => {
                         });
                       }}
                     >
-                      <option>
-                        {informationPut.yearStart}
-                      </option>
+                      <option>{informationPut.yearStart}</option>
                       <option value="2024">2024</option>
                       <option value="2023">2023</option>
                       <option value="2022">2022</option>
@@ -479,13 +433,8 @@ const ModalForm = (props) => {
                   </Col>
                 </Row>
               </Form.Group>
-              <Form.Group
-                className="mb-4"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label className="fw-light mb-0">
-                  Data di fine*
-                </Form.Label>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Data di fine*</Form.Label>
                 <Row>
                   <Col xs={6}>
                     <Form.Select
@@ -497,9 +446,7 @@ const ModalForm = (props) => {
                         });
                       }}
                     >
-                      <option>
-                        {informationPut.monthEnd}
-                      </option>
+                      <option>{informationPut.monthEnd}</option>
                       <option value="1">Gennaio</option>
                       <option value="2">Febbraio</option>
                       <option value="3">Marzo</option>
@@ -524,9 +471,7 @@ const ModalForm = (props) => {
                         });
                       }}
                     >
-                      <option>
-                        {informationPut.yearEnd}
-                      </option>
+                      <option>{informationPut.yearEnd}</option>
                       <option value="2024">2024</option>
                       <option value="2023">2023</option>
                       <option value="2022">2022</option>
@@ -545,10 +490,7 @@ const ModalForm = (props) => {
               </Form.Group>
 
               <div className="border-top p-3 d-flex">
-                <Button
-                  className="rounded-pill px-3 modal-btn ms-auto"
-                  type="submit"
-                >
+                <Button className="rounded-pill px-3 modal-btn ms-auto" type="submit">
                   Salva
                 </Button>
               </div>
