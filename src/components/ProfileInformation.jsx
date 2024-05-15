@@ -1,29 +1,38 @@
 import { useEffect, useState } from "react";
-import { Image } from "react-bootstrap";
+import { Card, Image, Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap/esm";
 import { useDispatch, useSelector } from "react-redux";
 import { getInformation } from "../redux/actions/ProfileInformationActions";
 import { Link } from "react-router-dom";
 import pencil from "../assets/icons8-pencil-48.png";
+import { handleUploadFile } from "../redux/actions/UploadFile";
 
-import ModalForm from "./ModalForm";
+import ModalInformation from "./ModalInformation";
 
-const ProfileInformation = () => {
+const ProfileInformation = (props) => {
   const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
+  const [file, setFile] = useState();
 
   const information = useSelector((state) => state.ProfileInformation.content);
 
   const handleClose = () => setShow(false);
 
   const handleShow = () => setShow(true);
+  const handleShow2 = () => setShow2(true);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getInformation());
+    dispatch(getInformation(props.idProfile));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [props.idProfile]);
 
+  const getUploadImg = () => {
+    const formData = new FormData();
+    formData.append("profile", file);
+    dispatch(handleUploadFile(formData, information._id));
+  };
   return (
     <>
       <div className=" mt-2 position-relative">
@@ -51,13 +60,44 @@ const ProfileInformation = () => {
         </div>
       </div>
       <div className="ProfileInformation p-4 rounded-bottom-4 border border-1 position-relative">
-        <Image
-          src={information.image}
-          alt="Profile picture"
-          width={150}
-          height={150}
-          className="rounded-circle position-absolute border border-white border-5 "
-        />
+        {!show2 && (
+          <Image
+            onClick={handleShow2}
+            src={information.image}
+            alt="Profile picture"
+            width={150}
+            height={150}
+            className="rounded-circle position-absolute border border-white border-5 "
+          />
+        )}
+        {show2 && (
+          <>
+            <Modal show={show2} onHide={handleShow2}>
+              <Modal.Header closeButton>
+                <Modal.Title>Modal heading</Modal.Title>
+                <Card>
+                  <div>
+                    <input
+                      type="file"
+                      onChange={(e) => {
+                        setFile(e.target.files[0]);
+                      }}
+                    />
+                  </div>
+                </Card>
+              </Modal.Header>
+              <Modal.Body></Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" onClick={getUploadImg}>
+                  Save Changes
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </>
+        )}
         <div className="d-flex position-absolute top-0 end-0 mt-3 me-4 pencil1 rounded-circle p-1">
           <Image src={pencil} width={30} height={30} />
         </div>
@@ -101,7 +141,12 @@ const ProfileInformation = () => {
             Mostra dettagli
           </Link>
         </div>
-        <ModalForm show={show} handleClose={handleClose} setShow={setShow} />
+
+        <ModalInformation
+          show={show}
+          handleClose={handleClose}
+          setShow={setShow}
+        />
       </div>
     </>
   );

@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Button, Card, Collapse } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Collapse,
+  Form,
+  InputGroup,
+  ListGroup,
+} from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const Message = () => {
@@ -73,10 +80,42 @@ const Message = () => {
                 </p>
               </div>
             </Button>
-            Anim pariatur cliche reprehenderit, enim eiusmod
-            high life accusamus terry richardson ad squid.
-            Nihil anim keffiyeh helvetica, craft beer labore
-            wes anderson cred nesciunt sapiente ea proident.
+            <InputGroup className="mb-3">
+              <InputGroup.Text id="basic-addon1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="#212529"
+                  className="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+              </InputGroup.Text>
+              <Form.Control
+                placeholder="Cerca messaggi"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
+            </InputGroup>
+            <ListGroup>
+              <ListGroup.Item>
+                <img src="" alt="" />
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Dapibus ac facilisis in
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Morbi leo risus
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Porta ac consectetur ac
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Vestibulum at eros
+              </ListGroup.Item>
+            </ListGroup>
           </Card>
         </div>
       </Collapse>
