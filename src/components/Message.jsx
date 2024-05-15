@@ -33,7 +33,7 @@ const Message = () => {
             alt=""
             className="img-profiles rounded-circle mx-3"
           />{" "}
-          <p className="fw-bold fs-7 m-0">Massaggistica</p>
+          <p className="fw-bold fs-7 m-0">Messaggistica</p>
         </div>
         <div className="d-flex align-items-center">
           <p className="fw-bold fs-5 mx-2 mb-0">
