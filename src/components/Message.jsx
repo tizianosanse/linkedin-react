@@ -68,7 +68,7 @@ const Message = () => {
                   className="img-profiles rounded-circle mx-3"
                 />{" "}
                 <p className="fw-bold fs-7 m-0">
-                  Massaggistica
+                  Messaggistica
                 </p>
               </div>
               <div className="d-flex align-items-center">

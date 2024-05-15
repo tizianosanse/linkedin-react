@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { Card, Image, Modal } from "react-bootstrap";
+import {
+  Card,
+  Col,
+  Container,
+  Image,
+  Modal,
+  Row,
+} from "react-bootstrap";
 import { Button } from "react-bootstrap/esm";
 import { useDispatch, useSelector } from "react-redux";
 import { getInformation } from "../redux/actions/ProfileInformationActions";
@@ -14,7 +21,9 @@ const ProfileInformation = (props) => {
   const [show2, setShow2] = useState(false);
   const [file, setFile] = useState();
 
-  const information = useSelector((state) => state.ProfileInformation.content);
+  const information = useSelector(
+    (state) => state.ProfileInformation.content
+  );
 
   const handleClose = () => setShow(false);
 
@@ -88,10 +97,16 @@ const ProfileInformation = (props) => {
               </Modal.Header>
               <Modal.Body></Modal.Body>
               <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button
+                  variant="secondary"
+                  onClick={handleClose}
+                >
                   Close
                 </Button>
-                <Button variant="primary" onClick={getUploadImg}>
+                <Button
+                  variant="primary"
+                  onClick={getUploadImg}
+                >
                   Save Changes
                 </Button>
               </Modal.Footer>
@@ -106,8 +121,10 @@ const ProfileInformation = (props) => {
           {information.surname}
         </h1>
         <h2 className="fw-normal">{information.title}</h2>
-        <h3 className="lead d-inline-block me-2">{information.area} </h3>
-        <Link to={"/"} className="fw-semibold">
+        <h3 className="lead d-inline-block me-2">
+          {information.area}{" "}
+        </h3>
+        <Link to={"/"} className="fw-semibold d-block">
           Informazioni di contatto
         </Link>
         <div>
@@ -115,9 +132,17 @@ const ProfileInformation = (props) => {
             5 collegamenti
           </Link>
         </div>
+        <div className="d-grid gap-2 d-block d-md-none">
+          <Button
+            variant="primary"
+            className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2"
+          >
+            Disponibile per
+          </Button>
+        </div>
         <Button
           variant="primary"
-          className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2"
+          className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2 d-none d-md-block"
         >
           Disponibile per
         </Button>
@@ -130,17 +155,45 @@ const ProfileInformation = (props) => {
         </Button>
         <Button
           variant="outline-dark"
-          className="fw-semibold mt-3 rounded-pill ms-2  btn-alert"
+          className="fw-semibold mt-3 rounded-circle rounded-md-pill ms-2  btn-alert"
         >
-          Altro
+          <p className="d-none d-md-block m-0">Altro</p>{" "}
+          <p className="d-block d-md-none m-0">
+            <i className="bi bi-three-dots"></i>
+          </p>
         </Button>
-        <div className="DisponibileALavorare mt-4 p-3 w-50 rounded-3">
-          <h3 className="mb-0 fw-semibold">Disponibile a lavorare</h3>
-          <h2 className="mb-0 fw-normal">Ruoli di {information.title}</h2>
-          <Link to={"/"} className="fw-semibold">
-            Mostra dettagli
-          </Link>
-        </div>
+        <Container fluid>
+          <Row className="justify-content-evenly">
+            <Col
+              xs={12}
+              lg={5}
+              className="DisponibileALavorare mt-4 p-3 rounded-3"
+            >
+              <h3 className="mb-0 fw-semibold">
+                Disponibile a lavorare
+              </h3>
+              <h2 className="mb-0 fw-normal">
+                Ruoli di {information.title}
+              </h2>
+              <Link to={"/"} className="fw-semibold">
+                Mostra dettagli
+              </Link>
+            </Col>
+            <Col
+              xs={0}
+              lg={5}
+              className="DisponibileALavorare  d-none d-lg-inline-block mt-4 p-3 rounded-3 bg-white border "
+            >
+              <h2 className="mb-0 fw-normal">
+                Fai sapere che stai facendo selezione e
+                attrai candidati interessanti
+              </h2>
+              <Link to={"/"} className="fw-semibold">
+                Inizia
+              </Link>
+            </Col>
+          </Row>
+        </Container>
 
         <ModalInformation
           show={show}
