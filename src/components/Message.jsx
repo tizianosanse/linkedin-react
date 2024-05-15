@@ -24,7 +24,7 @@ const Message = () => {
         onClick={() => setOpen(!open)}
         aria-controls="example-collapse-text"
         aria-expanded={open}
-        className="fixed d-flex align-items-center justify-centent-between"
+        className="fixed  align-items-center justify-centent-between d-none d-lg-flex"
         variant="light"
       >
         <div className="d-flex align-items-center">
