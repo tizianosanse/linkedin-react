@@ -1,7 +1,11 @@
 import { Button, Card, ListGroup } from "react-bootstrap";
 import pencil from "../assets/icons8-pencil-48.png";
+import { useSelector } from "react-redux";
 
 const LinguaProfilo = () => {
+  const information = useSelector(
+    (state) => state.ProfileInformation.informationNav
+  );
   return (
     <>
       <Card className="mt-2">
@@ -35,9 +39,12 @@ const LinguaProfilo = () => {
                 <p className="m-0 fw-bold fs-7">
                   Profilo pubblico e URL
                 </p>
-                <p className="m-0 fw-light fs-8">
-                  Qui va il link della fetch!!
-                </p>
+                {information && (
+                  <p className="m-0 fw-light fs-8">
+                    {information.name} {information.surname}{" "}
+                    / {information._id}
+                  </p>
+                )}
               </div>
               <Button
                 variant="btn"
