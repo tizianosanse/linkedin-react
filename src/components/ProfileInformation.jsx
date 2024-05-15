@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getInformation } from "../redux/actions/ProfileInformationActions";
 import { Link } from "react-router-dom";
 import pencil from "../assets/icons8-pencil-48.png";
-import { handleUploadFile } from "../redux/actions/UploadFile";
+import { handleUploadProfilePictures } from "../redux/actions/UploadFile";
 
 import ModalInformation from "./ModalInformation";
 
@@ -16,7 +16,7 @@ const ProfileInformation = (props) => {
 
   const information = useSelector((state) => state.ProfileInformation.content);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => setShow2(false);
 
   const handleShow = () => setShow(true);
   const handleShow2 = () => setShow2(true);
@@ -31,7 +31,7 @@ const ProfileInformation = (props) => {
   const getUploadImg = () => {
     const formData = new FormData();
     formData.append("profile", file);
-    dispatch(handleUploadFile(formData, information._id));
+    dispatch(handleUploadProfilePictures(formData, information._id));
   };
   return (
     <>
@@ -72,7 +72,7 @@ const ProfileInformation = (props) => {
         )}
         {show2 && (
           <>
-            <Modal show={show2} onHide={handleShow2}>
+            <Modal show={show2} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>Modal heading</Modal.Title>
                 <Card>
@@ -115,10 +115,7 @@ const ProfileInformation = (props) => {
             5 collegamenti
           </Link>
         </div>
-        <Button
-          variant="primary"
-          className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2"
-        >
+        <Button variant="primary" className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2">
           Disponibile per
         </Button>
         <Button
@@ -128,10 +125,7 @@ const ProfileInformation = (props) => {
         >
           Aggiungi sezione del profilo
         </Button>
-        <Button
-          variant="outline-dark"
-          className="fw-semibold mt-3 rounded-pill ms-2  btn-alert"
-        >
+        <Button variant="outline-dark" className="fw-semibold mt-3 rounded-pill ms-2  btn-alert">
           Altro
         </Button>
         <div className="DisponibileALavorare mt-4 p-3 w-50 rounded-3">
@@ -142,11 +136,7 @@ const ProfileInformation = (props) => {
           </Link>
         </div>
 
-        <ModalInformation
-          show={show}
-          handleClose={handleClose}
-          setShow={setShow}
-        />
+        <ModalInformation show={show} handleClose={handleClose} setShow={setShow} />
       </div>
     </>
   );
