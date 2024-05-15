@@ -235,7 +235,7 @@ const MyNavbar = () => {
                 </div>
                 <div className="dropdownNavButtonDiv">
                   <Link
-                    className="dropdownNavButton btn btn-outline-primary"
+                    className="btn btn-outline-primary dropdownNavButton"
                     to={"/profilePage/me"}
                   >
                     Visualizza profilo
@@ -255,15 +255,13 @@ const MyNavbar = () => {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    data-supported-dps="24x24"
-                    fill="currentColor"
-                    className="mercado-match hoverColorBlack"
-                    width="24"
-                    height="24"
-                    focusable="false"
+                    width="15"
+                    height="15"
+                    fill="#bf9927"
+                    className="bi bi-gem"
+                    viewBox="0 0 16 16"
                   >
-                    <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
+                    <path d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6zm11.386 3.785-1.806-2.41-.776 2.413zm-3.633.004.961-2.989H4.186l.963 2.995zM5.47 5.495 8 13.366l2.532-7.876zm-1.371-.999-.78-2.422-1.818 2.425zM1.499 5.5l5.113 6.817-2.192-6.82zm7.889 6.817 5.123-6.83-2.928.002z" />
                   </svg>
                   <span className="provaPremiumNavbarDropdown">
                     Prova Premium per 0 EUR
@@ -454,8 +452,8 @@ const MyNavbar = () => {
                         ></circle>
                         <g clipPath="url(#app-groups-@1-a)">
                           <path
-                            d="M17.17 17.17L27.42 12a.4.4 0 01.18 0 .39.39 0 01.4.39.42.42 0 010 .19l-5.17 10.25z"
-                            fill="#fff"
+                            d="M20 18a4 4 0 114-4 4 4 0 01-4 4zm3 2h-6v16h6V20z"
+                            fill="url(#app-groups-@1-b)"
                           ></path>
                           <path
                             fill="#0091ca"
