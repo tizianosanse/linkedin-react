@@ -65,6 +65,16 @@ body {
 }
 a#navbarScrollingDropdown {
   padding: 0;
+  top: 57px;
+  z-index: 99;
+  background-color: white;
+  padding-top: 8px;
+}
+
+@media screen and (max-width: 992px) {
+  a#navbarScrollingDropdown {
+    display: none;
+  }
 }
 .perLeAziende {
   border-left: 1px solid #e9e9e9;

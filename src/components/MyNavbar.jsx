@@ -8,7 +8,7 @@ import { Col, Image, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getInformationNavBar } from "../redux/actions/ProfileInformationActions";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const MyNavbar = () => {
   const information = useSelector(
@@ -50,7 +50,7 @@ const MyNavbar = () => {
           className=" justify-content-evenly"
         >
           <div className="d-flex align-items-center">
-            <Navbar.Brand href="#">
+            <NavLink className={"nav-brand"} to={"/"}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -63,7 +63,7 @@ const MyNavbar = () => {
               >
                 <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
               </svg>
-            </Navbar.Brand>
+            </NavLink>
             {showInputSearch === false && (
               <span
                 className="d-block d-md-none"
@@ -158,12 +158,12 @@ const MyNavbar = () => {
                     <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
                   </svg>
                 </p>
-                <Nav.Link
-                  className="p-0 d-none d-lg-block"
-                  href="#action1"
+                <NavLink
+                  className="p-0 d-none d-lg-block nav-link"
+                  to={"/"}
                 >
                   Home
-                </Nav.Link>
+                </NavLink>
               </div>
               <div className="divIconsNavbar">
                 <p className="m-0">
@@ -904,7 +904,7 @@ const MyNavbar = () => {
                 </NavDropdown>
               </div>
 
-              <Nav.Link className="p-0 text-center networking">
+              <Nav.Link className="p-0 text-center networking d-none d-lg-block">
                 Fai networking in <br />
                 modo smart con <br />
                 Premium
@@ -916,7 +916,7 @@ const MyNavbar = () => {
       <div
         style={{ width: "100%" }}
         className={
-          "subNavbar  " +
+          "subNavbar d-none d-md-block pt-3 " +
           (showProva ? "subNavShow" : "subNavHide")
         }
       >
