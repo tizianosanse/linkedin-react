@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Button, Card, Dropdown, Image, Modal } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const NewPostHome = () => {
+  const information = useSelector((state) => state.ProfileInformation.informationNav);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -10,12 +12,7 @@ const NewPostHome = () => {
     <>
       <Card className="cardAvviaPost">
         <div style={{ padding: "10px", textAlign: "center" }}>
-          <Image
-            src={"https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"}
-            width={48}
-            height={48}
-            className="imageUserNavbar"
-          ></Image>
+          <Image src={information.image} width={48} height={48} className="imageUserNavbar"></Image>
           <Button className="bg-transparent avviaUnPost " onClick={handleShow}>
             Avvia un post
           </Button>
@@ -82,6 +79,7 @@ const NewPostHome = () => {
           </p>
         </div>
       </Card>
+
       <p className="selezionaDropdownHomepage m-0">
         Seleziona la visualizzazione del feed:
         <span>

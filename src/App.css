@@ -274,6 +274,12 @@ button.bg-transparent.avviaUnPost.btn.btn-primary {
     font-size: 14px;
   }
 }
+.selezionaDropdownHomepage::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+  text-decoration: line-through;
+  color: #c7c7c7;
+  margin-right: 13px;
+}
 /* homepage fino a  qui */
 
 .backgroundProfileImage {

@@ -1,43 +1,57 @@
 import { Card, Image } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const ProfileCardHome = () => {
+  const information = useSelector((state) => state.ProfileInformation.informationNav);
+  console.log(information);
   return (
     <>
       <Card>
         <div style={{ fontSize: "12px" }}>
-          <div
-            style={{
-              backgroundImage: `url("https://media.licdn.com/dms/image/D4D16AQGR7oL6PASXmQ/profile-displaybackgroundimage-shrink_350_1400/0/1714228562535?e=1721260800&v=beta&t=jtk5zm5ymxNk3idHW59aWKv6TxWQ5YSzsJ1gkTrlGNA")`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              position: "relative",
-              height: "60px",
-              marginBottom: "40px",
-            }}
-          >
-            <Image
-              src={"https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"}
-              width={60}
-              height={60}
-              className="imageUserNavbar"
-              style={{ position: "absolute", top: "25px", left: "65px", border: "2px solid white" }}
-            ></Image>
-          </div>
-          <div className="text-center ">
-            <h6 className="m-0 fw-bold">Nome Utente</h6>
-            <p className="m-0 underlineGray pb-2 textColorLightGrey" style={{ fontSize: "12px", fontWeight: "400" }}>
-              Professione o lavoro
-            </p>
-          </div>
+          {information && (
+            <>
+              <div
+                style={{
+                  backgroundImage: `url("https://media.licdn.com/dms/image/D4D16AQGR7oL6PASXmQ/profile-displaybackgroundimage-shrink_350_1400/0/1714228562535?e=1721260800&v=beta&t=jtk5zm5ymxNk3idHW59aWKv6TxWQ5YSzsJ1gkTrlGNA")`,
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                  position: "relative",
+                  height: "60px",
+                  marginBottom: "40px",
+                }}
+              >
+                <Image
+                  src={information.image}
+                  width={60}
+                  height={60}
+                  className="imageUserNavbar"
+                  style={{ position: "absolute", top: "25px", left: "65px", border: "2px solid white" }}
+                ></Image>
+              </div>
+              <div className="text-center ">
+                <h6 className="m-0 fw-bold">
+                  {information.name}
+                  {information.surname}
+                </h6>
+                <p
+                  className="m-0 underlineGray pb-2 textColorLightGrey"
+                  style={{ fontSize: "12px", fontWeight: "400" }}
+                >
+                  {information.title}
+                </p>
+              </div>
+            </>
+          )}
+
           <div>
-            <div className="divVisitatoriImpressioni p-2">
+            <div className="divVisitatoriImpressioni p-2 pb-1">
               <p className="m-0 textColorLightGrey fw-bold" style={{ fontSize: "12px" }}>
                 Visitatori del profilo
               </p>
               <p className="textBlueLight m-0">221</p>
             </div>
-            <div className="divVisitatoriImpressioni underlineGray p-2 ">
+            <div className="divVisitatoriImpressioni underlineGray p-2 pt-1">
               <p className="m-0 textColorLightGrey fw-bold" style={{ fontSize: "12px" }}>
                 Impressioni del post{" "}
               </p>
