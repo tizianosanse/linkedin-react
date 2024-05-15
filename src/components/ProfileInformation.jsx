@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import pencil from "../assets/icons8-pencil-48.png";
 import ModalInformation from "./ModalInformation";
 
-const ProfileInformation = () => {
+const ProfileInformation = (props) => {
   const [show, setShow] = useState(false);
 
   const information = useSelector(
@@ -21,9 +21,9 @@ const ProfileInformation = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getInformation());
+    dispatch(getInformation(props.idProfile));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [props.idProfile]);
 
   return (
     <>

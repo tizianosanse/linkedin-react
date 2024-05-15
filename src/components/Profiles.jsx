@@ -1,4 +1,5 @@
 import { Button, ListGroup } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Profiles = (props) => {
   return (
@@ -13,9 +14,13 @@ const Profiles = (props) => {
             />
           </div>
           <div className="d-flex flex-column">
-            <p className="m-0">
+            <Link
+              to={`/profilePage/${props.profile._id}`}
+              className="undeline text-black"
+            >
               {props.profile.name} {props.profile.surname}
-            </p>
+            </Link>
+
             <p className="m-0 fw-light fs-8 d-inline-block">
               {props.profile.title}
             </p>
