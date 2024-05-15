@@ -55,6 +55,14 @@ body {
   font-size: 0.8rem;
   color: #915908;
   text-decoration: underline;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  height: 57px;
 }
 a#navbarScrollingDropdown {
   padding: 0;
@@ -173,6 +181,7 @@ a#navbarScrollingDropdown {
   top: 57px;
   z-index: 99;
   background-color: white;
+  padding-top: 8px;
 
   .lavoroSubNavbar {
     font-size: smaller;
@@ -197,6 +206,11 @@ a#navbarScrollingDropdown {
   visibility: visible;
 }
 
+@media screen and (max-width: 992px) {
+  a#navbarScrollingDropdown {
+    display: none;
+  }
+}
 /* navbar fino a qui */
 .backgroundProfileImage {
   max-height: 201px;
