@@ -115,9 +115,9 @@ const Experience = (props) => {
             {experience &&
               experience.map((exp) => {
                 return (
-                  <Row xs={1} key={exp._id}>
+                  <Row key={exp._id}>
                     <Col
-                      xs={2}
+                      xs={3}
                       className="pe-0"
                       style={{ maxWidth: "70px" }}
                     >
@@ -127,7 +127,7 @@ const Experience = (props) => {
                         height={50}
                       />
                     </Col>
-                    <Col xs={8} className="ps-0">
+                    <Col xs={9} className="ps-0">
                       <p
                         className="m-0"
                         style={{ fontWeight: "bold" }}
