@@ -15,23 +15,8 @@ const MyNavbar = () => {
     (state) => state.ProfileInformation.informationNav
   );
   const [showProva, setShowProva] = useState(false);
-  const [showInputSearch, setShowInputSearch] =
-    useState(false);
-
-  // eslint-disable-next-line no-unused-vars
-  const [showModalSearch, setShowModalSearch] =
-    useState(false);
-
-  const handleCloseModalSearch = () => {
-    setShowModalSearch(false);
-    setShowInputSearch(false);
-  };
-  const handleShowModalSearch = () =>
-    setShowModalSearch(true);
-
-  // eslint-disable-next-line no-unused-vars
   const [show, setShow] = useState(false);
-
+  console.log(show);
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
 
@@ -841,7 +826,7 @@ const MyNavbar = () => {
               </NavDropdown>
             </div>
 
-            <Nav.Link className="p-0 text-center networking d-none d-lg-block">
+            <Nav.Link className="p-0 text-center networking">
               Fai networking in <br />
               modo smart con <br />
               Premium
