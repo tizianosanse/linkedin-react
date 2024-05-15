@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getInformationNavBar } from "../redux/actions/ProfileInformationActions";
 import { Link, NavLink } from "react-router-dom";
+import ModalInformation from "./ModalInformation";
 
 const MyNavbar = () => {
   const information = useSelector(
@@ -16,6 +17,7 @@ const MyNavbar = () => {
   );
   const [showProva, setShowProva] = useState(false);
   const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
   const [showInputSearch, setShowInputSearch] =
     useState(false);
   console.log(show);
@@ -982,6 +984,10 @@ const MyNavbar = () => {
           </div>
         </Col>
       </div>
+      <ModalInformation
+        show={show}
+        handleClose={handleClose}
+      />
     </>
   );
 };
