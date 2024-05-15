@@ -60,6 +60,20 @@ const ModalForm = (props) => {
       dispatch(PutSingleExperience(id, "GET", singleExpId));
     }
   }, [id, singleExpId]);
+  useEffect(() => {
+    if (singleExp) {
+      setInformationMod({
+        role: singleExp.role,
+        companyName: singleExp.company,
+        area: singleExp.area,
+        monthStart: "",
+        monthEnd: "",
+        yearStart: "",
+        yearEnd: "",
+        description: singleExp.description,
+      });
+    }
+  }, [singleExp]);
   return (
     <>
       {props.putOrDeleteExperience && singleExp ? (
@@ -86,7 +100,7 @@ const ModalForm = (props) => {
                 <Form.Control
                   size="sm"
                   type="text"
-                  value={singleExp.role}
+                  value={informationMod.role}
                   onChange={(e) => {
                     setInformationMod({
                       ...informationMod,
@@ -107,7 +121,7 @@ const ModalForm = (props) => {
                 <Form.Control
                   size="sm"
                   type="text"
-                  value={singleExp.company}
+                  value={informationMod.company}
                   onChange={(e) => {
                     setInformationMod({
                       ...informationMod,
@@ -128,7 +142,7 @@ const ModalForm = (props) => {
                 <Form.Control
                   size="sm"
                   type="text"
-                  value={singleExp.area}
+                  value={informationMod.area}
                   onChange={(e) => {
                     setInformationMod({
                       ...informationMod,
@@ -149,7 +163,7 @@ const ModalForm = (props) => {
                 <Form.Control
                   as="textarea"
                   rows={3}
-                  value={singleExp.description}
+                  value={informationMod.description}
                   onChange={(e) => {
                     setInformationMod({
                       ...informationMod,
