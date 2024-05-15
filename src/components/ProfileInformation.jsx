@@ -25,8 +25,8 @@ const ProfileInformation = (props) => {
     (state) => state.ProfileInformation.content
   );
 
-  const handleClose = () => setShow2(false);
-
+  const handleClose2 = () => setShow2(false);
+  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleShow2 = () => setShow2(true);
 
@@ -83,7 +83,7 @@ const ProfileInformation = (props) => {
         )}
         {show2 && (
           <>
-            <Modal show={show2} onHide={handleClose}>
+            <Modal show={show2} onHide={handleClose2}>
               <Modal.Header closeButton>
                 <Modal.Title>Modal heading</Modal.Title>
                 <Card>
@@ -101,7 +101,7 @@ const ProfileInformation = (props) => {
               <Modal.Footer>
                 <Button
                   variant="secondary"
-                  onClick={handleClose}
+                  onClick={handleClose2}
                 >
                   Close
                 </Button>
