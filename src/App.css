@@ -395,6 +395,11 @@ button.bg-transparent.avviaUnPost.btn.btn-primary {
   height: 50px;
   width: 50px;
 }
+@media screen and (min-width: 768px) {
+  .rounded-md-pill {
+    border-radius: 25px !important;
+  }
+}
 
 .customDropdownBtn,
 .customDropdownBtn.show {
@@ -453,6 +458,9 @@ label {
 }
 .modal-btn:hover {
   background-color: #004182;
+}
+.modalProfiile {
+  height: 500px;
 }
 
 .textP {

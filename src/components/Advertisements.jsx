@@ -1,17 +1,14 @@
-import { Card, ListGroup } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 const Advertisements = (props) => {
   return (
     <>
       <Card className={props.class}>
-        <ListGroup>
-          <ListGroup.Item>
-            Annuncio pubblicitario
-          </ListGroup.Item>
-          <ListGroup.Item>
-            Annuncio pubblicitario
-          </ListGroup.Item>
-        </ListGroup>
+        <img
+          src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
+          alt="annuncio"
+          className="img-fluid"
+        />
       </Card>
     </>
   );
