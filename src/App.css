@@ -19,8 +19,8 @@
   cursor: pointer;
 }
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
   background-color: #f4f2ee;
 }
 /* navbar da qui */
@@ -54,6 +54,14 @@ body {
   font-size: 0.8rem;
   color: #915908;
   text-decoration: underline;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  height: 57px;
 }
 a#navbarScrollingDropdown {
   padding: 0;
@@ -172,6 +180,7 @@ a#navbarScrollingDropdown {
   top: 57px;
   z-index: 99;
   background-color: white;
+  padding-top: 8px;
 
   .lavoroSubNavbar {
     font-size: smaller;
@@ -185,17 +194,20 @@ a#navbarScrollingDropdown {
 .subNavHide {
   box-shadow: none;
   transform: translateY(-100%);
-  transition: box-shadow 667ms ease-in-out, transform 667ms ease-in-out,
-    visibility 0s linear 667ms;
+  transition: box-shadow 667ms ease-in-out, transform 667ms ease-in-out, visibility 0s linear 667ms;
   visibility: hidden;
 }
 .subNavShow {
   transform: translateY(0);
-  transition: box-shadow 667ms ease-in-out, transform 667ms ease-in-out,
-    visibility 0s linear 0s;
+  transition: box-shadow 667ms ease-in-out, transform 667ms ease-in-out, visibility 0s linear 0s;
   visibility: visible;
 }
 
+@media screen and (max-width: 992px) {
+  a#navbarScrollingDropdown {
+    display: none;
+  }
+}
 /* navbar fino a qui */
 .backgroundProfileImage {
   max-height: 201px;
