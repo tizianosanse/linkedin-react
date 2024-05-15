@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getInformation } from "../redux/actions/ProfileInformationActions";
 import { Link } from "react-router-dom";
 import pencil from "../assets/icons8-pencil-48.png";
-import { handleUploadFile } from "../redux/actions/UploadFile";
+import { handleUploadProfilePictures } from "../redux/actions/UploadFile";
 
 import ModalInformation from "./ModalInformation";
 
@@ -25,7 +25,7 @@ const ProfileInformation = (props) => {
     (state) => state.ProfileInformation.content
   );
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => setShow2(false);
 
   const handleShow = () => setShow(true);
   const handleShow2 = () => setShow2(true);
@@ -40,7 +40,9 @@ const ProfileInformation = (props) => {
   const getUploadImg = () => {
     const formData = new FormData();
     formData.append("profile", file);
-    dispatch(handleUploadFile(formData, information._id));
+    dispatch(
+      handleUploadProfilePictures(formData, information._id)
+    );
   };
   return (
     <>
@@ -81,7 +83,7 @@ const ProfileInformation = (props) => {
         )}
         {show2 && (
           <>
-            <Modal show={show2} onHide={handleShow2}>
+            <Modal show={show2} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>Modal heading</Modal.Title>
                 <Card>
