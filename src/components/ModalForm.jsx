@@ -107,7 +107,7 @@ const ModalForm = (props) => {
                   value={informationMod.company}
                   onChange={(e) => {
                     setInformationMod({
-                      ...informationPut,
+                      ...informationMod,
                       companyName: e.target.value,
                     });
                   }}
