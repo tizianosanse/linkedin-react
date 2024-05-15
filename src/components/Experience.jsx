@@ -27,7 +27,9 @@ const Experience = (props) => {
   const handleClose1 = () => setShow1(false);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(GetExperienceAction(id, "GET"));
+    if (id) {
+      dispatch(GetExperienceAction(id, "GET"));
+    }
   }, [id]);
   const experience = useSelector(
     (state) => state.Experience.content
