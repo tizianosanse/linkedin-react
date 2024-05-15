@@ -21,7 +21,7 @@ const ExperienceReducer = (
     case SINGLE_EXPERIENCE:
       return {
         ...state,
-        content: action.payload,
+        singleEperience: action.payload,
       };
     default:
       return {

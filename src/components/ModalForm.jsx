@@ -21,6 +21,10 @@ const ModalForm = (props) => {
   const handleClosePutModal = () => setShowPutModal(false);
 
   const id = information._id;
+  const singleExp = useSelector(
+    (state) => state.Experience.singleEperience
+  );
+  console.log(singleExp);
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,12 +44,22 @@ const ModalForm = (props) => {
     yearEnd: "Anno",
     description: "",
   });
+  const [informationMod, setInformationMod] = useState({
+    role: `${singleExp.role}`,
+    companyName: `${singleExp.company}`,
+    area: `${singleExp.area}`,
+    monthStart: "Mese",
+    monthEnd: "Mese",
+    yearStart: "Anno",
+    yearEnd: "Anno",
+    description: `${singleExp.description}`,
+  });
   useEffect(() => {
     dispatch(PutSingleExperience(id, "GET", singleExpId));
-  }, []);
+  }, [id]);
   return (
     <>
-      {props.putOrDeleteExperience ? (
+      {props.putOrDeleteExperience && singleExp ? (
         <Modal
           show={showPutModal}
           onHide={handleClosePutModal}
@@ -69,10 +83,10 @@ const ModalForm = (props) => {
                 <Form.Control
                   size="sm"
                   type="text"
-                  value={informationPut.title}
+                  value={informationMod.role}
                   onChange={(e) => {
-                    setinformationPut({
-                      ...informationPut,
+                    setInformationMod({
+                      ...informationMod,
                       role: e.target.value,
                     });
                   }}
@@ -90,9 +104,9 @@ const ModalForm = (props) => {
                 <Form.Control
                   size="sm"
                   type="text"
-                  value={informationPut.companyName}
+                  value={informationMod.company}
                   onChange={(e) => {
-                    setinformationPut({
+                    setInformationMod({
                       ...informationPut,
                       companyName: e.target.value,
                     });
@@ -111,10 +125,10 @@ const ModalForm = (props) => {
                 <Form.Control
                   size="sm"
                   type="text"
-                  value={informationPut.area}
+                  value={informationMod.area}
                   onChange={(e) => {
-                    setinformationPut({
-                      ...informationPut,
+                    setInformationMod({
+                      ...informationMod,
                       area: e.target.value,
                     });
                   }}
@@ -132,10 +146,10 @@ const ModalForm = (props) => {
                 <Form.Control
                   as="textarea"
                   rows={3}
-                  value={informationPut.description}
+                  value={informationMod.description}
                   onChange={(e) => {
-                    setinformationPut({
-                      ...informationPut,
+                    setInformationMod({
+                      ...informationMod,
                       description: e.target.value,
                     });
                   }}
@@ -273,6 +287,9 @@ const ModalForm = (props) => {
               </Form.Group>
 
               <div className="border-top p-3 d-flex">
+                <Button variant="btn">
+                  Elimina esperienza
+                </Button>
                 <Button
                   className="rounded-pill px-3 modal-btn ms-auto"
                   type="submit"
