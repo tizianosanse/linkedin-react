@@ -7,7 +7,7 @@ const ProfileCardHome = () => {
   console.log(information);
   return (
     <>
-      <Card>
+      <Card style={{ borderRadius: "10px" }}>
         <div style={{ fontSize: "12px" }}>
           {information && (
             <>
@@ -92,7 +92,7 @@ const ProfileCardHome = () => {
           </div>
         </div>
       </Card>
-      <Card className="mt-2">
+      <Card className="mt-2" style={{ borderRadius: "10px" }}>
         <div className="p-2 underlineGray" style={{ fontSize: "12px", position: "relative" }}>
           <Link className="d-block textBlueLight mb-2">Gruppi</Link>
           <Link className="d-block textBlueLight mb-2">Eventi</Link>

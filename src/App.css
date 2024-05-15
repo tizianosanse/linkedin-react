@@ -68,7 +68,6 @@ a#navbarScrollingDropdown {
   top: 57px;
   z-index: 99;
   background-color: white;
-  padding-top: 8px;
 }
 
 @media screen and (max-width: 992px) {
@@ -279,6 +278,33 @@ button.bg-transparent.avviaUnPost.btn.btn-primary {
   text-decoration: line-through;
   color: #c7c7c7;
   margin-right: 13px;
+}
+.congratulationsPost {
+  button,
+  button:hover {
+    border-radius: 25px;
+    background-color: transparent;
+    border: 1px solid grey;
+    color: #000000bf;
+    font-weight: 500;
+    font-size: 14px;
+  }
+}
+.postActionsColor {
+  color: #000000bf;
+}
+.pubblicaModaleHome {
+  background-color: #dedcdc;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #828282;
+}
+.textareaModalHomepage {
+  width: 100%;
+  border: none;
+  min-height: 300px;
 }
 /* homepage fino a  qui */
 
