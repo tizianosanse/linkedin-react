@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { profilesAction } from "../redux/actions/Profiles";
+import { getInformationNavBar } from "../redux/actions/ProfileInformationActions";
 
 const Message = () => {
   const information = useSelector(
@@ -21,6 +22,7 @@ const Message = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(profilesAction());
+    dispatch(getInformationNavBar());
   }, []);
 
   return (
