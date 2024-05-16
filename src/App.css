@@ -327,6 +327,38 @@ button.bg-transparent.avviaUnPost.btn.btn-primary {
     border: none;
   }
 }
+span.spanNovitaNotizie {
+  background-color: #f9d1ae;
+  color: #523a51;
+  font-size: 14px;
+  padding: 2px 4px;
+  border-radius: 5px;
+}
+.colorfontLightGray {
+  color: #7c7c7c;
+}
+.paddingSedici {
+  padding: 0 16px;
+}
+.dropdownfooterHome {
+  background-color: transparent;
+  border: none;
+  color: #7f7f7f;
+  font-weight: 300;
+  font-size: 14px;
+  padding: 0;
+}
+.divFooterHome {
+  p {
+    margin: 0;
+  }
+}
+.divFooterHome {
+  p:hover {
+    color: #1766c2;
+    text-decoration: underline;
+  }
+}
 /* homepage fino a  qui */
 
 .backgroundProfileImage {
@@ -622,3 +654,42 @@ div .AlertConsigliati {
 .modTit {
   color: white;
 }
+
+/*JOBS PAGE START*/
+
+.leftSideJobsPage {
+  top: 73px;
+}
+.button-side {
+  top: 250px;
+}
+.leftSideJobsPage h2 {
+  font-size: 14px;
+}
+
+.exploreOpportunity h2 {
+  font-size: 18px;
+}
+.exploreOpportunity p {
+  font-size: 14px;
+  color: #9b9b9b;
+}
+
+.exploreOpportunityCard a {
+  color: #0f7be7;
+}
+.exploreOpportunityCard:last-of-type {
+  border-bottom: 0 !important;
+}
+.exploreOpportunityCard h2 {
+  font-size: 14px;
+}
+.exploreOpportunityCard h3 {
+  font-size: 14px;
+  color: grey;
+}
+.exploreOpportunityCard p {
+  font-size: 12px;
+  color: grey;
+}
+/*JOBS PAGE END*/

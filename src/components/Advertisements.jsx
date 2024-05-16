@@ -7,7 +7,8 @@ const Advertisements = (props) => {
         <img
           src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
           alt="annuncio"
-          className="img-fluid"
+          className="img-fluid "
+          style={{ borderRadius: "5px" }}
         />
       </Card>
     </>
