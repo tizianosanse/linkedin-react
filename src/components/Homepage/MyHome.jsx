@@ -18,17 +18,16 @@ const MyHome = () => {
   const posts = useSelector((state) => state.Post.content);
   console.log(posts);
   const [visiblePost, setVisiblePost] = useState(30);
-  const [isLoading, setIsLoading] = useState(false);
+
+  const isLoading = useSelector(
+    (state) => state.LoadingReduce.content
+  );
 
   window.addEventListener("scroll", () => {
     const bottomOfPage =
       document.body.scrollHeight - window.innerHeight;
-    if (window.scrollY >= bottomOfPage && !isLoading) {
-      setIsLoading(true);
-      setTimeout(() => {
-        setVisiblePost(visiblePost + 30);
-        setIsLoading(false);
-      }, 3000);
+    if (window.scrollY >= bottomOfPage) {
+      setVisiblePost(visiblePost + 30);
     }
   });
   useEffect(() => {
