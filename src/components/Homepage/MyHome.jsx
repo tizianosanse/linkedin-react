@@ -31,10 +31,10 @@ const MyHome = () => {
     <>
       <Container className="my-3">
         <Row className="justify-content-between">
-          <Col xs={2} md={2} lg={2}>
+          <Col xs={0} lg={2} className="d-none d-lg-block">
             <ProfileCardHome />
           </Col>
-          <Col xs={7} md={7} lg={7}>
+          <Col xs={12} lg={7}>
             <NewPostHome />
             {posts.length > 0 &&
               posts
@@ -47,7 +47,7 @@ const MyHome = () => {
                 })}
             <Message />
           </Col>
-          <Col xs={3} md={3} lg={3}>
+          <Col xs={0} lg={3} className="d-none d-lg-block">
             <NotizieHome />
             <Advertisements />
             <FooterHome />
