@@ -44,9 +44,14 @@ const PostHome = (props) => {
           </div>
         </div>
         <p className="mt-3">{props.post.text}</p>
+
         <Card.Img
           variant="top"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/991px-Placeholder_view_vector.svg.png"
+          src={
+            props.post.image
+              ? props.post.image
+              : "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/991px-Placeholder_view_vector.svg.png"
+          }
           className="imagePostHome"
         />
         <Card.Footer className="mt-3 bg-white">
