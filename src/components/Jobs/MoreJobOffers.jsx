@@ -31,7 +31,7 @@ const MoreJobOffers = () => {
               company={job.company_name}
               location={job.candidate_required_location}
               url={job.url}
-              key="1"
+              key={job._id}
             />
           );
         })}

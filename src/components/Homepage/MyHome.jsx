@@ -11,15 +11,21 @@ import Message from "../Message";
 import Advertisements from "../Advertisements";
 import FooterHome from "./FooterHome";
 import ProfileCardHomeResp from "./ProfileCardHomeResp";
+import Loading from "../Loading";
 
 const MyHome = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.Post.content);
   console.log(posts);
   const [visiblePost, setVisiblePost] = useState(30);
-  const bottomOfPage =
-    document.body.scrollHeight - window.innerHeight;
+
+  const isLoading = useSelector(
+    (state) => state.LoadingReduce.content
+  );
+
   window.addEventListener("scroll", () => {
+    const bottomOfPage =
+      document.body.scrollHeight - window.innerHeight;
     if (window.scrollY >= bottomOfPage) {
       setVisiblePost(visiblePost + 30);
     }
@@ -52,6 +58,8 @@ const MyHome = () => {
                     <PostHome post={post} key={post._id} />
                   );
                 })}
+            {isLoading && <Loading />}
+
             <Message />
           </Col>
           <Col xs={0} lg={3} className="d-none d-lg-block">
