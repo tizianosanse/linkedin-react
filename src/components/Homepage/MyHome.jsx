@@ -4,7 +4,7 @@ import ProfileCardHome from "./ProfileCardHome";
 import NewPostHome from "./NewPostHome";
 import PostHome from "./PostHome";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getPostsAction } from "../../redux/actions/Post";
 import NotizieHome from "./NotizieHome";
 import Message from "../Message";
@@ -15,9 +15,18 @@ const MyHome = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.Post.content);
   console.log(posts);
+  const [visiblePost, setVisiblePost] = useState(30);
+  const bottomOfPage =
+    document.body.scrollHeight - window.innerHeight;
+  window.addEventListener("scroll", () => {
+    if (window.scrollY >= bottomOfPage) {
+      setVisiblePost(visiblePost + 30);
+    }
+  });
   useEffect(() => {
     dispatch(getPostsAction());
   }, []);
+
   return (
     <>
       <Container className="my-3">
@@ -30,9 +39,11 @@ const MyHome = () => {
             {posts.length > 0 &&
               posts
                 .reverse()
-                .slice(0, 30)
+                .slice(0, visiblePost)
                 .map((post) => {
-                  return <PostHome post={post} key={post._id} />;
+                  return (
+                    <PostHome post={post} key={post._id} />
+                  );
                 })}
             <Message />
           </Col>

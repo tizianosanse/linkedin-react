@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import {
-  Card,
   Col,
   Container,
   Image,
@@ -71,33 +70,48 @@ const ProfileInformation = (props) => {
         </div>
       </div>
       <div className="ProfileInformation p-4 rounded-bottom-4 border border-1 position-relative">
-        {!show2 && (
-          <Image
-            onClick={handleShow2}
-            src={information.image}
-            alt="Profile picture"
-            width={150}
-            height={150}
-            className="rounded-circle position-absolute border border-white border-5 "
-          />
-        )}
+        <Image
+          onClick={handleShow2}
+          src={information.image}
+          alt="Profile picture"
+          width={150}
+          height={150}
+          className="rounded-circle position-absolute border border-white border-5 "
+        />
+
         {show2 && (
           <>
-            <Modal show={show2} onHide={handleClose2}>
+            <Modal
+              show={show2}
+              onHide={handleClose2}
+              size="lg"
+              className="my-modal"
+            >
               <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
-                <Card>
-                  <div>
-                    <input
-                      type="file"
-                      onChange={(e) => {
-                        setFile(e.target.files[0]);
-                      }}
-                    />
-                  </div>
-                </Card>
+                <Modal.Title className="modTit">
+                  Foto profilo
+                </Modal.Title>
               </Modal.Header>
-              <Modal.Body></Modal.Body>
+
+              <Modal.Body>
+                <Image
+                  onClick={handleShow2}
+                  src={information.image}
+                  alt="Profile picture"
+                  width={150}
+                  height={150}
+                  className="rounded-circle  border border-white border-5 "
+                />
+                <div>
+                  <input
+                    type="file"
+                    onChange={(e) => {
+                      setFile(e.target.files[0]);
+                    }}
+                  />
+                </div>
+              </Modal.Body>
+
               <Modal.Footer>
                 <Button
                   variant="secondary"
