@@ -1,4 +1,8 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
 import "./App.css";
 import MyNavbar from "./components/MyNavbar";
 
@@ -6,7 +10,7 @@ import ProfilePage from "./components/ProfilePage";
 import Message from "./components/Message";
 import ProfileFooter from "./components/ProfileFooter";
 import DetailExperience from "./components/DetailExperience";
-import ModalForm from "./components/ModalForm";
+
 import MyHome from "./components/Homepage/MyHome";
 import Jobs from "./components/Jobs/Jobs";
 import Search from "./components/Search/Search";
@@ -39,9 +43,11 @@ function App() {
                 </>
               }
             />
-            <Route path="/form/:singleExpId" element={<ModalForm putOrDeleteExperience={true} />} />
             <Route path="/jobs" element={<Jobs />} />
-            <Route path="/search/:query" element={<Search />} />
+            <Route
+              path="/search/:query"
+              element={<Search />}
+            />
           </Routes>
         </BrowserRouter>
       </div>
