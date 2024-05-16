@@ -8,7 +8,7 @@ import { Col, Image, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getInformationNavBar } from "../redux/actions/ProfileInformationActions";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import ModalInformation from "./ModalInformation";
 
 const MyNavbar = () => {
@@ -28,9 +28,10 @@ const MyNavbar = () => {
     setShowInputSearch(false);
   };
   const handleShowModalSearch = () => setShowModalSearch(true);
+  const location = useLocation();
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 600) {
+    if (window.scrollY > 600 && location.pathname === "/profilePage/me") {
       setShowProva(true);
     } else {
       setShowProva(false);

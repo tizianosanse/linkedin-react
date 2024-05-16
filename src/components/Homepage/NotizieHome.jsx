@@ -38,10 +38,10 @@ const NotizieHome = () => {
               {infoNews &&
                 infoNews.articles &&
                 infoNews.articles.length > 0 &&
-                infoNews.articles.slice(0, 5).map((dato) => {
+                infoNews.articles.slice(0, 5).map((dato, i) => {
                   return (
                     <>
-                      <ListGroup.Item className="fw-bold text-dark">
+                      <ListGroup.Item className="fw-bold text-dark" key={i}>
                         {dato.title}
                         <p className="textColorLightGrey m-0">
                           {getYearAndMonth(dato.publishedAt)}
@@ -83,10 +83,10 @@ const NotizieHome = () => {
               {infoNews &&
                 infoNews.articles &&
                 infoNews.articles.length > 0 &&
-                infoNews.articles.slice(0, 10).map((dato) => {
+                infoNews.articles.slice(0, 10).map((dato, i) => {
                   return (
                     <>
-                      <ListGroup.Item className="fw-bold text-dark">
+                      <ListGroup.Item className="fw-bold text-dark" key={i}>
                         {dato.title}
                         <p className="textColorLightGrey m-0">
                           {getYearAndMonth(dato.publishedAt)}
