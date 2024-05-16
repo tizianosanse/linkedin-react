@@ -9,6 +9,7 @@ import DetailExperience from "./components/DetailExperience";
 import ModalForm from "./components/ModalForm";
 import MyHome from "./components/Homepage/MyHome";
 import Jobs from "./components/Jobs/Jobs";
+import Search from "./components/Search/Search";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             />
             <Route path="/form/:singleExpId" element={<ModalForm putOrDeleteExperience={true} />} />
             <Route path="/jobs" element={<Jobs />} />
+            <Route path="/search/:query" element={<Search />} />
           </Routes>
         </BrowserRouter>
       </div>
