@@ -11,9 +11,7 @@ const JobsPremium = () => {
   const dispatch = useDispatch();
   const premium = useSelector((state) => state.Jobs.premiumJobs);
   console.log(premium);
-  const information = useSelector(
-    (state) => state.ProfileInformation.informationJobPrem
-  );
+  const information = useSelector((state) => state.ProfileInformation.informationJobPrem);
   console.log(premium);
   useEffect(() => {
     dispatch(getJobsPremium());
@@ -25,11 +23,9 @@ const JobsPremium = () => {
   return (
     <>
       {" "}
-      <div className=" bg-white p-3 rounded-top-3 border border-1 exploreOpportunity">
+      <div className=" bg-white p-3 rounded-top-3 border border-1 exploreOpportunity mt-3">
         <h2 className="mb-0 mt-2">Offerte Premium</h2>
-        <p className="mb-0">
-          Sulla base del tuo profilo e della tua cronologia delle ricerche
-        </p>
+        <p className="mb-0">Sulla base del tuo profilo e della tua cronologia delle ricerche</p>
         <Image src={information.image} width={50} height={50} />
         {premium.map((prem) => {
           console.log(prem);
@@ -48,13 +44,7 @@ const JobsPremium = () => {
         <Link className="text-decoration-none p-2 text-black " to="">
           Mostra tutto
           <span className="ms-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20px"
-              height="20px"
-              viewBox="0 -6.5 38 38"
-              version="1.1"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 -6.5 38 38" version="1.1">
               <g id="icons" stroke="none" fill="none">
                 <g
                   id="ui-gambling-website-lined-icnos-casinoshunter"
