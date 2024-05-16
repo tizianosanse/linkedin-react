@@ -6,16 +6,17 @@ import ExploreOpportunityCard from "../Jobs/ExploreOpportunityCard";
 
 const SearchResult = () => {
   const dispatch = useDispatch();
-  const params = useParams();
+  const query = useParams();
+  console.log(query);
   const jobs = useSelector((state) => state.Search.searchJobs);
-  console.log(jobs);
+
   useEffect(() => {
-    dispatch(getSearchAction(params));
+    dispatch(getSearchAction(query));
   }, []);
 
   return (
     <>
-      <div className=" bg-white p-3 rounded-top-3 border border-1 exploreOpportunity">
+      <div className=" bg-white p-3 border border-1 exploreOpportunity search-page">
         {jobs.map((job) => {
           console.log(job);
           return (
