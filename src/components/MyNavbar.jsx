@@ -8,13 +8,22 @@ import { Col, Image, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getInformationNavBar } from "../redux/actions/ProfileInformationActions";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import ModalInformation from "./ModalInformation";
 
 const MyNavbar = () => {
   const information = useSelector((state) => state.ProfileInformation.informationNav);
   const [showProva, setShowProva] = useState(false);
   const [show, setShow] = useState(false);
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+  const handleChange = (value) => {
+    setQuery(value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/search/" + query);
+  };
   const handleClose = () => setShow(false);
   const [showInputSearch, setShowInputSearch] = useState(false);
   console.log(show);
@@ -102,8 +111,15 @@ const MyNavbar = () => {
               </Modal.Header>
               <Modal.Body>Nessuna ricerca</Modal.Body>
             </Modal>
-            <Form className="d-flex position-relative d-none d-md-block">
-              <Form.Control type="search" placeholder="Cerca" className="formCercaNavbar" aria-label="Search" />
+            <Form className="d-flex position-relative d-none d-md-block" onSubmit={handleSubmit}>
+              <Form.Control
+                type="search"
+                placeholder="Cerca"
+                className="formCercaNavbar"
+                aria-label="Search"
+                value={query}
+                onChange={(e) => handleChange(e.target.value)}
+              />
 
               <div className="searchIconNavbar">
                 <svg

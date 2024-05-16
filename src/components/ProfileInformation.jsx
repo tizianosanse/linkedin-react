@@ -133,27 +133,30 @@ const ProfileInformation = (props) => {
             5 collegamenti
           </Link>
         </div>
-        <div className="d-grid gap-2 d-block d-md-none">
+        <div className="d-grid gap-2 d-block d-lg-none">
           <Button variant="primary" className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2">
             Disponibile per
           </Button>
         </div>
-        <Button variant="primary" className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2 d-none d-md-block">
-          Disponibile per
-        </Button>
-        <Button
-          variant="outline-primary"
-          className="fw-semibold mt-3 rounded-pill ms-2  btn-alert"
-          onClick={handleShow}
-        >
-          Aggiungi sezione del profilo
-        </Button>
-        <Button variant="outline-dark" className="fw-semibold mt-3 rounded-circle rounded-md-pill ms-2  btn-alert">
-          <p className="d-none d-md-block m-0">Altro</p>{" "}
-          <p className="d-block d-md-none m-0">
-            <i className="bi bi-three-dots"></i>
-          </p>
-        </Button>
+        <div className="d-flex">
+          <Button variant="primary" className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2 d-none d-lg-block">
+            Disponibile per
+          </Button>
+          <Button
+            variant="outline-primary"
+            className="fw-semibold mt-3 rounded-pill ms-2  btn-alert"
+            onClick={handleShow}
+          >
+            Aggiungi sezione del profilo
+          </Button>
+          <Button variant="outline-dark" className="fw-semibold mt-3 rounded-circle rounded-md-pill ms-2  btn-alert">
+            <p className="d-none d-lg-block m-0">Altro</p>{" "}
+            <p className="d-block d-lg-none m-0">
+              <i className="bi bi-three-dots"></i>
+            </p>
+          </Button>
+        </div>
+
         <Container fluid>
           <Row className="justify-content-evenly">
             <Col xs={12} lg={5} className="DisponibileALavorare mt-4 p-3 rounded-3">

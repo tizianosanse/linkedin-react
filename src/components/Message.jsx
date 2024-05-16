@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   Card,
@@ -7,7 +7,9 @@ import {
   InputGroup,
   ListGroup,
 } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { profilesAction } from "../redux/actions/Profiles";
+import { getInformationNavBar } from "../redux/actions/ProfileInformationActions";
 
 const Message = () => {
   const information = useSelector(
@@ -17,6 +19,11 @@ const Message = () => {
     (state) => state.Profiles.content
   );
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(profilesAction());
+    dispatch(getInformationNavBar());
+  }, []);
 
   return (
     <>
