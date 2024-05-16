@@ -1,30 +1,45 @@
-import { Link } from "react-router-dom";
-import ExploreOpportunityCard from "./ExploreOpportunityCard";
-import { getJobsAction } from "../../redux/actions/Jobs";
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getJobsPremium } from "../../redux/actions/Jobs";
 
-const ExploreOpportunity = () => {
+import { Link } from "react-router-dom";
+import JobsPremiumCard from "./JobsPremiumCard";
+import { getInformationJobsPremium } from "../../redux/actions/ProfileInformationActions";
+import { Image } from "react-bootstrap";
+
+const JobsPremium = () => {
   const dispatch = useDispatch();
-  const jobs = useSelector((state) => state.Jobs.exploreJobs);
-  console.log(jobs);
+  const premium = useSelector((state) => state.Jobs.premiumJobs);
+  console.log(premium);
+  const information = useSelector(
+    (state) => state.ProfileInformation.informationJobPrem
+  );
+  console.log(premium);
   useEffect(() => {
-    dispatch(getJobsAction());
+    dispatch(getJobsPremium());
   }, []);
+  useEffect(() => {
+    dispatch(getInformationJobsPremium());
+  }, []);
+
   return (
     <>
+      {" "}
       <div className=" bg-white p-3 rounded-top-3 border border-1 exploreOpportunity">
-        <h2 className="mb-0 mt-2">Esplora le opportunità</h2>
-        <p className="mb-0">Sulla base del tuo profilo e della tua cronologia delle ricerche</p>
-        {jobs.map((job) => {
-          console.log(job);
+        <h2 className="mb-0 mt-2">Offerte Premium</h2>
+        <p className="mb-0">
+          Sulla base del tuo profilo e della tua cronologia delle ricerche
+        </p>
+        <Image src={information.image} width={50} height={50} />
+        {premium.map((prem) => {
+          console.log(prem);
           return (
-            <ExploreOpportunityCard
-              role={job.title}
-              company={job.company_name}
-              location={job.candidate_required_location}
-              url={job.url}
-              key={job._id}
+            <JobsPremiumCard
+              role={prem.title}
+              company={prem.company_name}
+              location={prem.candidate_required_location}
+              url={prem.url}
+              key="1"
             />
           );
         })}
@@ -33,7 +48,13 @@ const ExploreOpportunity = () => {
         <Link className="text-decoration-none p-2 text-black " to="">
           Mostra tutto
           <span className="ms-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 -6.5 38 38" version="1.1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20px"
+              height="20px"
+              viewBox="0 -6.5 38 38"
+              version="1.1"
+            >
               <g id="icons" stroke="none" fill="none">
                 <g
                   id="ui-gambling-website-lined-icnos-casinoshunter"
@@ -55,5 +76,4 @@ const ExploreOpportunity = () => {
     </>
   );
 };
-
-export default ExploreOpportunity;
+export default JobsPremium;
