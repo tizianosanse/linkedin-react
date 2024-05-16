@@ -692,4 +692,10 @@ div .AlertConsigliati {
   font-size: 12px;
   color: grey;
 }
+
+.footer-jobs-page {
+  position: sticky;
+  top: 73px;
+}
+
 /*JOBS PAGE END*/
