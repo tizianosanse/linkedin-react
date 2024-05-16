@@ -17,11 +17,17 @@ const MyHome = () => {
   const posts = useSelector((state) => state.Post.content);
   console.log(posts);
   const [visiblePost, setVisiblePost] = useState(30);
-  const bottomOfPage =
-    document.body.scrollHeight - window.innerHeight;
+  const [isLoading, setIsLoading] = useState(false);
+
   window.addEventListener("scroll", () => {
-    if (window.scrollY >= bottomOfPage) {
-      setVisiblePost(visiblePost + 30);
+    const bottomOfPage =
+      document.body.scrollHeight - window.innerHeight;
+    if (window.scrollY >= bottomOfPage && !isLoading) {
+      setIsLoading(true);
+      setTimeout(() => {
+        setVisiblePost(visiblePost + 30);
+        setIsLoading(false);
+      }, 3000);
     }
   });
   useEffect(() => {
@@ -49,7 +55,11 @@ const MyHome = () => {
                 .slice(0, visiblePost)
                 .map((post) => {
                   return (
-                    <PostHome post={post} key={post._id} />
+                    <PostHome
+                      post={post}
+                      key={post._id}
+                      isLoading={isLoading}
+                    />
                   );
                 })}
             <Message />
