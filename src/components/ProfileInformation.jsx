@@ -1,34 +1,28 @@
 import { useEffect, useState } from "react";
-import {
-  Col,
-  Container,
-  Image,
-  Modal,
-  Row,
-} from "react-bootstrap";
+import { Col, Container, Image, Modal, Row } from "react-bootstrap";
 import { Button } from "react-bootstrap/esm";
 import { useDispatch, useSelector } from "react-redux";
 import { getInformation } from "../redux/actions/ProfileInformationActions";
 import { Link } from "react-router-dom";
 import pencil from "../assets/icons8-pencil-48.png";
 import { handleUploadProfilePictures } from "../redux/actions/UploadFile";
-
+import { useRef } from "react";
 import ModalInformation from "./ModalInformation";
 
 const ProfileInformation = (props) => {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
   const [file, setFile] = useState();
-
-  const information = useSelector(
-    (state) => state.ProfileInformation.content
-  );
+  const inputRef = useRef(null);
+  const information = useSelector((state) => state.ProfileInformation.content);
 
   const handleClose2 = () => setShow2(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleShow2 = () => setShow2(true);
-
+  const handleUpload = () => {
+    inputRef.current?.click();
+  };
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,9 +33,7 @@ const ProfileInformation = (props) => {
   const getUploadImg = () => {
     const formData = new FormData();
     formData.append("profile", file);
-    dispatch(
-      handleUploadProfilePictures(formData, information._id)
-    );
+    dispatch(handleUploadProfilePictures(formData, information._id));
   };
   return (
     <>
@@ -88,42 +80,42 @@ const ProfileInformation = (props) => {
               className="my-modal"
             >
               <Modal.Header closeButton>
-                <Modal.Title className="modTit">
-                  Foto profilo
-                </Modal.Title>
+                <Modal.Title className="modTit">Foto profilo</Modal.Title>
               </Modal.Header>
 
               <Modal.Body>
-                <Image
-                  onClick={handleShow2}
-                  src={information.image}
-                  alt="Profile picture"
-                  width={150}
-                  height={150}
-                  className="rounded-circle  border border-white border-5 "
-                />
-                <div>
+                <div className="d-flex justify-content-center">
+                  {" "}
+                  <Image
+                    src={information.image}
+                    alt="Profile picture"
+                    width={300}
+                    height={300}
+                    className="rounded-circle  border border-white border-5 "
+                  />
+                </div>
+              </Modal.Body>
+
+              <Modal.Footer className="d-flex justify-content-between">
+                <div className="m-3">
                   <input
+                    ref={inputRef}
+                    className="d-none"
                     type="file"
                     onChange={(e) => {
                       setFile(e.target.files[0]);
                     }}
                   />
+                  <button
+                    onClick={handleUpload}
+                    className="btn btn-outline-light d-flex flex-column align-items-center"
+                  >
+                    <i className="bi bi-camera-fill fs-4"></i>
+                    <p className="m-0"> aggiungi foto</p>
+                  </button>
                 </div>
-              </Modal.Body>
-
-              <Modal.Footer>
-                <Button
-                  variant="secondary"
-                  onClick={handleClose2}
-                >
-                  Close
-                </Button>
-                <Button
-                  variant="primary"
-                  onClick={getUploadImg}
-                >
-                  Save Changes
+                <Button variant="primary" onClick={getUploadImg}>
+                  Salva Foto
                 </Button>
               </Modal.Footer>
             </Modal>
@@ -137,9 +129,7 @@ const ProfileInformation = (props) => {
           {information.surname}
         </h1>
         <h2 className="fw-normal">{information.title}</h2>
-        <h3 className="lead d-inline-block me-2">
-          {information.area}{" "}
-        </h3>
+        <h3 className="lead d-inline-block me-2">{information.area} </h3>
         <Link to={"/"} className="fw-semibold d-block">
           Informazioni di contatto
         </Link>
@@ -185,12 +175,8 @@ const ProfileInformation = (props) => {
               lg={5}
               className="DisponibileALavorare mt-4 p-3 rounded-3"
             >
-              <h3 className="mb-0 fw-semibold">
-                Disponibile a lavorare
-              </h3>
-              <h2 className="mb-0 fw-normal">
-                Ruoli di {information.title}
-              </h2>
+              <h3 className="mb-0 fw-semibold">Disponibile a lavorare</h3>
+              <h2 className="mb-0 fw-normal">Ruoli di {information.title}</h2>
               <Link to={"/"} className="fw-semibold">
                 Mostra dettagli
               </Link>
@@ -201,8 +187,8 @@ const ProfileInformation = (props) => {
               className="DisponibileALavorare  d-none d-lg-inline-block mt-4 p-3 rounded-3 bg-white border "
             >
               <h2 className="mb-0 fw-normal">
-                Fai sapere che stai facendo selezione e
-                attrai candidati interessanti
+                Fai sapere che stai facendo selezione e attrai candidati
+                interessanti
               </h2>
               <Link to={"/"} className="fw-semibold">
                 Inizia
