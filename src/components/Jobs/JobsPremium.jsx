@@ -5,7 +5,7 @@ import { getJobsPremium } from "../../redux/actions/Jobs";
 import { Link } from "react-router-dom";
 import JobsPremiumCard from "./JobsPremiumCard";
 import { getInformationJobsPremium } from "../../redux/actions/ProfileInformationActions";
-import { Image } from "react-bootstrap";
+import { Button, Col, Image, Row } from "react-bootstrap";
 
 const JobsPremium = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,26 @@ const JobsPremium = () => {
         <p className="mb-0">
           Sulla base del tuo profilo e della tua cronologia delle ricerche
         </p>
-        <Image src={information.image} width={50} height={50} />
+        <Row className="align-items-center">
+          {" "}
+          <Col xs={2}>
+            <Image
+              src={information.image}
+              width={66}
+              height={66}
+              className=" mt-3 rounded-circle  border border-white border-5"
+            />
+          </Col>
+          <Col xs={10}>
+            <h4 className="fs-6">
+              Vedi l elenco delle offerte di lavoro alle quali ti sei candidato
+            </h4>
+            <Button className="btn-warning btn-premium">
+              Prova Premium per 0 euro
+            </Button>
+          </Col>
+        </Row>
+
         {premium.map((prem) => {
           console.log(prem);
           return (
