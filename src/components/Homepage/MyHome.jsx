@@ -23,15 +23,17 @@ const MyHome = () => {
     (state) => state.LoadingReduce.content
   );
 
-  window.addEventListener("scroll", () => {
-    const bottomOfPage =
-      document.body.scrollHeight - window.innerHeight;
-    if (window.scrollY >= bottomOfPage) {
-      setVisiblePost(visiblePost + 30);
-    }
-  });
   useEffect(() => {
     dispatch(getPostsAction());
+  }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      const bottomOfPage =
+        document.body.scrollHeight - window.innerHeight;
+      if (window.scrollY >= bottomOfPage) {
+        setVisiblePost(visiblePost + 30);
+      }
+    });
   }, []);
 
   return (
