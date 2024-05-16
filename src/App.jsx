@@ -4,7 +4,6 @@ import {
   Routes,
 } from "react-router-dom";
 import "./App.css";
-import MyNavbar from "./components/MyNavbar";
 
 import ProfilePage from "./components/ProfilePage";
 import Message from "./components/Message";
@@ -15,13 +14,14 @@ import MyHome from "./components/Homepage/MyHome";
 import Jobs from "./components/Jobs/Jobs";
 import Search from "./components/Search/Search";
 import NotFound from "./components/NotFound";
+import ConditionalNav from "./components/ConditionalNav";
 
 function App() {
   return (
     <>
       <div className="App">
         <BrowserRouter>
-          <MyNavbar />
+          <ConditionalNav />
           <Routes>
             <Route path={"/"} element={<MyHome />} />
             <Route
