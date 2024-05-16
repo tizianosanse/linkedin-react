@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Card, Image, Modal } from "react-bootstrap";
+import { Image, Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap/esm";
 import { useDispatch, useSelector } from "react-redux";
 import { getInformation } from "../redux/actions/ProfileInformationActions";
@@ -17,6 +17,7 @@ const ProfileInformation = (props) => {
   const information = useSelector((state) => state.ProfileInformation.content);
 
   const handleClose = () => setShow(false);
+  const handleClose2 = () => setShow2(false);
 
   const handleShow = () => setShow(true);
   const handleShow2 = () => setShow2(true);
@@ -60,35 +61,48 @@ const ProfileInformation = (props) => {
         </div>
       </div>
       <div className="ProfileInformation p-4 rounded-bottom-4 border border-1 position-relative">
-        {!show2 && (
-          <Image
-            onClick={handleShow2}
-            src={information.image}
-            alt="Profile picture"
-            width={150}
-            height={150}
-            className="rounded-circle position-absolute border border-white border-5 "
-          />
-        )}
+        <Image
+          onClick={handleShow2}
+          src={information.image}
+          alt="Profile picture"
+          width={150}
+          height={150}
+          className="rounded-circle position-absolute border border-white border-5 "
+        />
+
         {show2 && (
           <>
-            <Modal show={show2} onHide={handleShow2}>
-              <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
-                <Card>
-                  <div>
-                    <input
-                      type="file"
-                      onChange={(e) => {
-                        setFile(e.target.files[0]);
-                      }}
-                    />
-                  </div>
-                </Card>
+            <Modal
+              show={show2}
+              onHide={handleShow2}
+              size="lg"
+              className="my-modal"
+            >
+              <Modal.Header closeButton onClick={handleClose2}>
+                <Modal.Title className="modTit">Foto profilo</Modal.Title>
               </Modal.Header>
-              <Modal.Body></Modal.Body>
+
+              <Modal.Body>
+                <Image
+                  onClick={handleShow2}
+                  src={information.image}
+                  alt="Profile picture"
+                  width={150}
+                  height={150}
+                  className="rounded-circle  border border-white border-5 "
+                />
+                <div>
+                  <input
+                    type="file"
+                    onChange={(e) => {
+                      setFile(e.target.files[0]);
+                    }}
+                  />
+                </div>
+              </Modal.Body>
+
               <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button variant="secondary" onClick={handleClose2}>
                   Close
                 </Button>
                 <Button variant="primary" onClick={getUploadImg}>
