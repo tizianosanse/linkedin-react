@@ -311,6 +311,38 @@ button.bg-transparent.avviaUnPost.btn.btn-primary {
     border: none;
   }
 }
+span.spanNovitaNotizie {
+  background-color: #f9d1ae;
+  color: #523a51;
+  font-size: 14px;
+  padding: 2px 4px;
+  border-radius: 5px;
+}
+.colorfontLightGray {
+  color: #7c7c7c;
+}
+.paddingSedici {
+  padding: 0 16px;
+}
+.dropdownfooterHome {
+  background-color: transparent;
+  border: none;
+  color: #7f7f7f;
+  font-weight: 300;
+  font-size: 14px;
+  padding: 0;
+}
+.divFooterHome {
+  p {
+    margin: 0;
+  }
+}
+.divFooterHome {
+  p:hover {
+    color: #1766c2;
+    text-decoration: underline;
+  }
+}
 /* homepage fino a  qui */
 
 .backgroundProfileImage {
