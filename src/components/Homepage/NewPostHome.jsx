@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button, Card, Dropdown, Image, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { createNewPost, getPostsAction } from "../../redux/actions/Post";
+import { createNewPost } from "../../redux/actions/Post";
 
 const NewPostHome = () => {
   const information = useSelector((state) => state.ProfileInformation.informationNav);
@@ -12,15 +12,23 @@ const NewPostHome = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [file, setFile] = useState(null);
+  const inputRef = useRef(null);
+
+  const setFileValue = (event) => {
+    setFile(event.target.files[0]);
+  };
+
   const newPost = () => {
     let post = { text: textArea };
-    console.log(post);
-    dispatch(createNewPost(JSON.stringify(post)));
+
+    const formData = new FormData();
+
+    formData.append("post", file);
+
+    dispatch(createNewPost(JSON.stringify(post), formData));
     setShow(false);
     setTextArea("");
-    setTimeout(() => {
-      dispatch(getPostsAction());
-    }, 1000);
   };
   return (
     <>
@@ -53,6 +61,13 @@ const NewPostHome = () => {
                   setTextArea(e.target.value);
                 }}
               ></textarea>
+              <input
+                ref={inputRef}
+                type="file"
+                onChange={(e) => {
+                  setFileValue(e);
+                }}
+              />
               <div className="d-flex">
                 <p className="mx-3">
                   <svg
