@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import {
-  Card,
   Col,
   Container,
   Image,
