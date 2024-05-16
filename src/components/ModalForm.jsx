@@ -8,12 +8,14 @@ import {
   PutSingleExperience,
 } from "../redux/actions/Experience";
 import { useNavigate, useParams } from "react-router-dom";
+import { handleUploadExperiencePictures } from "../redux/actions/UploadFile";
 
 const ModalForm = (props) => {
   const information = useSelector((state) => state.ProfileInformation.content);
   const { singleExpId } = useParams();
   const [showPutModal, setShowPutModal] = useState(true);
   const [showConfirmation, setConfirmation] = useState(false);
+  const [imageExperience, setimageExperience] = useState(false);
   const navigate = useNavigate();
   const handleClosePutModal = () => {
     setShowPutModal(false);
@@ -30,7 +32,10 @@ const ModalForm = (props) => {
   };
   const handleSubmitModify = (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("experience", imageExperience);
     dispatch(PutExperienceAction(id, "PUT", informationMod, singleExpId));
+    dispatch(handleUploadExperiencePictures(formData, id, singleExpId));
     navigate("/DetailExperience");
   };
   const handleDelete = () => {
@@ -156,6 +161,17 @@ const ModalForm = (props) => {
                   }}
                   placeholder=""
                   className="border-black "
+                />
+              </Form.Group>
+              <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">
+                <Form.Label className="fw-light mb-0">Immagine esperienza*</Form.Label>
+                <Form.Control
+                  size="sm"
+                  type="file"
+                  className="border-black "
+                  onChange={(e) => {
+                    setimageExperience(e.target.files[0]);
+                  }}
                 />
               </Form.Group>
               <Form.Group className="mb-4" controlId="exampleForm.ControlTextarea1">

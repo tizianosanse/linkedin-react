@@ -25,15 +25,16 @@ const Consigliati = () => {
         </span>
         <h5 className="textP mb-0 mt-3">intermedio</h5>
         <Row className="align-items-center">
-          <Col xs={11}>
+          <Col xs={10}>
             <Barra />
           </Col>
-          <Col xs={1}>
+          <Col xs={2}>
             <span>6/7</span>
           </Col>
         </Row>
         <p className=" textP mt-0">
-          Completa 1 passaggio per raggiungere il livello Massimo
+          Completa 1 passaggio per raggiungere il livello
+          Massimo
         </p>
 
         <AlertConsigliati />

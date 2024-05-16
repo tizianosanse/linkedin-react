@@ -1,5 +1,6 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
 .link {
   background-color: white;
   border: solid 1px transparent;
@@ -67,7 +68,6 @@ a#navbarScrollingDropdown {
   top: 57px;
   z-index: 99;
   background-color: white;
-  padding-top: 8px;
 }
 
 @media screen and (max-width: 992px) {
@@ -214,6 +214,102 @@ a#navbarScrollingDropdown {
 }
 
 /* navbar fino a qui */
+
+/* homepage da qui */
+.divVisitatoriImpressioni {
+  display: flex;
+  font-size: 0.9rem;
+  justify-content: space-between;
+}
+.textBlueLight {
+  color: rgb(10, 102, 194);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.underlineGray {
+  border-bottom: 1px solid #e1e1e1;
+}
+button.bg-transparent.avviaUnPost.btn.btn-primary {
+  color: gray;
+  border: 1px solid #c2c2c2;
+  width: 90%;
+  margin-left: 10px;
+  text-align: start;
+  border-radius: 26px;
+  height: 48px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.contenutiNewPost {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+.cardAvviaPost {
+  padding: 1px 5px 13px;
+  border-radius: 10px;
+}
+.fontSizeDodici {
+  font-size: 12px;
+}
+.fontSizeQuattordici {
+  font-size: 14px;
+}
+
+.imagePostHome {
+  max-height: 400px;
+  object-fit: contain;
+}
+.selezionaDropdownHomepage {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #616060;
+  justify-content: flex-end;
+  .buttonDropdown {
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-weight: 500;
+    font-size: 14px;
+  }
+}
+.selezionaDropdownHomepage::before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+  text-decoration: line-through;
+  color: #c7c7c7;
+  margin-right: 13px;
+}
+.congratulationsPost {
+  button,
+  button:hover {
+    border-radius: 25px;
+    background-color: transparent;
+    border: 1px solid grey;
+    color: #000000bf;
+    font-weight: 500;
+    font-size: 14px;
+  }
+}
+.postActionsColor {
+  color: #000000bf;
+}
+.pubblicaModaleHome {
+  background-color: #dedcdc;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #828282;
+}
+.textareaModalHomepage {
+  width: 100%;
+  border: none;
+  min-height: 300px;
+}
+/* homepage fino a  qui */
+
 .backgroundProfileImage {
   max-height: 201px;
 }
@@ -326,6 +422,11 @@ a#navbarScrollingDropdown {
 .img-profiles {
   height: 50px;
   width: 50px;
+}
+@media screen and (min-width: 768px) {
+  .rounded-md-pill {
+    border-radius: 25px !important;
+  }
 }
 
 .customDropdownBtn,

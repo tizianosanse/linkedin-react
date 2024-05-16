@@ -13,6 +13,9 @@ const Message = () => {
   const information = useSelector(
     (state) => state.ProfileInformation.content
   );
+  const profiles = useSelector(
+    (state) => state.Profiles.content
+  );
   const [open, setOpen] = useState(false);
 
   return (
@@ -21,7 +24,7 @@ const Message = () => {
         onClick={() => setOpen(!open)}
         aria-controls="example-collapse-text"
         aria-expanded={open}
-        className="fixed d-flex align-items-center justify-centent-between"
+        className="fixed  align-items-center justify-centent-between d-none d-lg-flex"
         variant="light"
       >
         <div className="d-flex align-items-center">
@@ -30,7 +33,7 @@ const Message = () => {
             alt=""
             className="img-profiles rounded-circle mx-3"
           />{" "}
-          <p className="fw-bold fs-7 m-0">Massaggistica</p>
+          <p className="fw-bold fs-7 m-0">Messaggistica</p>
         </div>
         <div className="d-flex align-items-center">
           <p className="fw-bold fs-5 mx-2 mb-0">
@@ -65,7 +68,7 @@ const Message = () => {
                   className="img-profiles rounded-circle mx-3"
                 />{" "}
                 <p className="fw-bold fs-7 m-0">
-                  Massaggistica
+                  Messaggistica
                 </p>
               </div>
               <div className="d-flex align-items-center">
@@ -100,21 +103,19 @@ const Message = () => {
               />
             </InputGroup>
             <ListGroup>
-              <ListGroup.Item>
-                <img src="" alt="" />
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Dapibus ac facilisis in
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Morbi leo risus
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Porta ac consectetur ac
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Vestibulum at eros
-              </ListGroup.Item>
+              {profiles &&
+                profiles.slice(15, 20).map((profile) => {
+                  return (
+                    <ListGroup.Item key={profile._id}>
+                      <img
+                        src={profile.image}
+                        alt="img- profile"
+                        className="rounded-circle img-profiles "
+                      />{" "}
+                      {profile.name} {profile.surname}
+                    </ListGroup.Item>
+                  );
+                })}
             </ListGroup>
           </Card>
         </div>
