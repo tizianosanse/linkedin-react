@@ -25,7 +25,7 @@ const JobsPremium = () => {
   return (
     <>
       {" "}
-      <div className=" bg-white p-3 rounded-top-3 border border-1 exploreOpportunity">
+      <div className=" bg-white p-3 rounded-top-3 border border-1 exploreOpportunity mt-3">
         <h2 className="mb-0 mt-2">Offerte Premium</h2>
         <p className="mb-0">
           Sulla base del tuo profilo e della tua cronologia delle ricerche
@@ -50,6 +50,10 @@ const JobsPremium = () => {
           </Col>
         </Row>
 
+        <p className="mb-0">
+          Sulla base del tuo profilo e della tua cronologia delle ricerche
+        </p>
+        <Image src={information.image} width={50} height={50} />
         {premium.map((prem) => {
           console.log(prem);
           return (
