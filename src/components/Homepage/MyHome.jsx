@@ -4,34 +4,54 @@ import ProfileCardHome from "./ProfileCardHome";
 import NewPostHome from "./NewPostHome";
 import PostHome from "./PostHome";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getPostsAction } from "../../redux/actions/Post";
+import NotizieHome from "./NotizieHome";
+import Message from "../Message";
+import Advertisements from "../Advertisements";
+import FooterHome from "./FooterHome";
 
 const MyHome = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.Post.content);
   console.log(posts);
+  const [visiblePost, setVisiblePost] = useState(30);
+  const bottomOfPage =
+    document.body.scrollHeight - window.innerHeight;
+  window.addEventListener("scroll", () => {
+    if (window.scrollY >= bottomOfPage) {
+      setVisiblePost(visiblePost + 30);
+    }
+  });
   useEffect(() => {
     dispatch(getPostsAction());
   }, []);
+
   return (
     <>
       <Container className="my-3">
         <Row className="justify-content-between">
-          <Col xs={2} md={2} lg={2}>
+          <Col xs={0} lg={2} className="d-none d-lg-block">
             <ProfileCardHome />
           </Col>
-          <Col xs={7} md={7} lg={7}>
+          <Col xs={12} lg={7}>
             <NewPostHome />
             {posts.length > 0 &&
               posts
                 .reverse()
-                .slice(0, 30)
+                .slice(0, visiblePost)
                 .map((post) => {
-                  return <PostHome post={post} key={post._id} />;
+                  return (
+                    <PostHome post={post} key={post._id} />
+                  );
                 })}
+            <Message />
           </Col>
-          <Col xs={3} md={3} lg={3}></Col>
+          <Col xs={0} lg={3} className="d-none d-lg-block">
+            <NotizieHome />
+            <Advertisements />
+            <FooterHome />
+          </Col>
         </Row>
       </Container>
     </>
