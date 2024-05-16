@@ -21,7 +21,7 @@ const ProfilePage = () => {
     <>
       <Container className="my-3">
         <Row className="justify-content-between">
-          <Col xs={12} md={6} lg={8}>
+          <Col xs={12} md={8}>
             <ProfileInformation idProfile={idProfile} />
             <Consigliati />
             <Analisi />
@@ -33,12 +33,7 @@ const ProfilePage = () => {
             <Competenze />
             <Interessi />
           </Col>
-          <Col
-            xs={0}
-            md={6}
-            lg={4}
-            className="d-none d-md-block"
-          >
+          <Col xs={0} md={4} className="d-none d-md-block">
             <LinguaProfilo />
             <Advertisements class={"my-3"} />
             <ProfiliCollegati
