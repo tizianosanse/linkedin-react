@@ -298,7 +298,6 @@ button.bg-transparent.avviaUnPost.btn.btn-primary {
 .congratulationsPost {
   button,
   button:hover {
-    border-radius: 25px;
     background-color: transparent;
     border: 1px solid grey;
     color: #000000bf;
@@ -359,6 +358,7 @@ span.spanNovitaNotizie {
     text-decoration: underline;
   }
 }
+
 /* homepage fino a  qui */
 
 .backgroundProfileImage {

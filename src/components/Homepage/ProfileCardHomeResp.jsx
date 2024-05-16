@@ -33,7 +33,7 @@ const ProfileCardHomeResp = () => {
                 className="imageUserNavbar position-absolute"
                 style={{
                   border: "2px solid white",
-                  top: `${open ? "20%" : "40%"}`,
+                  top: `${open ? "20%" : "33.3%"}`,
                   left: "45%",
                 }}
               ></Image>
