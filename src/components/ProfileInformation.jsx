@@ -73,12 +73,7 @@ const ProfileInformation = (props) => {
 
         {show2 && (
           <>
-            <Modal
-              show={show2}
-              onHide={handleClose2}
-              size="lg"
-              className="my-modal"
-            >
+            <Modal show={show2} onHide={handleClose2} size="lg" className="my-modal">
               <Modal.Header closeButton>
                 <Modal.Title className="modTit">Foto profilo</Modal.Title>
               </Modal.Header>
@@ -139,17 +134,11 @@ const ProfileInformation = (props) => {
           </Link>
         </div>
         <div className="d-grid gap-2 d-block d-md-none">
-          <Button
-            variant="primary"
-            className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2"
-          >
+          <Button variant="primary" className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2">
             Disponibile per
           </Button>
         </div>
-        <Button
-          variant="primary"
-          className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2 d-none d-md-block"
-        >
+        <Button variant="primary" className="fw-bold mt-3 rounded-pill btn-disponibile-per ms-md-2 d-none d-md-block">
           Disponibile per
         </Button>
         <Button
@@ -159,10 +148,7 @@ const ProfileInformation = (props) => {
         >
           Aggiungi sezione del profilo
         </Button>
-        <Button
-          variant="outline-dark"
-          className="fw-semibold mt-3 rounded-circle rounded-md-pill ms-2  btn-alert"
-        >
+        <Button variant="outline-dark" className="fw-semibold mt-3 rounded-circle rounded-md-pill ms-2  btn-alert">
           <p className="d-none d-md-block m-0">Altro</p>{" "}
           <p className="d-block d-md-none m-0">
             <i className="bi bi-three-dots"></i>
@@ -170,11 +156,7 @@ const ProfileInformation = (props) => {
         </Button>
         <Container fluid>
           <Row className="justify-content-evenly">
-            <Col
-              xs={12}
-              lg={5}
-              className="DisponibileALavorare mt-4 p-3 rounded-3"
-            >
+            <Col xs={12} lg={5} className="DisponibileALavorare mt-4 p-3 rounded-3">
               <h3 className="mb-0 fw-semibold">Disponibile a lavorare</h3>
               <h2 className="mb-0 fw-normal">Ruoli di {information.title}</h2>
               <Link to={"/"} className="fw-semibold">
@@ -186,10 +168,7 @@ const ProfileInformation = (props) => {
               lg={5}
               className="DisponibileALavorare  d-none d-lg-inline-block mt-4 p-3 rounded-3 bg-white border "
             >
-              <h2 className="mb-0 fw-normal">
-                Fai sapere che stai facendo selezione e attrai candidati
-                interessanti
-              </h2>
+              <h2 className="mb-0 fw-normal">Fai sapere che stai facendo selezione e attrai candidati interessanti</h2>
               <Link to={"/"} className="fw-semibold">
                 Inizia
               </Link>
@@ -197,11 +176,7 @@ const ProfileInformation = (props) => {
           </Row>
         </Container>
 
-        <ModalInformation
-          show={show}
-          handleClose={handleClose}
-          setShow={setShow}
-        />
+        <ModalInformation show={show} handleClose={handleClose} setShow={setShow} />
       </div>
     </>
   );

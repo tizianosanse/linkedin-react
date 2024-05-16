@@ -40,15 +40,13 @@ const NotizieHome = () => {
                 infoNews.articles.length > 0 &&
                 infoNews.articles.slice(0, 5).map((dato, i) => {
                   return (
-                    <>
-                      <ListGroup.Item className="fw-bold text-dark" key={i}>
-                        {dato.title}
-                        <p className="textColorLightGrey m-0">
-                          {getYearAndMonth(dato.publishedAt)}
-                          <span> • {randomLectures()} lettori</span>
-                        </p>
-                      </ListGroup.Item>
-                    </>
+                    <ListGroup.Item className="fw-bold text-dark" key={`${i}job`}>
+                      {dato.title}
+                      <p className="textColorLightGrey m-0">
+                        {getYearAndMonth(dato.publishedAt)}
+                        <span> • {randomLectures()} lettori</span>
+                      </p>
+                    </ListGroup.Item>
                   );
                 })}
             </ListGroup>
@@ -85,15 +83,13 @@ const NotizieHome = () => {
                 infoNews.articles.length > 0 &&
                 infoNews.articles.slice(0, 10).map((dato, i) => {
                   return (
-                    <>
-                      <ListGroup.Item className="fw-bold text-dark" key={i}>
-                        {dato.title}
-                        <p className="textColorLightGrey m-0">
-                          {getYearAndMonth(dato.publishedAt)}
-                          <span> • {randomLectures()} lettori</span>
-                        </p>
-                      </ListGroup.Item>
-                    </>
+                    <ListGroup.Item className="fw-bold text-dark" key={`${i}job`}>
+                      {dato.title}
+                      <p className="textColorLightGrey m-0">
+                        {getYearAndMonth(dato.publishedAt)}
+                        <span> • {randomLectures()} lettori</span>
+                      </p>
+                    </ListGroup.Item>
                   );
                 })}
             </ListGroup>
