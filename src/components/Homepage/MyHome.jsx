@@ -22,19 +22,27 @@ const MyHome = () => {
   const isLoading = useSelector(
     (state) => state.LoadingReduce.content
   );
+  const handleScroll = () => {
+    const bottomOfPage =
+      document.body.scrollHeight - window.innerHeight - 50;
+    if (window.scrollY >= bottomOfPage && !isLoading) {
+      setTimeout(() => {
+        setVisiblePost(
+          (prevVisiblePost) => prevVisiblePost + 30
+        );
+      }, 3000);
+    }
+  };
 
   useEffect(() => {
     dispatch(getPostsAction());
   }, []);
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      const bottomOfPage =
-        document.body.scrollHeight - window.innerHeight;
-      if (window.scrollY >= bottomOfPage) {
-        setVisiblePost(visiblePost + 30);
-      }
-    });
-  }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isLoading]);
 
   return (
     <>
