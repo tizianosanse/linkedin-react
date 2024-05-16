@@ -24,7 +24,7 @@ const NewPostHome = () => {
   };
   return (
     <>
-      <Card className="cardAvviaPost">
+      <Card className="cardAvviaPost ">
         <div style={{ padding: "10px", textAlign: "center" }}>
           <Image src={information.image} width={48} height={48} className="imageUserNavbar"></Image>
           <Button className="bg-transparent avviaUnPost " onClick={handleShow}>

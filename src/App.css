@@ -308,6 +308,11 @@ button.bg-transparent.avviaUnPost.btn.btn-primary {
   border: none;
   min-height: 300px;
 }
+.cardNotizieHome {
+  .list-group {
+    border: none;
+  }
+}
 /* homepage fino a  qui */
 
 .backgroundProfileImage {
@@ -318,9 +323,11 @@ button.bg-transparent.avviaUnPost.btn.btn-primary {
   background-color: white;
   border-color: #dfdeda;
 }
+
 .ProfileInformation img {
   top: -100px;
   border-color: white;
+  object-fit: cover;
 }
 .ProfileInformation .btn-aggiungi-sezione:hover {
   background-color: #ebf4fd;
@@ -420,6 +427,7 @@ button.bg-transparent.avviaUnPost.btn.btn-primary {
   font-weight: 600 !important;
 }
 .img-profiles {
+  object-fit: cover;
   height: 50px;
   width: 50px;
 }
