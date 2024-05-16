@@ -6,6 +6,10 @@ import PostHome from "./PostHome";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getPostsAction } from "../../redux/actions/Post";
+import NotizieHome from "./NotizieHome";
+import Message from "../Message";
+import Advertisements from "../Advertisements";
+import FooterHome from "./FooterHome";
 
 const MyHome = () => {
   const dispatch = useDispatch();
@@ -30,8 +34,13 @@ const MyHome = () => {
                 .map((post) => {
                   return <PostHome post={post} key={post._id} />;
                 })}
+            <Message />
           </Col>
-          <Col xs={3} md={3} lg={3}></Col>
+          <Col xs={3} md={3} lg={3}>
+            <NotizieHome />
+            <Advertisements />
+            <FooterHome />
+          </Col>
         </Row>
       </Container>
     </>

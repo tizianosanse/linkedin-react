@@ -306,6 +306,11 @@ button.bg-transparent.avviaUnPost.btn.btn-primary {
   border: none;
   min-height: 300px;
 }
+.cardNotizieHome {
+  .list-group {
+    border: none;
+  }
+}
 /* homepage fino a  qui */
 
 .backgroundProfileImage {
