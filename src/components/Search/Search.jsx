@@ -4,7 +4,7 @@ import SearchResult from "./SearchResult";
 const Search = () => {
   return (
     <>
-      <Container className="my-3">
+      <Container>
         <Row className="justify-content-between">
           <Col xs={6} md={6} lg={6}>
             <SearchResult />

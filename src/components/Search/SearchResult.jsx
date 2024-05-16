@@ -15,7 +15,7 @@ const SearchResult = () => {
 
   return (
     <>
-      <div className=" bg-white p-3 rounded-top-3 border border-1 exploreOpportunity">
+      <div className=" bg-white p-3 border border-1 exploreOpportunity search-page">
         {jobs.map((job) => {
           console.log(job);
           return (
