@@ -1,5 +1,4 @@
 import { Button, Card, Image } from "react-bootstrap";
-import Loading from "../Loading";
 
 const PostHome = (props) => {
   const getYearAndMonth = (dateString) => {
@@ -144,7 +143,6 @@ const PostHome = (props) => {
           </div>
         </Card.Footer>
       </Card>
-      {props.isLoading && <Loading />}
     </>
   );
 };

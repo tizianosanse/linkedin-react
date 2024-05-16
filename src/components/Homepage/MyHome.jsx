@@ -11,6 +11,7 @@ import Message from "../Message";
 import Advertisements from "../Advertisements";
 import FooterHome from "./FooterHome";
 import ProfileCardHomeResp from "./ProfileCardHomeResp";
+import Loading from "../Loading";
 
 const MyHome = () => {
   const dispatch = useDispatch();
@@ -55,13 +56,11 @@ const MyHome = () => {
                 .slice(0, visiblePost)
                 .map((post) => {
                   return (
-                    <PostHome
-                      post={post}
-                      key={post._id}
-                      isLoading={isLoading}
-                    />
+                    <PostHome post={post} key={post._id} />
                   );
                 })}
+            {isLoading && <Loading />}
+
             <Message />
           </Col>
           <Col xs={0} lg={3} className="d-none d-lg-block">
