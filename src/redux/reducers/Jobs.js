@@ -1,10 +1,12 @@
 export const GET_JOBS = "GET_JOBS";
 export const GET_NETWORK_JOBS = "GET_NETWORK_JOBS";
 export const GET_MORE_JOBS = "GET_MORE_JOBS";
+export const JOBS_PREMIUM = "JOBS_PREMIUM";
 const initialState = {
   exploreJobs: [],
   networkJobs: [],
   moreJobs: [],
+  premiumJobs: [],
 };
 
 const Jobs = (state = initialState, action) => {
@@ -23,6 +25,11 @@ const Jobs = (state = initialState, action) => {
       return {
         ...state,
         moreJobs: action.payload,
+      };
+    case JOBS_PREMIUM:
+      return {
+        ...state,
+        premiumJobs: action.payload,
       };
 
     default:
