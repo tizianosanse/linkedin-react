@@ -10,6 +10,7 @@ import NotizieHome from "./NotizieHome";
 import Message from "../Message";
 import Advertisements from "../Advertisements";
 import FooterHome from "./FooterHome";
+import ProfileCardHomeResp from "./ProfileCardHomeResp";
 
 const MyHome = () => {
   const dispatch = useDispatch();
@@ -31,10 +32,16 @@ const MyHome = () => {
     <>
       <Container className="my-3">
         <Row className="justify-content-between">
-          <Col xs={0} lg={2} className="d-none d-lg-block">
+          <Col
+            xs={0}
+            md={3}
+            lg={2}
+            className="d-none d-md-block"
+          >
             <ProfileCardHome />
           </Col>
-          <Col xs={12} lg={7}>
+          <Col xs={12} md={9} lg={7}>
+            <ProfileCardHomeResp />
             <NewPostHome />
             {posts.length > 0 &&
               posts
