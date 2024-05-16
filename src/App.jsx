@@ -14,6 +14,7 @@ import DetailExperience from "./components/DetailExperience";
 import MyHome from "./components/Homepage/MyHome";
 import Jobs from "./components/Jobs/Jobs";
 import Search from "./components/Search/Search";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
               path="/search/:query"
               element={<Search />}
             />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </div>
