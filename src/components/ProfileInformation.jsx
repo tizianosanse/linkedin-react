@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { Card, Col, Container, Image, Modal, Row } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Image,
+  Modal,
+  Row,
+} from "react-bootstrap";
 import { Button } from "react-bootstrap/esm";
 import { useDispatch, useSelector } from "react-redux";
 import { getInformation } from "../redux/actions/ProfileInformationActions";
@@ -14,7 +20,9 @@ const ProfileInformation = (props) => {
   const [show2, setShow2] = useState(false);
   const [file, setFile] = useState();
 
-  const information = useSelector((state) => state.ProfileInformation.content);
+  const information = useSelector(
+    (state) => state.ProfileInformation.content
+  );
 
   const handleClose2 = () => setShow2(false);
   const handleClose = () => setShow(false);
@@ -31,7 +39,9 @@ const ProfileInformation = (props) => {
   const getUploadImg = () => {
     const formData = new FormData();
     formData.append("profile", file);
-    dispatch(handleUploadProfilePictures(formData, information._id));
+    dispatch(
+      handleUploadProfilePictures(formData, information._id)
+    );
   };
   return (
     <>
@@ -71,19 +81,16 @@ const ProfileInformation = (props) => {
 
         {show2 && (
           <>
-            <Modal show={show2} onHide={handleClose2}>
+            <Modal
+              show={show2}
+              onHide={handleClose2}
+              size="lg"
+              className="my-modal"
+            >
               <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
-                <Card>
-                  <div>
-                    <input
-                      type="file"
-                      onChange={(e) => {
-                        setFile(e.target.files[0]);
-                      }}
-                    />
-                  </div>
-                </Card>
+                <Modal.Title className="modTit">
+                  Foto profilo
+                </Modal.Title>
               </Modal.Header>
 
               <Modal.Body>
@@ -106,10 +113,16 @@ const ProfileInformation = (props) => {
               </Modal.Body>
 
               <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose2}>
+                <Button
+                  variant="secondary"
+                  onClick={handleClose2}
+                >
                   Close
                 </Button>
-                <Button variant="primary" onClick={getUploadImg}>
+                <Button
+                  variant="primary"
+                  onClick={getUploadImg}
+                >
                   Save Changes
                 </Button>
               </Modal.Footer>
@@ -124,7 +137,9 @@ const ProfileInformation = (props) => {
           {information.surname}
         </h1>
         <h2 className="fw-normal">{information.title}</h2>
-        <h3 className="lead d-inline-block me-2">{information.area} </h3>
+        <h3 className="lead d-inline-block me-2">
+          {information.area}{" "}
+        </h3>
         <Link to={"/"} className="fw-semibold d-block">
           Informazioni di contatto
         </Link>
@@ -170,8 +185,12 @@ const ProfileInformation = (props) => {
               lg={5}
               className="DisponibileALavorare mt-4 p-3 rounded-3"
             >
-              <h3 className="mb-0 fw-semibold">Disponibile a lavorare</h3>
-              <h2 className="mb-0 fw-normal">Ruoli di {information.title}</h2>
+              <h3 className="mb-0 fw-semibold">
+                Disponibile a lavorare
+              </h3>
+              <h2 className="mb-0 fw-normal">
+                Ruoli di {information.title}
+              </h2>
               <Link to={"/"} className="fw-semibold">
                 Mostra dettagli
               </Link>
@@ -182,8 +201,8 @@ const ProfileInformation = (props) => {
               className="DisponibileALavorare  d-none d-lg-inline-block mt-4 p-3 rounded-3 bg-white border "
             >
               <h2 className="mb-0 fw-normal">
-                Fai sapere che stai facendo selezione e attrai candidati
-                interessanti
+                Fai sapere che stai facendo selezione e
+                attrai candidati interessanti
               </h2>
               <Link to={"/"} className="fw-semibold">
                 Inizia
