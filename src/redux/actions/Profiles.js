@@ -1,4 +1,4 @@
-import { IS_LOADING } from "./LoadingAndError";
+import { IS_ERROR, IS_LOADING } from "./LoadingAndError";
 
 export const GET_NEW_PROFILES = "GET_NEW_PROFILES";
 
@@ -25,6 +25,7 @@ export const profilesAction = () => {
     } catch (err) {
       console.log("error", err);
       dispatch({ type: IS_LOADING, payload: false });
+      dispatch({ type: IS_ERROR, payload: false });
     }
   };
 };
