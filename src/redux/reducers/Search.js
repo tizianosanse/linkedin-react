@@ -1,6 +1,8 @@
 export const GET_SEARCH = "GET_SEARCH";
+export const SET_ID = "SET_ID";
 const initialState = {
   searchJobs: [],
+  id: "",
 };
 
 const Search = (state = initialState, action) => {
@@ -9,6 +11,11 @@ const Search = (state = initialState, action) => {
       return {
         ...state,
         searchJobs: action.payload,
+      };
+    case SET_ID:
+      return {
+        ...state,
+        id: action.payload,
       };
 
     default:

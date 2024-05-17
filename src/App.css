@@ -706,7 +706,47 @@ div .AlertConsigliati {
 
 /*SEARCH PAGE START*/
 
-.search-page {
+.search-page,
+.jobDetail-page {
   overflow-y: scroll;
   height: calc(100vh - 60px);
 }
+
+.jobDetail-page h1 {
+  font-size: 24px;
+}
+.jobDetail-page h2 {
+  font-size: 20px;
+}
+.jobDetail-page h3 {
+  font-size: 14px;
+  color: #9b9b9b;
+}
+.jobDetail-page h4 {
+  font-size: 14px;
+}
+.jobDetail-page h5 {
+  font-size: 14px;
+}
+.jobDetail-page i {
+  font-size: 24px;
+  color: #666666;
+}
+
+.btn-jobDetail {
+  background-color: #0a66c2;
+}
+.btn-jobDetail:hover {
+  background-color: #004182;
+}
+.btn-jobDetail i {
+  font-size: 16px;
+  color: white;
+}
+
+.selected {
+  background-color: #edf3f8;
+  border-left: 1px solid #01754f;
+}
+
+/*SEARCH PAGE END*/

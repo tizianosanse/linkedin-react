@@ -24,6 +24,7 @@ const SearchResult = () => {
               company={job.company_name}
               location={job.candidate_required_location}
               url={job.url}
+              id={job._id}
               key={job._id}
             />
           );

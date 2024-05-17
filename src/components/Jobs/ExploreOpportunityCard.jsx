@@ -1,10 +1,17 @@
 import { Col, Image, Row } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { setID } from "../../redux/actions/Search";
 
 const ExploreOpportunityCard = (props) => {
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    console.log(props);
+    dispatch(setID(props.id));
+  };
   return (
     <>
-      <Row className="exploreOpportunityCard border-bottom mt-4">
+      <Row className={"exploreOpportunityCard border-bottom mt-4 "} onClick={handleClick}>
         <Col xs={1}>
           <Image
             src="https://plus.unsplash.com/premium_photo-1661914978519-52a11fe159a7?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
