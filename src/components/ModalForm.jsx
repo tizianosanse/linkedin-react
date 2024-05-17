@@ -15,11 +15,13 @@ import {
 } from "../redux/actions/Experience";
 
 import { handleUploadExperiencePictures } from "../redux/actions/UploadFile";
+import { useNavigate } from "react-router-dom";
 
 const ModalForm = (props) => {
   const information = useSelector(
     (state) => state.ProfileInformation.content
   );
+  const navigate = useNavigate();
   const singleExpId = props.expId;
 
   const [showConfirmation, setConfirmation] =
@@ -38,6 +40,7 @@ const ModalForm = (props) => {
     dispatch(
       PostExperienceAction(id, "POST", informationPut)
     );
+    navigate("/DetailExperience");
   };
   const handleSubmitModify = (e) => {
     e.preventDefault();
@@ -58,9 +61,11 @@ const ModalForm = (props) => {
         singleExpId
       )
     );
+    navigate("/DetailExperience");
   };
   const handleDelete = () => {
     dispatch(DeleteExperience(id, singleExpId));
+    navigate("/DetailExperience");
   };
   const handleConfimationClose = () => {
     setConfirmation(false);
