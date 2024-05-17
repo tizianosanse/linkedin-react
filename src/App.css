@@ -714,6 +714,48 @@ div .AlertConsigliati {
   top: 73px;
 }
 
+@media screen and (min-width: 992px) {
+  .exploreOpportunityCard h2 {
+    margin-left: 10px;
+  }
+  .exploreOpportunityCard h3 {
+    margin-left: 10px;
+  }
+  .exploreOpportunityCard p {
+    margin-left: 10px;
+  }
+  .exploreOpportunityCard a {
+    margin-left: 10px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .exploreOpportunityCard h2 {
+    margin-left: 10px;
+  }
+  .exploreOpportunityCard h3 {
+    margin-left: 10px;
+  }
+  .exploreOpportunityCard p {
+    margin-left: 10px;
+  }
+  .exploreOpportunityCard a {
+    margin-left: 10px;
+  }
+}
+@media screen and (min-width: 576px) {
+  .exploreOpportunityCard h2 {
+    margin-left: 10px;
+  }
+  .exploreOpportunityCard h3 {
+    margin-left: 10px;
+  }
+  .exploreOpportunityCard p {
+    margin-left: 10px;
+  }
+  .exploreOpportunityCard a {
+    margin-left: 10px;
+  }
+}
 /*JOBS PAGE END*/
 
 /*SEARCH PAGE START*/
