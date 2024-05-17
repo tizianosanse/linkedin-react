@@ -11,7 +11,7 @@ export const getSearchAction = (query) => {
       });
       if (response.ok) {
         let data = await response.json();
-
+        console.log(data);
         dispatch({ type: GET_SEARCH, payload: data.data.slice(0, 30) });
       } else {
         throw new Error("Error in fetching songs");
