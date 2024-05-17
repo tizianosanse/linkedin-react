@@ -9,11 +9,10 @@ import {
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { profilesAction } from "../redux/actions/Profiles";
-import { getInformationNavBar } from "../redux/actions/ProfileInformationActions";
 
 const Message = () => {
   const information = useSelector(
-    (state) => state.ProfileInformation.content
+    (state) => state.ProfileInformation.informationNav
   );
   const profiles = useSelector(
     (state) => state.Profiles.content
@@ -22,7 +21,6 @@ const Message = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(profilesAction());
-    dispatch(getInformationNavBar());
   }, []);
 
   return (
@@ -35,11 +33,13 @@ const Message = () => {
         variant="light"
       >
         <div className="d-flex align-items-center">
-          <img
-            src={information.image}
-            alt=""
-            className="img-profiles rounded-circle mx-3"
-          />{" "}
+          {information && (
+            <img
+              src={information.image}
+              alt=""
+              className="img-profiles rounded-circle mx-3"
+            />
+          )}{" "}
           <p className="fw-bold fs-7 m-0">Messaggistica</p>
         </div>
         <div className="d-flex align-items-center">

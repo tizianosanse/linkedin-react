@@ -21,21 +21,17 @@ const ModalForm = (props) => {
     (state) => state.ProfileInformation.content
   );
   const singleExpId = props.expId;
-  const [showPutModal, setShowPutModal] = useState(true);
+
   const [showConfirmation, setConfirmation] =
     useState(false);
   const [imageExperience, setimageExperience] =
     useState(false);
 
-  const handleClosePutModal = () => {
-    setShowPutModal(false);
-  };
-
   const id = information._id;
   const singleExp = useSelector(
     (state) => state.Experience.singleEperience
   );
-  console.log(singleExp);
+
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -122,8 +118,8 @@ const ModalForm = (props) => {
     <>
       {props.putOrDeleteExperience && singleExp ? (
         <Modal
-          show={showPutModal}
-          onHide={handleClosePutModal}
+          show={props.show1}
+          onHide={props.handleClose1}
           animation={false}
           size="lg"
         >

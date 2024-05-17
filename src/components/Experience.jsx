@@ -20,6 +20,10 @@ const Experience = (props) => {
   const [show1, setShow1] = useState(false);
   const handleShow = () => setShow1(true);
   const [expId, setExpId] = useState("");
+  const handleClose1 = () => {
+    setShow1(false);
+    setPutOrDeleteExperience(false);
+  };
   const information = useSelector(
     (state) => state.ProfileInformation.content
   );
@@ -28,7 +32,6 @@ const Experience = (props) => {
   const [putOrDeleteExperience, setPutOrDeleteExperience] =
     useState(false);
 
-  const handleClose1 = () => setShow1(false);
   const dispatch = useDispatch();
   useEffect(() => {
     if (id) {

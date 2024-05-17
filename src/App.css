@@ -227,6 +227,10 @@ a#navbarScrollingDropdown {
   visibility: visible;
 }
 
+a.active {
+  border-bottom: 1px solid black;
+}
+
 /* navbar fino a qui */
 
 /* homepage da qui */
