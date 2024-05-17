@@ -724,11 +724,6 @@ div .AlertConsigliati {
   color: grey;
 }
 
-.footer-jobs-page {
-  position: sticky;
-  top: 73px;
-}
-
 @media screen and (min-width: 992px) {
   .exploreOpportunityCard h2 {
     margin-left: 10px;

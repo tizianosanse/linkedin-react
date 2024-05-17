@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 const LeftSide = () => {
   return (
     <>
-      <div className="bg-white rounded-4 p-3 leftSideJobsPage position-sticky ">
+      <div className="bg-white rounded-4 p-3 leftSideJobsPage ">
         <div className="d-flex align-items-center ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
