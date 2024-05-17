@@ -4,23 +4,28 @@ import ExploreOpportunity from "./ExploreOpportunity";
 import NetworkRecruitment from "./NetworkRecruitment";
 import MoreJobOffers from "./MoreJobOffers";
 import JobsPremium from "./JobsPremium";
+import FooterHome from "../Homepage/FooterHome";
 
 const Jobs = () => {
   return (
     <>
       <Container className="my-3">
         <Row className="justify-content-between">
-          <Col xs={3} md={3} lg={3}>
+          <Col xs={4} lg={3}>
             <LeftSide />
           </Col>
-          <Col xs={6} md={6} lg={6}>
+          <Col xs={8} lg={7} xl={6}>
             <ExploreOpportunity />
             <JobsPremium />
             <NetworkRecruitment />
 
             <MoreJobOffers />
           </Col>
-          <Col xs={3} md={3} lg={3}></Col>
+          <Col md={3} lg={3} xl={3}>
+            <div className="d-none d-md-block">
+              <FooterHome />
+            </div>
+          </Col>
         </Row>
       </Container>
     </>

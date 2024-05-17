@@ -6,7 +6,7 @@ const ConditionalNav = () => {
   const location = useLocation();
   return (
     <>
-      {location.pathname.includes("jobs") ? (
+      {location.pathname.includes("search") ? (
         <NavbarJob />
       ) : (
         <MyNavbar />
