@@ -12,17 +12,19 @@ const Jobs = () => {
       <Container className="my-3">
         <Row className="justify-content-between">
           <Col xs={4} lg={3}>
-            <LeftSide />
+            <div className="d-none d-md-block">
+              <LeftSide />
+            </div>
           </Col>
-          <Col xs={8} lg={7} xl={6}>
+          <Col xs={12} md={8} lg={6} xl={6}>
             <ExploreOpportunity />
             <JobsPremium />
             <NetworkRecruitment />
 
             <MoreJobOffers />
           </Col>
-          <Col md={3} lg={3} xl={3}>
-            <div className="d-none d-md-block">
+          <Col xs={3} lg={3} xl={3}>
+            <div className="mt-0 d-none d-lg-block">
               <FooterHome />
             </div>
           </Col>
