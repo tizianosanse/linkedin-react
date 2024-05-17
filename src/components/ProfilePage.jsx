@@ -15,8 +15,17 @@ import Competenze from "./Competenze";
 import Interessi from "./Interessi";
 import Experience from "./Experience";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Loading from "./Loading";
+import MyError from "./Homepage/MyError";
 const ProfilePage = () => {
   const { idProfile } = useParams();
+  const isLoading = useSelector(
+    (state) => state.LoadingReduce.content
+  );
+  const hasError = useSelector(
+    (state) => state.ErrorReduce.content
+  );
   return (
     <>
       <Container className="my-3">
@@ -54,6 +63,8 @@ const ProfilePage = () => {
             />
           </Col>
         </Row>
+        {isLoading && <Loading />}
+        {hasError && <MyError />}
       </Container>
     </>
   );

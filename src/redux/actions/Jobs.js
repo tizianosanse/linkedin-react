@@ -4,9 +4,11 @@ import {
   GET_MORE_JOBS,
   JOBS_PREMIUM,
 } from "../reducers/Jobs";
+import { IS_LOADING } from "./LoadingAndError";
 
 export const getJobsAction = () => {
   return async (dispatch) => {
+    dispatch({ type: IS_LOADING, payload: true });
     try {
       let response = await fetch(
         "https://strive-benchmark.herokuapp.com/api/jobs?search=full stack developer&limit=3",
@@ -19,6 +21,7 @@ export const getJobsAction = () => {
       );
       if (response.ok) {
         let data = await response.json();
+        dispatch({ type: IS_LOADING, payload: false });
 
         dispatch({ type: GET_JOBS, payload: data.data });
       } else {
@@ -26,6 +29,7 @@ export const getJobsAction = () => {
       }
     } catch (err) {
       console.log("error", err);
+      dispatch({ type: IS_LOADING, payload: false });
     }
   };
 };
@@ -44,7 +48,10 @@ export const getNetworkJobsAction = () => {
       if (response.ok) {
         let data = await response.json();
 
-        dispatch({ type: GET_NETWORK_JOBS, payload: data.data });
+        dispatch({
+          type: GET_NETWORK_JOBS,
+          payload: data.data,
+        });
       } else {
         throw new Error("Error in fetching songs");
       }
@@ -68,7 +75,10 @@ export const getMoreJobsAction = () => {
       if (response.ok) {
         let data = await response.json();
 
-        dispatch({ type: GET_MORE_JOBS, payload: data.data });
+        dispatch({
+          type: GET_MORE_JOBS,
+          payload: data.data,
+        });
       } else {
         throw new Error("Error in fetching songs");
       }
@@ -91,7 +101,10 @@ export const getJobsPremium = () => {
       );
       if (response.ok) {
         let data = await response.json();
-        dispatch({ type: JOBS_PREMIUM, payload: data.data });
+        dispatch({
+          type: JOBS_PREMIUM,
+          payload: data.data,
+        });
       } else {
         throw new Error("Error in fetching songs");
       }

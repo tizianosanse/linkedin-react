@@ -1,11 +1,15 @@
+import { IS_ERROR, IS_LOADING } from "./LoadingAndError";
+
 export const GET_INFORMATION = "GET_INFORMATION";
 export const GET_INFORMATION_NAV = "GET_INFORMATION_NAV";
-export const GET_INFORMATION_JOBS_PREMIUM = "GET_INFORMATION_JOBS_PREMIUM";
+export const GET_INFORMATION_JOBS_PREMIUM =
+  "GET_INFORMATION_JOBS_PREMIUM";
 export const getInformation = (id) => {
   return async (dispatch) => {
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/" + id,
+        "https://striveschool-api.herokuapp.com/api/profile/" +
+          id,
         {
           headers: {
             Authorization:
@@ -27,6 +31,7 @@ export const getInformation = (id) => {
 
 export const getInformationNavBar = () => {
   return async (dispatch) => {
+    dispatch({ type: IS_LOADING, payload: true });
     try {
       let response = await fetch(
         "https://striveschool-api.herokuapp.com/api/profile/me",
@@ -43,11 +48,14 @@ export const getInformationNavBar = () => {
           type: GET_INFORMATION_NAV,
           payload: data,
         });
+        dispatch({ type: IS_LOADING, payload: false });
       } else {
         throw new Error("Error in fetching songs");
       }
     } catch (err) {
       console.log("error", err);
+      dispatch({ type: IS_LOADING, payload: false });
+      dispatch({ type: IS_ERROR, payload: false });
     }
   };
 };

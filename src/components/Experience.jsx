@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import ModalForm from "./ModalForm";
 import { useDispatch, useSelector } from "react-redux";
 import { GetExperienceAction } from "../redux/actions/Experience";
+import Loading from "./Loading";
 
 const Experience = (props) => {
   const navigate = useNavigate();
@@ -26,6 +27,9 @@ const Experience = (props) => {
   };
   const information = useSelector(
     (state) => state.ProfileInformation.content
+  );
+  const isLoading = useSelector(
+    (state) => state.LoadingReduce.content
   );
 
   const id = information._id;
@@ -234,6 +238,7 @@ const Experience = (props) => {
         putOrDeleteExperience={putOrDeleteExperience}
         expId={expId}
       />
+      {isLoading && <Loading />}
     </>
   );
 };

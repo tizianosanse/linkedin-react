@@ -5,7 +5,10 @@ import NewPostHome from "./NewPostHome";
 import PostHome from "./PostHome";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getComments, getPostsAction } from "../../redux/actions/Post";
+import {
+  getComments,
+  getPostsAction,
+} from "../../redux/actions/Post";
 import NotizieHome from "./NotizieHome";
 import Message from "../Message";
 import Advertisements from "../Advertisements";
@@ -13,6 +16,7 @@ import FooterHome from "./FooterHome";
 import ProfileCardHomeResp from "./ProfileCardHomeResp";
 import Loading from "../Loading";
 import { profilesAction } from "../../redux/actions/Profiles";
+import MyError from "./MyError";
 
 const MyHome = () => {
   const dispatch = useDispatch();
@@ -20,19 +24,31 @@ const MyHome = () => {
   console.log(posts);
   const [visiblePost, setVisiblePost] = useState(30);
 
-  const isLoading = useSelector((state) => state.LoadingReduce.content);
+  const isLoading = useSelector(
+    (state) => state.LoadingReduce.content
+  );
+  const hasError = useSelector(
+    (state) => state.ErrorReduce.content
+  );
   const handleScroll = () => {
-    const bottomOfPage = document.body.scrollHeight - window.innerHeight - 50;
+    const bottomOfPage =
+      document.body.scrollHeight - window.innerHeight - 50;
     if (window.scrollY >= bottomOfPage && !isLoading) {
       setTimeout(() => {
-        setVisiblePost((prevVisiblePost) => prevVisiblePost + 30);
+        setVisiblePost(
+          (prevVisiblePost) => prevVisiblePost + 30
+        );
       }, 3000);
     }
   };
 
-  const comments = useSelector((state) => state.Post.comments);
+  const comments = useSelector(
+    (state) => state.Post.comments
+  );
 
-  const users = useSelector((state) => state.Profiles.content);
+  const users = useSelector(
+    (state) => state.Profiles.content
+  );
 
   useEffect(() => {
     dispatch(getPostsAction());
@@ -50,7 +66,12 @@ const MyHome = () => {
     <>
       <Container className="my-3">
         <Row className="justify-content-between">
-          <Col xs={0} md={3} lg={2} className="d-none d-md-block">
+          <Col
+            xs={0}
+            md={3}
+            lg={2}
+            className="d-none d-md-block"
+          >
             <ProfileCardHome />
           </Col>
           <Col xs={12} md={9} lg={7}>
@@ -61,9 +82,17 @@ const MyHome = () => {
                 .reverse()
                 .slice(0, visiblePost)
                 .map((post) => {
-                  return <PostHome post={post} key={post._id} comments={comments} users={users} />;
+                  return (
+                    <PostHome
+                      post={post}
+                      key={post._id}
+                      comments={comments}
+                      users={users}
+                    />
+                  );
                 })}
             {isLoading && <Loading />}
+            {hasError && <MyError />}
 
             <Message />
           </Col>

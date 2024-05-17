@@ -5,8 +5,17 @@ import NetworkRecruitment from "./NetworkRecruitment";
 import MoreJobOffers from "./MoreJobOffers";
 import JobsPremium from "./JobsPremium";
 import FooterHome from "../Homepage/FooterHome";
+import { useSelector } from "react-redux";
+import Loading from "../Loading";
+import MyError from "../Homepage/MyError";
 
 const Jobs = () => {
+  const isLoading = useSelector(
+    (state) => state.LoadingReduce.content
+  );
+  const hasError = useSelector(
+    (state) => state.ErrorReduce.content
+  );
   return (
     <>
       <Container className="my-3">
@@ -29,6 +38,8 @@ const Jobs = () => {
             </div>
           </Col>
         </Row>
+        {isLoading && <Loading />}
+        {hasError && <MyError />}
       </Container>
     </>
   );

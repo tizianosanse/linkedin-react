@@ -1,4 +1,7 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import {
+  combineReducers,
+  configureStore,
+} from "@reduxjs/toolkit";
 import ProfileInformationReducer from "../reducers/ProfileInformationReducer";
 import ProfilesReduces from "../reducers/ProfilesReducer";
 import ExperienceReducer from "../reducers/Experience";
@@ -8,6 +11,7 @@ import WorldNewsReduces from "../reducers/WorldNews";
 
 import LoadingReducer from "../reducers/Loading";
 import SearchReducer from "../reducers/Search";
+import ErrorReducer from "../reducers/Error";
 
 const rootReducer = combineReducers({
   ProfileInformation: ProfileInformationReducer,
@@ -18,6 +22,7 @@ const rootReducer = combineReducers({
   WorldNews: WorldNewsReduces,
   LoadingReduce: LoadingReducer,
   Search: SearchReducer,
+  ErrorReduce: ErrorReducer,
 });
 const store = configureStore({
   reducer: rootReducer,
