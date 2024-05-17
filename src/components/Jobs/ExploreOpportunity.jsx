@@ -14,7 +14,7 @@ const ExploreOpportunity = () => {
   return (
     <>
       <div className=" bg-white p-3 rounded-top-3 border border-1 exploreOpportunity">
-        <h2 className="mb-0 mt-2">Esplora le opportunità</h2>
+        <h2 className="mb-0 ">Esplora le opportunità</h2>
         <p className="mb-0">Sulla base del tuo profilo e della tua cronologia delle ricerche</p>
         {jobs.map((job) => {
           console.log(job);
