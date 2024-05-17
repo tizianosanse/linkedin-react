@@ -1,5 +1,5 @@
 import { GET_SEARCH, SET_ID } from "../reducers/Search";
-import { IS_LOADING } from "./LoadingAndError";
+import { IS_ERROR, IS_LOADING } from "./LoadingAndError";
 
 export const setID = (data) => {
   return {
@@ -36,6 +36,7 @@ export const getSearchAction = (query) => {
     } catch (err) {
       console.log("error", err);
       dispatch({ type: IS_LOADING, payload: false });
+      dispatch({ type: IS_ERROR, payload: false });
     }
   };
 };
