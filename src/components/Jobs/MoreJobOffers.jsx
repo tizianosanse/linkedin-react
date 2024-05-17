@@ -7,17 +7,26 @@ import { useEffect, useState } from "react";
 const MoreJobOffers = () => {
   const dispatch = useDispatch();
   const [visiblePost, setVisiblePost] = useState(30);
-  const bottomOfPage = document.body.scrollHeight - window.innerHeight;
-  window.addEventListener("scroll", () => {
-    if (window.scrollY >= bottomOfPage) {
-      setVisiblePost(visiblePost + 10);
+  const isLoading = useSelector((state) => state.LoadingReduce.content);
+  const handleScroll = () => {
+    const bottomOfPage = document.body.scrollHeight - window.innerHeight - 50;
+    if (window.scrollY >= bottomOfPage && !isLoading) {
+      setTimeout(() => {
+        setVisiblePost((prevVisiblePost) => prevVisiblePost + 30);
+      }, 3000);
     }
-  });
+  };
   const jobs = useSelector((state) => state.Jobs.moreJobs);
   console.log(jobs);
   useEffect(() => {
     dispatch(getMoreJobsAction());
   }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isLoading]);
   return (
     <>
       <div className=" bg-white p-3 rounded-top-3 border border-1 exploreOpportunity mt-3">

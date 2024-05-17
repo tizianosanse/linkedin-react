@@ -19,7 +19,7 @@ const ExploreOpportunityCard = (props) => {
             height={56}
           />
         </Col>
-        <Col md={{ span: 9, offset: 1 }} lg={9} className="ms-lg-3">
+        <Col xs={10} md={9} lg={9} className="ms-3">
           <Link to={props.url} className="text-decoration-none fw-bold ">
             {props.role}
           </Link>

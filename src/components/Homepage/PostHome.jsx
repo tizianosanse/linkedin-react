@@ -1,8 +1,27 @@
 import { useState } from "react";
-import { Button, Card, Collapse, Image } from "react-bootstrap";
+import { Button, Card, Collapse, Form, Image } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { newCommentAction } from "../../redux/actions/Post";
 
 const PostHome = (props) => {
+  const [newComment, setNewComment] = useState({
+    comment: "",
+    rate: 3,
+    elementId: props.post._id,
+  });
   const [open, setOpen] = useState(false);
+  const information = useSelector((state) => state.ProfileInformation.informationNav);
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(newCommentAction(newComment));
+  };
+
+  const handleChange = (value) => {
+    setNewComment({ ...newComment, comment: value });
+  };
+
   const getYearAndMonth = (dateString) => {
     const date = new Date(dateString);
     const day = date.getDate();
@@ -13,6 +32,7 @@ const PostHome = (props) => {
 
     return `${day} ${month} ${year}`;
   };
+
   return (
     <>
       <Card
@@ -120,17 +140,68 @@ const PostHome = (props) => {
             </Button>
           </div>
           {open && (
-            <Collapse>
-              <div id="example-collapse-text" className="congratulationsPost d-flex justify-content-between mt-3">
-                <Button className="rounded-pill">
-                  Congratulazioni,
-                  <br /> {props.post.user && props.post.user.name ? props.post.user.name : props.post.username} !
-                </Button>
-                <Button className="rounded-pill">Sono felice per te!</Button>
-                <Button className="rounded-circle d-none d-sm-block">👍</Button>
-                <Button className="rounded-pill d-none d-md-block">Ottimo!</Button>
-              </div>
-            </Collapse>
+            <>
+              <Collapse>
+                <div
+                  id="example-collapse-text"
+                  className="congratulationsPost d-flex justify-content-between mt-3 flex-column"
+                >
+                  <div className="congratulationsPost d-flex justify-content-between mt-3">
+                    <Button className="rounded-pill">
+                      Congratulazioni,
+                      <br /> {props.post.user && props.post.user.name ? props.post.user.name : props.post.username} !
+                    </Button>
+                    <Button className="rounded-pill">Sono felice per te!</Button>
+                    <Button className="rounded-circle d-none d-sm-block">👍</Button>
+                    <Button className="rounded-pill d-none d-md-block">Ottimo!</Button>
+                  </div>
+
+                  <Form className=" d-flex my-4" onSubmit={handleSubmit}>
+                    <Image src={information.image} width={35} height={35} className="imageUserNavbar mx-2"></Image>
+                    <Form.Control
+                      style={{ width: "70%", borderRadius: "20px" }}
+                      type="search"
+                      placeholder="Aggiungi un commento"
+                      aria-label="comment"
+                      value={newComment.comment}
+                      onChange={(e) => {
+                        handleChange(e.target.value);
+                      }}
+                    />
+                  </Form>
+                </div>
+              </Collapse>
+              {props.comments &&
+                props.comments.length > 0 &&
+                props.comments.map((comment) => {
+                  return comment.elementId === props.post._id ? (
+                    <div key={comment._id} className="d-flex my-3">
+                      <Image
+                        src={
+                          props.users.find((x) => x._id === comment.elementId) &&
+                          props.users.find((x) => x._id === comment.elementId).image
+                            ? props.users.find((x) => x._id === comment.elementId).image
+                            : "https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"
+                        }
+                        width={35}
+                        height={35}
+                        className="imageUserNavbar"
+                      ></Image>
+                      <div className="divCommentsText">
+                        <p className="fw-bold textP m-0">
+                          {comment.author}
+                          {/* <span className="m-0 fontSizeDodici">{getYearAndMonth(props.comment.updatedAt)}</span> */}
+                        </p>
+                        <p className="textP2 fw-bold">
+                          Voto: <span className="fw-bold spanRatePost">{comment.rate}</span>
+                        </p>
+
+                        <p className="textP">{comment.comment}</p>
+                      </div>
+                    </div>
+                  ) : null;
+                })}
+            </>
           )}
         </Card.Footer>
       </Card>
