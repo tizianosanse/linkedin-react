@@ -3,6 +3,7 @@ import {
   Button,
   Col,
   Container,
+  Dropdown,
   Form,
   Image,
   Modal,
@@ -18,16 +19,12 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { getInformationNavBar } from "../../redux/actions/ProfileInformationActions";
-import { FaChevronDown } from "react-icons/fa";
-import ModalInformation from "../ModalInformation";
 
 const NavbarJob = () => {
   const information = useSelector(
     (state) => state.ProfileInformation.informationNav
   );
-  const [showProva, setShowProva] = useState(false);
 
-  const [show, setShow] = useState(false);
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   const handleChange = (value) => {
@@ -37,11 +34,10 @@ const NavbarJob = () => {
     e.preventDefault();
     navigate("/search/" + query);
   };
-  const handleClose = () => setShow(false);
+
   const [showInputSearch, setShowInputSearch] =
     useState(false);
-  console.log(show);
-  const handleShow = () => setShow(true);
+
   const dispatch = useDispatch();
 
   const [showModalSearch, setShowModalSearch] =
@@ -54,13 +50,6 @@ const NavbarJob = () => {
   const handleShowModalSearch = () =>
     setShowModalSearch(true);
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 600) {
-      setShowProva(true);
-    } else {
-      setShowProva(false);
-    }
-  });
   useEffect(() => {
     dispatch(getInformationNavBar());
   }, []);
@@ -191,9 +180,6 @@ const NavbarJob = () => {
                       <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
                     </svg>
                   </p>
-                  <p className="m-0 d-none d-md-inline">
-                    Home
-                  </p>
                 </NavLink>
               </div>
               <div className="divIconsNavbar">
@@ -214,9 +200,6 @@ const NavbarJob = () => {
                     >
                       <path d="M12 16v6H3v-6a3 3 0 013-3h3a3 3 0 013 3zm5.5-3A3.5 3.5 0 1014 9.5a3.5 3.5 0 003.5 3.5zm1 2h-2a2.5 2.5 0 00-2.5 2.5V22h7v-4.5a2.5 2.5 0 00-2.5-2.5zM7.5 2A4.5 4.5 0 1012 6.5 4.49 4.49 0 007.5 2z"></path>
                     </svg>
-                  </p>
-                  <p className="m-0 d-none d-md-inline">
-                    Rete
                   </p>
                 </NavLink>
               </div>
@@ -239,9 +222,6 @@ const NavbarJob = () => {
                       <path d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z"></path>
                     </svg>
                   </p>
-                  <p className="m-0 d-none d-md-inline">
-                    Lavoro
-                  </p>
                 </NavLink>
               </div>
               <div className="divIconsNavbar">
@@ -263,9 +243,6 @@ const NavbarJob = () => {
                       <path d="M16 4H8a7 7 0 000 14h4v4l8.16-5.39A6.78 6.78 0 0023 11a7 7 0 00-7-7zm-8 8.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zm4 0A1.25 1.25 0 1113.25 11 1.25 1.25 0 0112 12.25zm4 0A1.25 1.25 0 1117.25 11 1.25 1.25 0 0116 12.25z"></path>
                     </svg>
                   </p>
-                  <p className="m-0 d-none d-md-inline">
-                    Messaggistica
-                  </p>
                 </NavLink>
               </div>
               <div className="divIconsNavbar">
@@ -286,9 +263,6 @@ const NavbarJob = () => {
                     >
                       <path d="M22 19h-8.28a2 2 0 11-3.44 0H2v-1a4.52 4.52 0 011.17-2.83l1-1.17h15.7l1 1.17A4.42 4.42 0 0122 18zM18.21 7.44A6.27 6.27 0 0012 2a6.27 6.27 0 00-6.21 5.44L5 13h14z"></path>
                     </svg>
-                  </p>
-                  <p className="m-0 d-none d-md-inline">
-                    Notifiche
                   </p>
                 </NavLink>
               </div>
@@ -312,12 +286,6 @@ const NavbarJob = () => {
                         height={27}
                         className="imageUserNavbar "
                       ></Image>
-                      <div className="d-flex align-items-center ms-2">
-                        <span className="dropdown-text">
-                          Tu
-                        </span>
-                        <FaChevronDown className="custom-dropdown-icon" />
-                      </div>
                     </Button>
                   }
                   id="navbarScrollingDropdown"
@@ -460,12 +428,6 @@ const NavbarJob = () => {
                           <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
                         </svg>
                       </p>
-                      <div className="d-flex align-items-center ms-2">
-                        <span className="dropdown-text">
-                          Per le aziende
-                        </span>
-                        <FaChevronDown className="custom-dropdown-icon" />
-                      </div>
                     </Button>
                   }
                   id="navbarScrollingDropdown"
@@ -974,49 +936,77 @@ const NavbarJob = () => {
       <div
         style={{ width: "100%" }}
         className={
-          "subNavbar d-none d-md-block pt-3 " +
-          (showProva ? "subNavShow" : "subNavHide")
+          "subNavbar d-none d-xl-block pt-3 subNavShow "
         }
       >
         <Col
           xs={12}
-          className="d-flex justify-content-between"
+          className="d-flex justify-content-between my-2"
           style={{ width: "85%", marginInline: "auto" }}
         >
-          <div className="d-flex align-items-center">
-            {information ? (
-              <Image
-                src={information.image}
-                width={35}
-                height={35}
-                className="imageUserNavbar m-2"
-              ></Image>
-            ) : (
-              <Image
-                src={
-                  "https://mhcid.washington.edu/wp-content/uploads/2021/12/placeholder-user-scaled.jpg"
-                }
-                width={35}
-                height={35}
-                className="imageUserNavbar m-2"
-              ></Image>
-            )}
-            <div>
-              <p
-                className="p-0 m-0 titleDropdownNav"
-                href="#"
-              >
-                {information.name}
-                {information.surname}
-              </p>
-              <p
-                className="p-0 m-0 lavoroSubNavbar"
-                href="#"
-              >
-                {information.title}
-              </p>
-            </div>
+          <Dropdown>
+            <Dropdown.Toggle
+              variant="success"
+              id="dropdown-basic"
+              className="rounded-pill"
+            >
+              Lavoro
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="#/action-1">
+                Tutto
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-2">
+                Persone
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-3">
+                Aziende
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-4">
+                Corsi
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-5">
+                Scuole e Università
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-6">
+                Post
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <div className="border-end border-start">
+            <Button
+              variant="outline-dark"
+              className="rounded-pill"
+            >
+              Data di pubblicazione
+            </Button>
+            <Button
+              variant="outline-dark"
+              className="rounded-pill"
+            >
+              Livello di esperienza
+            </Button>
+            <Button
+              variant="outline-dark"
+              className="rounded-pill"
+            >
+              Azienda
+            </Button>
+            <Button
+              variant="outline-dark"
+              className="rounded-pill"
+            >
+              Remote
+            </Button>
+            <Button
+              variant="outline-dark"
+              className="rounded-pill"
+            >
+              Candidatura semplice
+            </Button>
           </div>
+
           <div className="d-flex align-items-center">
             <Button
               variant="outline-dark"
@@ -1024,26 +1014,9 @@ const NavbarJob = () => {
             >
               Altro
             </Button>
-            <Button
-              variant="outline-primary"
-              className="fw-semibold  rounded-pill btn-aggiungi-sezione"
-              onClick={handleShow}
-            >
-              Aggiungi sezione del profilo
-            </Button>
-            <Button
-              variant="primary"
-              className="fw-bold rounded-pill btn-disponibile-per "
-            >
-              Disponibile per
-            </Button>
           </div>
         </Col>
       </div>
-      <ModalInformation
-        show={show}
-        handleClose={handleClose}
-      />
     </>
   );
 };
