@@ -1,30 +1,23 @@
 import { useState } from "react";
-import {
-  Button,
-  Collapse,
-  ListGroup,
-  Modal,
-} from "react-bootstrap";
+import { Button, Collapse, ListGroup, Modal } from "react-bootstrap";
 import ModalForm from "./ModalForm";
+import { setShow } from "../redux/actions/ProfileInformationActions";
+import { useDispatch, useSelector } from "react-redux";
 
 const ModalInformation = (props) => {
-  const [show1, setShow1] = useState(false);
-  const handleClose1 = () => setShow1(false);
+  const dispatch = useDispatch();
+  const handleClose1 = () => dispatch(setShow(false));
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
+  const show = useSelector((state) => state.ProfileInformation.show);
+  console.log(show);
+
   return (
     <>
-      <Modal
-        show={props.show}
-        onHide={props.handleClose}
-        animation={false}
-        size="lg"
-      >
+      <Modal show={props.show} onHide={props.handleClose} animation={false} size="lg">
         <Modal.Header closeButton>
-          <Modal.Title className="fs-5">
-            Aggiungi al profilo
-          </Modal.Title>
+          <Modal.Title className="fs-5">Aggiungi al profilo</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="d-grid gap-2">
@@ -36,15 +29,9 @@ const ModalInformation = (props) => {
               variant="light"
               className="bg-white border-0 d-flex align-items-center justify-content-between"
             >
+              <p className="mb-0 fw-bold">Sezioni principali</p>
               <p className="mb-0 fw-bold">
-                Sezioni principali
-              </p>
-              <p className="mb-0 fw-bold">
-                {open ? (
-                  <i className="bi bi-caret-up"></i>
-                ) : (
-                  <i className="bi bi-caret-down"></i>
-                )}{" "}
+                {open ? <i className="bi bi-caret-up"></i> : <i className="bi bi-caret-down"></i>}{" "}
               </p>
             </Button>
           </div>
@@ -54,24 +41,20 @@ const ModalInformation = (props) => {
               <ListGroup>
                 <ListGroup.Item>
                   <p className="fs-8 text-secondary mb-0 ">
-                    Iniziamo dalle basi. Se compili queste
-                    sezioni, sarà più facile trovarti per i
-                    recluter e per le persone che potresti
-                    conoscere
+                    Iniziamo dalle basi. Se compili queste sezioni, sarà più facile trovarti per i recluter e per le
+                    persone che potresti conoscere
                   </p>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi grado di formazione
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi grado di formazione</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
                   <p
                     className="fs-8 text-secondary mb-0 fw-bold"
                     onClick={() => {
                       props.setShow(false);
-                      setShow1(true);
+                      dispatch(setShow(true));
                     }}
                   >
                     {" "}
@@ -79,14 +62,10 @@ const ModalInformation = (props) => {
                   </p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi pausa lavorativa
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi pausa lavorativa</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi competenze
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi competenze</p>
                 </ListGroup.Item>
               </ListGroup>
             </div>
@@ -100,15 +79,9 @@ const ModalInformation = (props) => {
               variant="light"
               className="bg-white border-0 d-flex align-items-center justify-content-between"
             >
+              <p className="mb-0 fw-bold">Sezioni consigliate</p>
               <p className="mb-0 fw-bold">
-                Sezioni consigliate
-              </p>
-              <p className="mb-0 fw-bold">
-                {open2 ? (
-                  <i className="bi bi-caret-up"></i>
-                ) : (
-                  <i className="bi bi-caret-down"></i>
-                )}{" "}
+                {open2 ? <i className="bi bi-caret-up"></i> : <i className="bi bi-caret-down"></i>}{" "}
               </p>
             </Button>
           </div>
@@ -118,36 +91,24 @@ const ModalInformation = (props) => {
               <ListGroup>
                 <ListGroup.Item>
                   <p className="fs-8 text-secondary mb-0 ">
-                    Completando queste sezioni aumenterai la
-                    tua credibilità e potrei accedere a più
-                    opportunità
+                    Completando queste sezioni aumenterai la tua credibilità e potrei accedere a più opportunità
                   </p>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi elementi in primo piano
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi elementi in primo piano</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi licenze e certificazioni
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi licenze e certificazioni</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi progetti
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi progetti</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi corsi
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi corsi</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi referenze
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi referenze</p>
                 </ListGroup.Item>
               </ListGroup>
             </div>
@@ -163,11 +124,7 @@ const ModalInformation = (props) => {
             >
               <p className="mb-0 fw-bold">Altro</p>
               <p className="mb-0 fw-bold">
-                {open3 ? (
-                  <i className="bi bi-caret-up"></i>
-                ) : (
-                  <i className="bi bi-caret-down"></i>
-                )}{" "}
+                {open3 ? <i className="bi bi-caret-up"></i> : <i className="bi bi-caret-down"></i>}{" "}
               </p>
             </Button>
           </div>
@@ -177,63 +134,41 @@ const ModalInformation = (props) => {
               <ListGroup>
                 <ListGroup.Item>
                   <p className="fs-8 text-secondary mb-0 ">
-                    Conferisci ancora più personalità al tuo
-                    profilo. Queste sezioni ti aiuteranno a
-                    espandere la tua rete e istaurare più
-                    relazioni lavorative.
+                    Conferisci ancora più personalità al tuo profilo. Queste sezioni ti aiuteranno a espandere la tua
+                    rete e istaurare più relazioni lavorative.
                   </p>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi esperienza di volontariato
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi esperienza di volontariato</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi pubblicazioni
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi pubblicazioni</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi brevetti
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi brevetti</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi riconoscimenti e premi
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi riconoscimenti e premi</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi votazioni esame
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi votazioni esame</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi lingue
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi lingue</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi organizzazioni
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi organizzazioni</p>
                 </ListGroup.Item>
                 <ListGroup.Item className="border-bottom">
-                  <p className="fs-8 text-secondary mb-0 fw-bold">
-                    Aggiungi cause
-                  </p>
+                  <p className="fs-8 text-secondary mb-0 fw-bold">Aggiungi cause</p>
                 </ListGroup.Item>
               </ListGroup>
             </div>
           </Collapse>
         </Modal.Body>
       </Modal>
-      <ModalForm
-        show1={show1}
-        handleClose1={handleClose1}
-        putOrDeleteExperienc={false}
-      />
+      <ModalForm show1={show} handleClose1={handleClose1} putOrDeleteExperienc={false} />
     </>
   );
 };

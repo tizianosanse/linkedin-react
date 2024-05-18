@@ -2,12 +2,16 @@ import {
   GET_INFORMATION,
   GET_INFORMATION_JOBS_PREMIUM,
   GET_INFORMATION_NAV,
+  SET_SHOW,
+  SET_SHOW_CONFIRM,
 } from "../actions/ProfileInformationActions";
 
 const initialState = {
   content: [],
   informationNav: [],
   informationJobPrem: [],
+  show: false,
+  showConfirm: false,
 };
 
 const ProfileInformationReducer = (state = initialState, action) => {
@@ -26,6 +30,16 @@ const ProfileInformationReducer = (state = initialState, action) => {
       return {
         ...state,
         informationJobPrem: action.payload,
+      };
+    case SET_SHOW:
+      return {
+        ...state,
+        show: action.payload,
+      };
+    case SET_SHOW_CONFIRM:
+      return {
+        ...state,
+        showConfirm: action.payload,
       };
     default:
       return {

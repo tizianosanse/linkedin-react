@@ -773,7 +773,8 @@ div .AlertConsigliati {
 .search-page,
 .jobDetail-page {
   overflow-y: scroll;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 108px);
+  margin-top: 51px;
 }
 
 .jobDetail-page h1 {
@@ -810,7 +811,7 @@ div .AlertConsigliati {
 
 .selected {
   background-color: #edf3f8;
-  border-left: 1px solid #01754f;
+  border-left: 2px solid #01754f;
 }
 
 /*SEARCH PAGE END*/

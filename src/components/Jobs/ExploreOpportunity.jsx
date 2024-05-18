@@ -7,24 +7,27 @@ import { useEffect } from "react";
 const ExploreOpportunity = () => {
   const dispatch = useDispatch();
   const jobs = useSelector((state) => state.Jobs.exploreJobs);
-  console.log(jobs);
+  const stateID = useSelector((state) => state.Search.id);
+  console.log("ciao", stateID);
+
   useEffect(() => {
     dispatch(getJobsAction());
-  }, []);
+  }, [dispatch]);
+
   return (
     <>
       <div className=" bg-white p-3 rounded-top-3 border border-1 exploreOpportunity">
         <h2 className="mb-0 ">Esplora le opportunità</h2>
         <p className="mb-0">Sulla base del tuo profilo e della tua cronologia delle ricerche</p>
         {jobs.map((job) => {
-          console.log(job);
           return (
             <ExploreOpportunityCard
+              key={job._id}
+              id={job._id}
               role={job.title}
               company={job.company_name}
               location={job.candidate_required_location}
               url={job.url}
-              key={job._id}
             />
           );
         })}
